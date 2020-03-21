@@ -1,0 +1,110 @@
+.break {
+	flex-basis: 100%;
+	height: 0;
+}
+
+.breadcrumb {
+	margin: 70px 15% 0 15%;
+}
+
+.artworks-detail {
+	margin: 10px 15% 100px 15%;
+	display: flex;
+
+	.art {
+		margin: 0 3% 0 0;
+		width: 40%;
+
+		img {
+			width: 100%;
+		}
+		.art-img {
+			text-align: center;
+		}
+
+		.art-nav {
+			img {
+				width: 90%;
+				margin-top: 10px;
+			}
+		}
+	}
+
+	%text {
+		letter-spacing: 0.5rem;
+		margin: 0 0 10px 0;
+	}
+
+	h1 {
+		font-size: 4em;
+		@extend %text;
+	}
+
+	h2 {
+		font-size: 2em;
+		@extend %text;
+	}
+
+	h3 {
+		font-size: 1.5em;
+		margin: 0 0 10px 0;
+		letter-spacing: 0.2em;
+	}
+
+	p {
+		font-size: 1.1em;
+		margin: 0 0 10px 0;
+	}
+
+	.artwork-button {
+		display: inline-block;
+	}
+}
+
+.title {
+	margin: 100px 17% 10px 17%;
+	h1 {
+		font-size: 3.1em;
+		letter-spacing: 0.1em;
+		text-align: left;
+	}
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: 1px solid black;
+		padding: 0;
+		width: 15%;
+		margin: auto;
+	}
+}
+
+.similiar {
+	margin: 10px 12% 100px 12%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	text-align: center;
+
+	.art-image {
+		margin: 0px 10px;
+		width: 20%;
+		margin-bottom: 50px;
+
+		img {
+			width: 100%;
+		}
+
+		h2 {
+			margin: 20px 0 0 0;
+		}
+
+		h3 {
+			margin: 10px 0 0 0;
+		}
+
+		p {
+			margin: 10px 0 0 0;
+		}
+	}
+}

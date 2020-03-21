@@ -1,0 +1,23 @@
+.about {
+	margin: 50px 10%;
+}
+
+.about-contact {
+	padding: 40px 10%;
+	margin: 100px 0;
+	background: black;
+	display: flex;
+	justify-content: center;
+	color: white;
+
+	.address {
+		border-right: 1px solid white;
+		padding: 10px 40px;
+		width: 45%;
+	}
+
+	.contact {
+		padding: 10px 40px;
+		width: 45%;
+	}
+}

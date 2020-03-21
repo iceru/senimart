@@ -1,0 +1,53 @@
+// Fonts
+@font-face {
+	font-family: 'apercubold';
+	src: url('fonts/apercu_bold-webfont.woff2') format('woff2'), url('fonts/apercu_bold-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'aperculight';
+	src: url('fonts/apercu_light-webfont.woff2') format('woff2'), url('fonts/apercu_light-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'apercumedium';
+	src: url('fonts/apercu_medium-webfont.woff2') format('woff2'),
+		url('fonts/apercu_medium-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'apercu_monoregular';
+	src: url('fonts/apercu_mono-webfont.woff2') format('woff2'), url('fonts/apercu_mono-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "aperculight";
+	height: 100%;
+}
+
+// Variables
+@import 'base/variables';
+@import 'pages/index';
+@import 'pages/artworks';
+@import 'pages/artists';
+@import 'pages/artists';
+@import 'pages/artistdetail';
+@import 'pages/artworks-detail';
+@import 'pages/cart';
+@import 'pages/about';
+@import 'pages/projects';
+@import 'layout/footer';
+@import 'layout/navbar';
+@import 'layout/admin.scss';
+@import 'pages/loginregister';

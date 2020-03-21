@@ -1,0 +1,27 @@
+.project-page {
+	margin: 40px 10%;
+
+	.services {
+		.service-item {
+			display: grid;
+			grid-template-columns: auto auto auto;
+			grid-auto-columns: min-content;
+			text-align: center;
+			margin: 30px 5%;
+			img {
+				width: 300px;
+				height: 300px;
+				object-fit: cover;
+				border-radius: 50%;
+			}
+
+			p {
+				font-size: 1.4em;
+				font-family: "Apercumedium";
+			}
+		}
+	}
+
+	.projects {
+	}
+}
