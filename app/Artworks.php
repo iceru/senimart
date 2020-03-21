@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Artists;
 use App\Category;
+use App\Colors;
 
 class Artworks extends Model
 {
@@ -19,6 +20,11 @@ class Artworks extends Model
     public function category() 
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function color() 
+    {
+        return $this->belongsTo(Colors::class);
     }
 
     public function scopeFilter($a)
