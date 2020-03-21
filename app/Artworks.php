@@ -41,11 +41,11 @@ class Artworks extends Model
             });
         }
               
-        if (request('price') == 'above50000') {
+        if (request('price') == 'above500') {
             $a->where('price', '>=', 500000);
         }
 
-        if (request('price') == 'under50000') {
+        if (request('price') == 'under500') {
             $a->where('price', '<=', 500000);
         }
 
