@@ -26,7 +26,9 @@ Route::get('/artist/{artist}', 'ArtistsController@show');
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{artwork}', 'CartController@destroy')->name('cart.destroy');
-Route::post('/cart/wishlist/{artwork}', 'CartController@wishlist')->name('cart.wishlist');
+Route::get('/cart/wishlist', 'CartController@wishindex')->name('cart.wishindex');
+Route::get('/cart/wishlist/{artwork}', 'CartController@wishlist')->name('cart.wishlist');
+Route::delete('/cart/wishlist/{artwork}', 'CartController@rmwish')->name('cart.rmwish');
 
 // Route::get('admin/artists', 'AdminArtistsController@index')->name('adminartists.index');
 // Route::get('admin/artists/create', 'AdminArtistsController@create')->name('artists.create');

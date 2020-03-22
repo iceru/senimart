@@ -31,6 +31,17 @@ class CartController extends Controller
         Cart::add($request->id, $request->title, 1, $request->price)
         ->associate('App\Artworks');
 
+        $itemwish = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($request) {
+            return $cartItem->id === $request->id;
+        });
+
+        $rows  = Cart::instance('wishlist')->content();
+        $rowId = $rows->where('id', $request->id)->first()->rowId;
+
+        if ($itemwish->isNotEmpty()) {
+            Cart::instance('wishlist')->remove($rowId);
+        }
+
         return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart');
     }
 
@@ -41,16 +52,37 @@ class CartController extends Controller
         return back()->with('success_message', 'Item has been removed');
     }
 
-    // public function wishlist($id)
-    // {
-    //     $item = Cart::get($id);
+    public function wishindex()
+    {
+        return view('wishlist');
+    }
 
-    //     Cart::remove($id);
+    public function wishlist($id)
+    {
+        // $item = Cart::get($id);
 
-    //     Cart::instance('wishlist')->add($item->id, $item->title, 1, $item->price)
-    //     ->associate('App\Artworks');
+        // Cart::remove($id);
+        $duplicates = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($id) {
+            return $cartItem->id === $id;
+        });
 
-    //     return redirect()->route('cart.index')->with('success_message', 'Item has added to your Wishlist');
+        if ($duplicates->isNotEmpty()) {
+            return redirect()->route('cart.wishindex')->with('success_message', 'Item is already in your Wishlist!');
+        }
 
-    // }
+        $artwork = Artworks::where('id', $id)->firstOrFail();
+
+        Cart::instance('wishlist')->add($artwork->id, $artwork->title, 1, $artwork->price)
+        ->associate('App\Artworks');
+
+        return redirect()->route('cart.wishindex')->with('success_message', 'Item has added to your Wishlist');
+
+    }
+
+    public function rmwish($id)
+    {
+        Cart::instance('wishlist')->remove($id);
+
+        return back()->with('success_message', 'Item has been removed');
+    }
 }

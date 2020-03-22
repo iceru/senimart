@@ -29,6 +29,8 @@
         <div class="right">
           <a href="{{route('cart.index')}}">Cart &nbsp;<i class="fa fa-shopping-basket"></i></a>
           &nbsp;|&nbsp;
+          <a href="{{route('cart.wishindex')}}">Wishlist &nbsp;<i class="fa fa-heart"></i></a>
+          &nbsp;|&nbsp;
           @guest
           <div class="signin">
             <i class="fa fa-user"></i>&nbsp;<a href="{{ route('login') }}">{{ __('Login |') }}</a>

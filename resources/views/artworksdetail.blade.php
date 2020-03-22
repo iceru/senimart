@@ -31,7 +31,7 @@
                 <input type="hidden" name="title" value="{{$artwork->title}}">
                 <input type="hidden" name="price" value="{{$artwork->price}}">
                 <button type="submit" class="button-black">Add to Cart</button>
-                <a href="#" class="button-black">Wishlist &nbsp; <i class="fa fa-heart"></i></a>
+                <a href="/cart/wishlist/{{$artwork->id}}" class="button-black">Wishlist &nbsp; <i class="fa fa-heart"></i></a>
             </form>
 
         </div>
