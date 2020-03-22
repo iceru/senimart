@@ -30,14 +30,3 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
 	el: '#app'
 });
-
-const navSlide = () => {
-	const burder = document.querySelector('.burger');
-	const nav = document.querySelector('.navigation');
-
-	burger.addEventListener('click', () => {
-		nav.classList.toggle('nav-active');
-	});
-};
-
-navSlide();

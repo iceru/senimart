@@ -13,6 +13,7 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
 
+
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
@@ -123,8 +124,18 @@
   </footer>
 
   <script>
+    const navSlide = () => {
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav-links');
+
+      burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+      });
+    }
+  navSlide();
 
   </script>
+
 </body>
 
 </html>

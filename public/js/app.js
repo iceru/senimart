@@ -49527,16 +49527,6 @@ var app = new Vue({
   el: '#app'
 });
 
-var navSlide = function navSlide() {
-  var burder = document.querySelector('.burger');
-  var nav = document.querySelector('.navigation');
-  burger.addEventListener('click', function () {
-    nav.classList.toggle('nav-active');
-  });
-};
-
-navSlide();
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
