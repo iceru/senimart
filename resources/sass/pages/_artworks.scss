@@ -1,12 +1,15 @@
 .artworks {
 	margin: 20px 10%;
-	@media only screen and (max-width: 1024px) {
+	@media only screen and (max-width: $break-med) {
 		margin: 20px 5%;
 	}
-	@media only screen and (max-width: 450px) {
+	@media only screen and (max-width: $break-small) {
 		margin: 20px 2%;
 	}
-	padding: 20px 0;
+
+	h1 {
+		margin: 10px 0;
+	}
 
 	%circle {
 		height: 30px;
@@ -29,17 +32,43 @@
 	.flex-artworks {
 		display: flex;
 
+		@media only screen and (max-width: $break-small) {
+			flex-direction: column;
+		}
+
 		.sidebar {
 			padding: 0px 10px;
 			width: 15%;
-			@media only screen and (max-width: 1024px) {
-				width: 35%;
+			border-right: 1px solid black;
+
+			@media only screen and (min-width: $break-small) {
+				width: 25%;
 			}
 
-			@media only screen and (max-width: 450px) {
-				width: 45%;
+			@media only screen and (max-width: $break-small) {
+				display: flex;
+				justify-content: space-around;
+				width: 100%;
+				border-right: 0px;
+				margin: 0 0 30px 0;
+
+				div {
+					width: 30%;
+
+					h1 {
+						margin: 10px 0;
+					}
+				}
+
+				.color {
+					display: block;
+
+					.item {
+						display: grid;
+						grid-template-columns: repeat(2, 1fr);
+					}
+				}
 			}
-			border-right: 1px solid black;
 
 			ul {
 				list-style-type: none;
@@ -55,7 +84,7 @@
 				margin: 40px 0 10px 0;
 			}
 
-			.color {
+			.item {
 				display: flex;
 				flex-wrap: wrap;
 			}

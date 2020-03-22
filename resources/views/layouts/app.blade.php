@@ -81,6 +81,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
       integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
 
+    <script>
+      const navSlide = () => {
+          const burger = document.querySelector('.burger');
+          const nav = document.querySelector('.nav-links');
+          const navLinks = document.querySelectorAll('.nav-links li');
+    
+          burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+          });
+    
+          nav.Links.forEach((link, index)=> {
+            console.log(index);
+          });
+        }
+      navSlide();
+    
+    </script>
   </div>
   <footer>
     <img src="/image/logo.png" alt="senimart" />
@@ -123,18 +140,6 @@
     </div>
   </footer>
 
-  <script>
-    const navSlide = () => {
-      const burger = document.querySelector('.burger');
-      const nav = document.querySelector('.nav-links');
-
-      burger.addEventListener('click', () => {
-        nav.classList.toggle('nav-active');
-      });
-    }
-  navSlide();
-
-  </script>
 
 </body>
 

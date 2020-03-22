@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="artworks">
-  <div class="title">
+  <div class="title-artist">
     <h1>Artworks</h1>
     <hr />
   </div>
@@ -13,25 +13,32 @@
       <h1><a href="{{request()->url()}}">Clear Filter</a></h1>
       @endif
 
-      <h1>Category</h1>
-      <ul>
-        @foreach ($categories as $category)
-        <li><a href="{{ request()->fullUrlWithQuery(['category' => $category->slug])}}">{{$category->name}}</a></li>
-        @endforeach
-        <li><a href="{{route('artworks.index')}}">All Category</a></li>
-      </ul>
+      <div class="category">
+        <h1>Category</h1>
+        <ul>
+          @foreach ($categories as $category)
+          <li><a href="{{ request()->fullUrlWithQuery(['category' => $category->slug])}}">{{$category->name}}</a></li>
+          @endforeach
+          <li><a href="{{route('artworks.index')}}">All Category</a></li>
+        </ul>
+      </div>
 
-      <h1>Price</h1>
-      <ul>
-        <li><a href="{{request()->fullUrlWithQuery(['price' => 'under500'])}}">Under 500$</a></li>
-        <li><a href="{{request()->fullUrlWithQuery(['price' => 'above500'])}}">Above 500$</a></li>
-      </ul>
+      <div class="price">
+        <h1>Price</h1>
+        <ul>
+          <li><a href="{{request()->fullUrlWithQuery(['price' => 'under500'])}}">Under 500$</a></li>
+          <li><a href="{{request()->fullUrlWithQuery(['price' => 'above500'])}}">Above 500$</a></li>
+        </ul>
+      </div>
 
-      <h1>Color</h1>
       <div class="color">
-        @foreach ($colors as $color)
-        <a class="{{$color->name}}" href="{{request()->fullUrlWithQuery(['color'=> $color->name])}}"></a>
-        @endforeach
+        <h1>Color</h1>
+        <div class="item">
+          @foreach ($colors as $color)
+          <a class="{{$color->name}}" href="{{request()->fullUrlWithQuery(['color'=> $color->name])}}"></a>
+          @endforeach
+        </div>
+
       </div>
 
     </div>
