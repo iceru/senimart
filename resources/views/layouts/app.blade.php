@@ -54,18 +54,21 @@
       </nav>
       <nav class="navbar2">
         <img src="/image/logo.png" alt="senimart" />
-        <ul>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+      </nav>
+
+      <nav class="navigation">
+        <ul class="nav-links">
           <li><a href="/">Home</a></li>
           <li><a href="{{route('artworks.index')}}">Artworks</a></li>
           <li><a href="{{route('artists.index')}}">Artists</a></li>
           <li><a href="projects">Projects</a></li>
           <li><a href="about">About</a></li>
         </ul>
-        <div class="burger">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
       </nav>
     </header>
 
@@ -118,6 +121,10 @@
       </div>
     </div>
   </footer>
+
+  <script>
+
+  </script>
 </body>
 
 </html>

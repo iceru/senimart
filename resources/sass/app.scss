@@ -36,6 +36,13 @@ body {
 	height: 100%;
 }
 
+$fontbold: "apercubold";
+$fontmed: "apercumedium";
+$fontmono: "apercu_monoregular";
+
+$break-small: 600px;
+$break-med: 768px;
+$break-large: 992px;
 // Variables
 @import 'base/variables';
 @import 'pages/index';
