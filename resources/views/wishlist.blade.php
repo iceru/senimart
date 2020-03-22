@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section ('title')
-Senimart - Cart
+Senimart - Wishlist
 @endsection
 
 @section('content')
@@ -25,12 +25,12 @@ Senimart - Cart
         @endif
     </div>
 
-    @if (Cart::count() > 0)
+    @if (Cart::instance('wishlist')->count() > 0)
 
-    <h1>Cart</h1>
-    <p id="text-line">{{ Cart::count() }} Item(s) in Cart</p>
+    <h1>Wishlist</h1>
+    <p id="text-line">{{ Cart::instance('wishlist')->count() }} Item(s) in Wishlist</p>
     <hr>
-    @foreach (Cart::content() as $item)
+    @foreach (Cart::instance('wishlist')->content() as $item)
     <div class="cart-product">
         <div class="cart-img">
             <a href="{{route('artworks.show', $item->model->slug)}}"><img
@@ -46,8 +46,14 @@ Senimart - Cart
         </div>
         <div class="cart-price">
             <h1>Rp.{{$item->model->price}}</h1>
-            <h3>Quantity : {{$item->qty}}</h3>
-            <form action="{{route('cart.destroy', $item->rowId)}}" method="post">
+            <form action="{{route('cart.store')}}" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{$item->model->id}}">
+                <input type="hidden" name="title" value="{{$item->model->title}}">
+                <input type="hidden" name="price" value="{{$item->model->price}}">
+                <button type="submit" class="button-black">Add to Cart</button>
+            </form>
+            <form action="{{route('cart.rmwish', $item->rowId)}}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="button">Remove</button>
@@ -65,16 +71,15 @@ Senimart - Cart
 
     @else
 
-    <h3>No items in Cart</h3>
+    <h3>No items in Wishlist</h3>
     <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
 
     @endif
     <hr>
     <div class="total">
-        <h1>Total Price : Rp.{{Cart::subtotal()}}</h1>
         <div class="cart-button">
             <a href="{{route('artworks.index')}}" class="button">Continue Shopping</a>
-            <a href="" class="button">Checkout</a>
+            <a href="" class="button">Add to Cart</a>
         </div>
     </div>
 </div>
