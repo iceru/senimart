@@ -1,27 +1,27 @@
 @font-face {
   font-family: "apercubold";
-  src: url(/fonts/apercu_bold-webfont.woff2?881bee4d1b9325a0355a934252225b8e) format("woff2"), url(/fonts/apercu_bold-webfont.woff?e574d5986ba34417150f6fd617699fab) format("woff");
+  src: url("/fonts/apercu_bold-webfont.woff2") format("woff2"), url("/fonts/apercu_bold-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "aperculight";
-  src: url(/fonts/apercu_light-webfont.woff2?e3669bd36e00fbd6437546bda33f958f) format("woff2"), url(/fonts/apercu_light-webfont.woff?ba9ac572959bb6c75b89bde7a3cc4fc4) format("woff");
+  src: url("/fonts/apercu_light-webfont.woff2") format("woff2"), url("/fonts/apercu_light-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "apercumedium";
-  src: url(/fonts/apercu_medium-webfont.woff2?5a0bc2ce0d072997ec43b3e64677c4d3) format("woff2"), url(/fonts/apercu_medium-webfont.woff?03c86a997885e8c88ab2a209bc2061ef) format("woff");
+  src: url("/fonts/apercu_medium-webfont.woff2") format("woff2"), url("/fonts/apercu_medium-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "apercu_monoregular";
-  src: url(/fonts/apercu_mono-webfont.woff2?eeca81a23c5f3f0c09ab2d3c645434e5) format("woff2"), url(/fonts/apercu_mono-webfont.woff?092bba3e6148ad8851ab3e60f3103762) format("woff");
+  src: url("/fonts/apercu_mono-webfont.woff2") format("woff2"), url("/fonts/apercu_mono-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -1224,6 +1224,12 @@ footer .contactus .break {
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .navbar2 {
+    justify-content: center;
+  }
+}
+
 .navbar2 .burger {
   display: flex;
   flex-direction: column;
@@ -1232,7 +1238,7 @@ footer .contactus .break {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .navbar2 .burger {
     display: none;
   }
@@ -1247,6 +1253,17 @@ footer .contactus .break {
 
 .navbar2 img {
   width: 20%;
+}
+
+@media only screen and (min-width: 768px) {
+  .navbar2 img {
+    width: 15%;
+  }
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
 }
 
 .navigation ul {
@@ -1268,18 +1285,12 @@ footer .contactus .break {
   margin: 0 10px;
 }
 
-@media only screen and (max-width: 1366px) {
-  .navigation ul li a {
-    font-size: 1.1em;
-  }
-}
-
 @media only screen and (max-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
-  .navigation ul {
+  .navigation .nav-links {
     position: absolute;
     height: 92vh;
     top: 8vh;
@@ -1296,6 +1307,14 @@ footer .contactus .break {
   .navigation li {
     opacity: 0;
   }
+
+  .burger {
+    display: block;
+  }
+}
+
+.nav-active {
+  transform: translateX(0%);
 }
 
 .wrapper {

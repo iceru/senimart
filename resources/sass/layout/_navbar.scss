@@ -26,13 +26,17 @@
 		margin: 20px 5%;
 	}
 
+	@media only screen and (min-width: $break-med) {
+		justify-content: center;
+	}
+
 	.burger {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		vertical-align: middle;
 		cursor: pointer;
-		@media only screen and (max-width: $break-med) {
+		@media only screen and (min-width: $break-med) {
 			display: none;
 		}
 	}
@@ -46,10 +50,15 @@
 
 	img {
 		width: 20%;
+		@media only screen and (min-width: $break-med) {
+			width: 15%;
+		}
 	}
 }
 
 .navigation {
+	display: flex;
+	justify-content: center;
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -66,9 +75,6 @@
 			font-size: 1.2em;
 			letter-spacing: 0.25em;
 			margin: 0 10px;
-			@media only screen and (max-width: 1366px) {
-				font-size: 1.1em;
-			}
 		}
 	}
 }
@@ -78,7 +84,7 @@
 		overflow-x: hidden;
 	}
 	.navigation {
-		ul {
+		.nav-links {
 			position: absolute;
 			height: 92vh;
 			top: 8vh;
@@ -96,4 +102,12 @@
 			opacity: 0;
 		}
 	}
+
+	.burger {
+		display: block;
+	}
+}
+
+.nav-active {
+	transform: translateX(0%);
 }
