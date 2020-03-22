@@ -34,15 +34,20 @@ class Artworks extends Model
                 $q->where('slug', '=', request('category'));
             });
         }
-              
-        if (request('above_500')) {
-            $a->where('price', '>=', request('above_500'));
+
+        if(request('color')) {
+            $a->whereHas('color', function($q) {
+                $q->where('name', '=', request('color'));
+            });
         }
-        
-        if (request('under_500')) {
-            $a->where('price', '<=', request('under_500'));
+              
+        if (request('price') == 'above500') {
+            $a->where('price', '>=', 500000);
         }
 
+        if (request('price') == 'under500') {
+            $a->where('price', '<=', 500000);
+        }
 
         return $a;
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Artworks;
 use App\Category;
+use App\Colors;
 
 class ArtworksController extends Controller
 {
@@ -12,8 +13,9 @@ class ArtworksController extends Controller
 
         $artworks = Artworks::filter()->paginate(10);
         $categories = Category::all();
+        $colors = Colors::all();
 
-        return view('artworks', compact('artworks', 'categories'));
+        return view('artworks', compact('artworks', 'categories', 'colors'));
     }
 
     public function show($artwork) {

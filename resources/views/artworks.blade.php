@@ -8,30 +8,31 @@
   </div>
   <div class="flex-artworks">
     <div class="sidebar">
+
+      @if(request()->fullurl() != request()->url())
+      <h1><a href="{{request()->url()}}">Clear Filter</a></h1>
+      @endif
+
       <h1>Category</h1>
       <ul>
         @foreach ($categories as $category)
-        <li><a href="{{ route('artworks.index', ['category' => $category->slug])}}">{{$category->name}}</a></li>
+        <li><a href="{{ request()->fullUrlWithQuery(['category' => $category->slug])}}">{{$category->name}}</a></li>
         @endforeach
         <li><a href="{{route('artworks.index')}}">All Category</a></li>
       </ul>
 
       <h1>Price</h1>
       <ul>
-        <li><a href="{{route('artworks.index', ['under_500' => 500000])}}">Under 500$</a></li>
-        <li><a href="{{route('artworks.index', ['above_500' => 500000])}}">Above 500$</a></li>
+        <li><a href="{{request()->fullUrlWithQuery(['price' => 'under500'])}}">Under 500$</a></li>
+        <li><a href="{{request()->fullUrlWithQuery(['price' => 'above500'])}}">Above 500$</a></li>
       </ul>
 
       <h1>Color</h1>
       <div class="color">
-        <div class="black"></div>
-        <div class="white"></div>
-        <div class="blue"></div>
-        <div class="red"></div>
-        <div class="green"></div>
-        <div class="multicolor"></div>
+        @foreach ($colors as $color)
+        <a class="{{$color->name}}" href="{{request()->fullUrlWithQuery(['color'=> $color->name])}}"></a>
+        @endforeach
       </div>
-
 
     </div>
     <div class="products">
