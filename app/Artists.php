@@ -19,7 +19,12 @@ class Artists extends Model
 
     public function scopeFilter($a) {
         if(request('sortname')) {
-            $a->where(\DB::raw('substr(lower(name), 1, 1)'), '=', request('sortname'));
+            if(request('sortname') == 'noalpha') {
+                $a->where('name', 'regexp', '[^a-zA-Z\s:]+');
+            }
+            else {
+                $a->where(\DB::raw('substr(upper(name), 1, 1)'), '=', request('sortname'));
+            }
         }
 
         return $a;

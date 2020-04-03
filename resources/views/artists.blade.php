@@ -11,13 +11,15 @@ Senimart - Artists
 
 <section class="artists">
     <div class="sort-name">
-        <a href="">#</a>
-        @foreach(range('a','z') as $letter)
+        <a href="{{request()->url()}}">All</a>
+        &nbsp;|&nbsp;
+        <a href="{{ route('artists.index', ['sortname' => 'noalpha'])}}">#</a>
+        @foreach(range('A','Z') as $letter)
         <a href="{{ route('artists.index', ['sortname' => $letter])}}"> {{ $letter }}</a>
         @endforeach
     </div>
     <div class="break"></div>
-    @foreach ($artists as $artist)
+    @forelse ($artists as $artist)
     <div class="artist-profile">
         <div class="artist-image">
             <a href="artist/{{ $artist->slug}}">
@@ -32,7 +34,9 @@ Senimart - Artists
             <p>{{ $artist->yearbirth }}</p>
         </div>
     </div>
-    @endforeach
+    @empty
+    <p>Artists Not Found</p>
+    @endforelse
 </section>
 
 @endsection
