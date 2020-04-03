@@ -55,7 +55,7 @@ Senimart - Artworks
         <h3>{{ $artwork->artists->name }} </h3>
         <p>{{$artwork->category->name}}</p>
         <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p>
-        <p>Rp{{ $artwork->price}}</p>
+        <p id="price">Rp{{ $artwork->price}}</p>
       </div>
       @empty
       <p>No Items Found</p>

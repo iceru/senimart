@@ -6,13 +6,23 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+$fontbold: "apercubold";
+$fontmed: "apercumedium";
+$fontmono: "apercu_monoregular";
+
+$break-small: 600px;
+$break-med: 900px;
+$break-large: 1400px;
+
+$orange: #de641b;
+$grey: #dedcd5;
+
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;
 $purple: #9561e2;
 $pink: #f66d9b;
 $red: #e3342f;
-$orange: #de641b;
 $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;

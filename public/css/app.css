@@ -479,6 +479,9 @@ body {
   border: 1px solid #ededed;
   margin: 5px 10px 5px 0;
 }
+.artworks #price {
+  font-family: "apercu_monoregular";
+}
 .artworks a {
   text-decoration: none;
   color: black;
@@ -1002,99 +1005,181 @@ a {
   margin-left: 20px;
 }
 
-.about {
-  margin: 100px 15%;
-  display: flex;
-}
-.about p {
-  padding: 0 50px;
-  font-size: 1.2em;
-}
-
-.contact {
-  display: flex;
-  margin: 150px 15%;
-}
-.contact img {
-  width: 70%;
-  margin-right: 100px;
-}
-.contact .contact-detail h1 {
+.about-main h1 {
   font-family: "apercubold";
   margin: 5px 0;
   font-size: 2.5em;
 }
-.contact .contact-detail hr {
+.about-main hr {
   content: "";
   background-color: #de641b;
   height: 4px;
   width: 40%;
   margin-left: 0;
+  border: 0px;
 }
-.contact .contact-detail h4 {
+.about-main h4 {
   font-size: 1.6em;
-  margin: 20px 0 5px 0;
+  margin: 10px 0 5px 0;
 }
-.contact .contact-detail p {
+.about-main p {
   font-size: 1.4em;
   margin-bottom: 5px;
 }
-
-.location {
+.about-main .about {
+  margin: 100px 15%;
+  display: flex;
+}
+.about-main .about p {
+  padding: 0 50px;
+  font-size: 1.2em;
+}
+.about-main .contact {
   display: flex;
   margin: 150px 15%;
 }
-.location .location-detail {
+.about-main .contact img {
+  width: 70%;
   margin-right: 100px;
 }
-.location .map {
+.about-main .location {
+  display: flex;
+  padding: 100px 15%;
+  background-color: #dedcd5;
+}
+.about-main .location .location-detail {
+  margin-right: 100px;
+}
+.about-main .location .map {
   width: 70%;
 }
-.location h1 {
+.about-main .location p {
+  margin-top: 5px;
+}
+.about-main .team {
+  padding: 50px 15%;
+}
+.about-main .team img {
+  width: 250px;
+  height: 250px;
+  border-radius: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.about-main .team hr {
+  width: 80%;
+  height: 2px;
+}
+.about-main .team p {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+.about-main .team .team-name {
+  margin: 0 50px;
+}
+.about-main .team .diagonal {
+  margin-right: 150px;
+  margin-top: -30px;
+  width: 400px;
+  height: 300px;
+  border-right: 3px solid #de641b;
+  transform: rotate(22deg);
+}
+.about-main .team .vertical {
+  width: 45%;
+  margin-right: 5%;
+  padding-right: 150px;
+  border-right: 3px solid #de641b;
+}
+.about-main .team .team-under {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+}
+.about-main .team .team1,
+.about-main .team .team2,
+.about-main .team .team3,
+.about-main .team .team4,
+.about-main .team .team5 {
+  display: flex;
+  margin-top: 100px;
+}
+
+.services {
+  padding: 100px 15%;
+}
+.services h1 {
   font-family: "apercubold";
   margin: 5px 0;
-  font-size: 2.5em;
+  font-size: 3.5em;
 }
-.location hr {
+.services hr {
   content: "";
   background-color: #de641b;
   height: 4px;
-  width: 40%;
+  width: 10%;
   margin-left: 0;
+  border: 0px;
 }
-.location h4 {
-  font-size: 1.6em;
-  margin: 20px 0 5px 0;
+.services .service-item {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  margin-top: 40px;
+  grid-column-gap: 40px;
 }
-.location p {
-  font-size: 1.4em;
-  margin: 5px 0;
+.services .service-item .p-1 {
+  margin: 25px 0;
+}
+.services .service-item .number {
+  width: 100px;
+}
+.services .service-item p {
+  font-size: 2em;
+  margin: 10px 0;
 }
 
-.project-page {
-  margin: 40px 10%;
+.projects {
+  margin: 50px 15%;
 }
-.project-page .services .service-item {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-auto-columns: -webkit-min-content;
-  grid-auto-columns: min-content;
+.projects .title-projects {
+  display: block;
   text-align: center;
-  margin: 30px 5%;
 }
-.project-page .services .service-item img {
-  width: 300px;
-  height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-radius: 50%;
-}
-.project-page .services .service-item p {
+.projects .title-projects p {
   font-size: 1.4em;
-  font-family: "Apercumedium";
+  margin: 10px 0;
 }
+.projects .projects-item {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-column-gap: 60px;
+  grid-row-gap: 80px;
+  margin-top: 50px;
+}
+.projects .projects-item .project1 {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+.projects .projects-item .project1 img {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.projects .projects-item .project1 .project-text {
+  padding: 30px;
+}
+.projects .projects-item .project1 .project-text h4 {
+  margin: 10px 0;
+  font-size: 2em;
+}
+.projects .projects-item .project1 .project-text p {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
 footer {
-  background-color: #dddcd9;
+  background-color: #dedcd5;
   padding: 20px 15%;
   color: #545454;
 }

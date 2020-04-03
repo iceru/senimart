@@ -1,61 +1,4 @@
-.about {
-	margin: 100px 15%;
-	display: flex;
-
-	p {
-		padding: 0 50px;
-		font-size: 1.2em;
-	}
-}
-
-.contact {
-	display: flex;
-	margin: 150px 15%;
-
-	img {
-		width: 70%;
-		margin-right: 100px;
-	}
-
-	.contact-detail {
-		h1 {
-			font-family: $fontbold;
-			margin: 5px 0;
-			font-size: 2.5em;
-		}
-
-		hr {
-			content: "";
-			background-color: $orange;
-			height: 4px;
-			width: 40%;
-			margin-left: 0;
-		}
-
-		h4 {
-			font-size: 1.6em;
-			margin: 20px 0 5px 0;
-		}
-
-		p {
-			font-size: 1.4em;
-			margin-bottom: 5px;
-		}
-	}
-}
-
-.location {
-	display: flex;
-	margin: 150px 15%;
-
-	.location-detail {
-		margin-right: 100px;
-	}
-
-	.map {
-		width: 70%;
-	}
-
+.about-main {
 	h1 {
 		font-family: $fontbold;
 		margin: 5px 0;
@@ -68,15 +11,110 @@
 		height: 4px;
 		width: 40%;
 		margin-left: 0;
+		border: 0px;
 	}
 
 	h4 {
 		font-size: 1.6em;
-		margin: 20px 0 5px 0;
+		margin: 10px 0 5px 0;
 	}
 
 	p {
 		font-size: 1.4em;
-		margin: 5px 0;
+		margin-bottom: 5px;
+	}
+
+	.about {
+		margin: 100px 15%;
+		display: flex;
+
+		p {
+			padding: 0 50px;
+			font-size: 1.2em;
+		}
+	}
+
+	.contact {
+		display: flex;
+		margin: 150px 15%;
+
+		img {
+			width: 70%;
+			margin-right: 100px;
+		}
+	}
+
+	.location {
+		display: flex;
+		padding: 100px 15%;
+		background-color: $grey;
+
+		.location-detail {
+			margin-right: 100px;
+		}
+
+		.map {
+			width: 70%;
+		}
+
+		p {
+			margin-top: 5px;
+		}
+	}
+
+	.team {
+		padding: 50px 15%;
+
+		img {
+			width: 250px;
+			height: 250px;
+			border-radius: 300px;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		hr {
+			width: 80%;
+			height: 2px;
+		}
+
+		p {
+			margin-top: 10px;
+			font-size: 1.2em;
+		}
+
+		.team-name {
+			margin: 0 50px;
+		}
+
+		.diagonal {
+			margin-right: 150px;
+			margin-top: -30px;
+			width: 400px;
+			height: 300px;
+			border-right: 3px solid $orange;
+			transform: rotate(22deg);
+		}
+
+		.vertical {
+			width: 45%;
+			margin-right: 5%;
+			padding-right: 150px;
+			border-right: 3px solid $orange;
+		}
+
+		.team-under {
+			display: grid;
+			grid-template-columns: repeat(2, 2fr);
+		}
+
+		.team1,
+		.team2,
+		.team3,
+		.team4,
+		.team5 {
+			display: flex;
+			margin-top: 100px;
+		}
 	}
 }
