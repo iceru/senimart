@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+Senimart - Artworks
+@endsection
+
 @section('content')
 <section class="artworks">
   <div class="title-artist">
     <h1>Artworks</h1>
-    <hr />
   </div>
   <div class="flex-artworks">
     <div class="sidebar">

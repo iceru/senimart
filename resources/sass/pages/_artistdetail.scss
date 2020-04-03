@@ -1,6 +1,24 @@
 .artist-detail {
 	margin: 50px 25%;
 	display: flex;
+
+	@media only screen and (max-width: $break-small) {
+		flex-direction: column;
+		margin: 20px 5%;
+
+		.artistd-bio {
+			margin: 0 10%;
+			h1 {
+				text-align: center;
+				font-size: 2em;
+				margin: 10px;
+			}
+		}
+
+		.artistd-photo {
+			text-align: center;
+		}
+	}
 }
 
 .artistd-photo {
@@ -49,6 +67,17 @@
 
 		p {
 			margin: 10px 0 0 0;
+		}
+	}
+
+	@media only screen and (max-width: $break-small) {
+		grid-template-columns: repeat(1, 2fr);
+		margin: 10px 5% 100px 5%;
+
+		.art-image {
+			img {
+				width: 80%;
+			}
 		}
 	}
 }

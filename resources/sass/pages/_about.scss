@@ -1,23 +1,82 @@
 .about {
-	margin: 50px 10%;
+	margin: 100px 15%;
+	display: flex;
+
+	p {
+		padding: 0 50px;
+		font-size: 1.2em;
+	}
 }
 
-.about-contact {
-	padding: 40px 10%;
-	margin: 100px 0;
-	background: black;
+.contact {
 	display: flex;
-	justify-content: center;
-	color: white;
+	margin: 150px 15%;
 
-	.address {
-		border-right: 1px solid white;
-		padding: 10px 40px;
-		width: 45%;
+	img {
+		width: 70%;
+		margin-right: 100px;
 	}
 
-	.contact {
-		padding: 10px 40px;
-		width: 45%;
+	.contact-detail {
+		h1 {
+			font-family: $fontbold;
+			margin: 5px 0;
+			font-size: 2.5em;
+		}
+
+		hr {
+			content: "";
+			background-color: $orange;
+			height: 4px;
+			width: 40%;
+			margin-left: 0;
+		}
+
+		h4 {
+			font-size: 1.6em;
+			margin: 20px 0 5px 0;
+		}
+
+		p {
+			font-size: 1.4em;
+			margin-bottom: 5px;
+		}
+	}
+}
+
+.location {
+	display: flex;
+	margin: 150px 15%;
+
+	.location-detail {
+		margin-right: 100px;
+	}
+
+	.map {
+		width: 70%;
+	}
+
+	h1 {
+		font-family: $fontbold;
+		margin: 5px 0;
+		font-size: 2.5em;
+	}
+
+	hr {
+		content: "";
+		background-color: $orange;
+		height: 4px;
+		width: 40%;
+		margin-left: 0;
+	}
+
+	h4 {
+		font-size: 1.6em;
+		margin: 20px 0 5px 0;
+	}
+
+	p {
+		font-size: 1.4em;
+		margin: 5px 0;
 	}
 }

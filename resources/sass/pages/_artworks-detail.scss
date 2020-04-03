@@ -5,6 +5,17 @@
 
 .breadcrumb {
 	margin: 70px 15% 0 15%;
+	display: flex;
+	text-align: left;
+	justify-content: flex-start;
+
+	@media only screen and (max-width: $break-small) {
+		margin: 20px 5% 0px 5%;
+
+		p {
+			margin: 5px;
+		}
+	}
 }
 
 .artworks-detail {
@@ -31,7 +42,7 @@
 	}
 
 	%text {
-		letter-spacing: 0.5rem;
+		letter-spacing: 0.3rem;
 		margin: 0 0 10px 0;
 	}
 
@@ -58,15 +69,53 @@
 
 	.artwork-button {
 		display: inline-block;
+
+		.button-black {
+			margin: 20px 20px 0 0;
+		}
+	}
+
+	@media only screen and (max-width: $break-small) {
+		margin: 10px 5% 50px 5%;
+		flex-direction: column;
+
+		.art {
+			width: 100%;
+			margin: 30px 0;
+			text-align: center;
+
+			img {
+				width: 80%;
+			}
+		}
+
+		h1 {
+			font-size: 2.5em;
+		}
+
+		h2 {
+			font-size: 1.6em;
+		}
+
+		h3 {
+			font-size: 1.3em;
+		}
+
+		p {
+			font-size: 1.05em;
+		}
 	}
 }
 
 .title {
 	margin: 100px 17% 10px 17%;
+	@media only screen and (max-width: $break-small) {
+		margin: 100px 5% 20px 5%;
+	}
 	h1 {
 		font-size: 3.1em;
 		letter-spacing: 0.1em;
-		text-align: left;
+		text-align: center;
 	}
 	hr {
 		display: block;
@@ -82,13 +131,11 @@
 .similiar {
 	margin: 10px 12% 100px 12%;
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: center;
 	text-align: center;
 
 	.art-image {
 		margin: 0px 10px;
-		width: 20%;
 		margin-bottom: 50px;
 
 		img {
@@ -105,6 +152,23 @@
 
 		p {
 			margin: 10px 0 0 0;
+		}
+
+		#price {
+			font-family: "apercu_monoregular";
+		}
+	}
+
+	@media only screen and (max-width: $break-small) {
+		margin: 10px 5% 100px 5%;
+		grid-template-columns: repeat(1, 2fr);
+
+		.art-image {
+			width: 100%;
+
+			img {
+				width: 80%;
+			}
 		}
 	}
 }

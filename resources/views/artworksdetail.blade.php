@@ -31,7 +31,8 @@
                 <input type="hidden" name="title" value="{{$artwork->title}}">
                 <input type="hidden" name="price" value="{{$artwork->price}}">
                 <button type="submit" class="button-black">Add to Cart</button>
-                <a href="/cart/wishlist/{{$artwork->id}}" class="button-black">Wishlist &nbsp; <i class="fa fa-heart"></i></a>
+                <a href="/cart/wishlist/{{$artwork->id}}" class="button-black">Wishlist &nbsp; <i
+                        class="fa fa-heart"></i></a>
             </form>
 
         </div>
@@ -41,7 +42,6 @@
 
 <div class="title">
     <h1>Similiar Arts</h1>
-    <hr />
 </div>
 
 <div class="similiar">
@@ -52,7 +52,7 @@
         <h3>{{$similiar->artists->name}}</h3>
         <p>{{$similiar->category->name}}</p>
         <p>{{$similiar->sizeHeight}} cm (H) / {{$similiar->sizeWidth}} cm (W)</p>
-        <p>{{$similiar->price}}</p>
+        <p id="price">Rp.{{$similiar->price}}</p>
     </div>
     @endforeach
 </div>

@@ -43,10 +43,6 @@
 	display: grid;
 	grid-template-columns: repeat(3, 2fr);
 	grid-gap: 20px;
-
-	@media only screen and (max-width: $break-small) {
-		grid-template-columns: repeat(2, 2fr);
-	}
 }
 
 %h1-font {
@@ -72,6 +68,10 @@
 
 	.mono {
 		font-family: "apercu_monoregular";
+	}
+
+	a {
+		color: black;
 	}
 
 	.calltoaction {
@@ -102,15 +102,6 @@
 			color: white;
 			font-size: 6em;
 			text-align: center;
-
-			@media only screen and (max-width: 1366px) {
-				font-size: 5em;
-				margin: 10px 0;
-			}
-			@media only screen and (max-width: 1024px) {
-				font-size: 3em;
-				margin: 10px 0;
-			}
 		}
 
 		h4 {
@@ -130,14 +121,26 @@
 		color: white;
 		position: absolute;
 		top: 55%;
+		width: 90%;
 		@media only screen and (max-width: $break-med) {
 			top: 37%;
+			h1 {
+				font-size: 4em;
+			}
 		}
 		@media only screen and (max-width: $break-small) {
 			top: 40%;
+
+			h1 {
+				font-size: 3.5em;
+			}
 		}
 		left: 50%;
 		transform: translate(-50%, -50%);
+
+		a {
+			color: white;
+		}
 	}
 
 	//featured
@@ -183,6 +186,14 @@
 					margin: 10px 0 0 0;
 				}
 			}
+
+			@media only screen and (max-width: $break-small) {
+				grid-template-columns: repeat(1, 2fr);
+
+				img {
+					width: 75%;
+				}
+			}
 		}
 	}
 
@@ -206,22 +217,6 @@
 			grid-gap: 20px;
 			margin: 20px 40px;
 
-			@media only screen and (max-width: 1366px) {
-				margin: 20px 10px;
-			}
-
-			@media only screen and (max-width: $break-small) {
-				grid-template-columns: repeat(1, 2fr);
-
-				h1 {
-					font-size: 5em;
-				}
-
-				h2 {
-					font-size: 2.3em;
-				}
-			}
-
 			h2 {
 				font-size: 3.6em;
 				margin: 0;
@@ -232,13 +227,24 @@
 				font-size: 6em;
 				color: white;
 			}
+
+			@media only screen and (max-width: $break-med) {
+				grid-template-columns: repeat(1, 2fr);
+
+				h1 {
+					font-size: 5em;
+				}
+
+				h2 {
+					font-size: 2.3em;
+				}
+			}
 		}
 
 		.price-pic1 {
 			background-image: url(/image/price1.png);
 			color: white;
 			padding: 40px 22% 60px 7%;
-			line-height: 6.5em;
 			letter-spacing: 0.1em;
 			cursor: pointer;
 			background-repeat: no-repeat;
@@ -249,7 +255,6 @@
 			background-image: url(/image/price2.png);
 			color: white;
 			padding: 40px 22% 60px 7%;
-			line-height: 6.5em;
 			letter-spacing: 0.1em;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -260,9 +265,6 @@
 
 	.products {
 		margin: 100px 10%;
-		@media only screen and (max-width: 1366px) {
-			margin: 100px 5%;
-		}
 		display: block;
 		text-align: center;
 
@@ -277,10 +279,6 @@
 			grid-gap: 20px;
 			text-align: center;
 			margin-top: 20px;
-
-			@media only screen and (max-width: $break-small) {
-				grid-template-columns: repeat(2, 1fr);
-			}
 
 			.item {
 				padding: 40px;
@@ -301,6 +299,15 @@
 
 				p {
 					margin: 10px 0 0 0;
+				}
+			}
+
+			@media only screen and (max-width: $break-small) {
+				grid-template-columns: repeat(2, 1fr);
+
+				.item {
+					padding: 10px;
+					margin-bottom: 30px;
 				}
 			}
 		}
@@ -358,7 +365,9 @@
 			background-image: url(/image/cat2.png);
 			background-repeat: no-repeat;
 			background-size: cover;
-			padding: 0 0 0 750px;
+			text-align: center;
+			padding: 0 0 0 300px;
+
 			@media only screen and (max-width: $break-med) {
 				grid-template-columns: repeat(1, 1fr);
 			}
@@ -366,7 +375,14 @@
 			@media only screen and (max-width: $break-small) {
 				padding: 0 0 0 200px;
 			}
-			text-align: center;
+
+			@media only screen and (min-width: $break-med) {
+				padding: 0 0 0 300px;
+			}
+
+			@media only screen and (min-width: $break-large) {
+				padding: 0 0 0 750px;
+			}
 
 			p {
 				margin: 0;
@@ -402,22 +418,13 @@
 			margin: 70px 0;
 			text-align: center;
 
-			@media only screen and (max-width: $break-small) {
-				grid-template-columns: repeat(1, 1fr);
-				margin: 20px 0;
-
-				.artist-name {
-					padding: 5px 30px;
-
-					p {
-						margin: 10px 0;
-					}
-				}
-			}
-
 			.artist1 {
 				margin: 10px 30px;
 				padding: 40px;
+
+				@media only screen and (max-width: $break-med) {
+					padding: 10px;
+				}
 			}
 
 			img {
@@ -436,6 +443,19 @@
 				z-index: 4;
 				p {
 					font-size: 1.7em;
+				}
+			}
+
+			@media only screen and (max-width: $break-small) {
+				grid-template-columns: repeat(1, 1fr);
+				margin: 20px 0;
+
+				.artist-name {
+					padding: 5px 30px;
+
+					p {
+						margin: 10px 0;
+					}
 				}
 			}
 		}
