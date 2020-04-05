@@ -36,11 +36,11 @@ class CartController extends Controller
         });
 
         $rows  = Cart::instance('wishlist')->content();
-        $rowId = $rows->where('id', $request->id)->first()->rowId;
+        // $rowId = $rows->where('id', $request->id)->first()->rowId;
 
-        if ($itemwish->isNotEmpty()) {
-            Cart::instance('wishlist')->remove($rowId);
-        }
+        // if ($itemwish->isNotEmpty()) {
+        //     Cart::instance('wishlist')->remove($rowId);
+        // }
 
         return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart');
     }
