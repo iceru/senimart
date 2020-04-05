@@ -27,9 +27,9 @@ class Artworks extends Model
         return $this->belongsTo(Colors::class);
     }
 
-    public function sales()
+    public function artworksSales()
     {
-        return $this->belongsToMany('App\Sales');
+        return $this->hasMany('App\ArtworksSales');
     }
 
     public function scopeFilter($a)

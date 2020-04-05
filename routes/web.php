@@ -30,6 +30,7 @@ Route::get('/cart/wishlist', 'CartController@wishindex')->name('cart.wishindex')
 Route::get('/cart/wishlist/{artwork}', 'CartController@wishlist')->name('cart.wishlist');
 Route::delete('/cart/wishlist/{artwork}', 'CartController@rmwish')->name('cart.rmwish');
 
+Route::get('/checkout', 'SalesController@checkout')->name('sales.checkout');
 // Route::get('admin/artists', 'AdminArtistsController@index')->name('adminartists.index');
 // Route::get('admin/artists/create', 'AdminArtistsController@create')->name('artists.create');
 // Route::post('admin/artists', 'AdminArtistsController@store')->name('artists.store');

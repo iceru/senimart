@@ -74,7 +74,9 @@ Senimart - Cart
         <h1>Total Price : Rp.{{Cart::subtotal()}}</h1>
         <div class="cart-button">
             <a href="{{route('artworks.index')}}" class="button">Continue Shopping</a>
-            <a href="" class="button">Checkout</a>
+            @if (Cart::count() > 0)
+            <a href="{{route('sales.checkout')}}" class="button">Checkout</a>
+            @endif
         </div>
     </div>
 </div>
