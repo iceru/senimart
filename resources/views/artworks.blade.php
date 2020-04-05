@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
+@section('title')
+Senimart - Artworks
+@endsection
+
 @section('content')
 <section class="artworks">
   <div class="title-artist">
     <h1>Artworks</h1>
-    <hr />
   </div>
   <div class="flex-artworks">
     <div class="sidebar">
@@ -52,7 +55,7 @@
         <h3>{{ $artwork->artists->name }} </h3>
         <p>{{$artwork->category->name}}</p>
         <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p>
-        <p>Rp{{ $artwork->price}}</p>
+        <p id="price">Rp{{ $artwork->price}}</p>
       </div>
       @empty
       <p>No Items Found</p>

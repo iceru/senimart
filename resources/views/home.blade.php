@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Senimart
+@endsection
+
 @section('content')
 
 <section class="index">
@@ -28,7 +32,9 @@
         <a href="/artwork/{{$featured->slug}}">
           <h2>{{ $featured->title }}</h2>
         </a>
-        <h3>{{ $featured->artists->name }}</h3>
+        <a href="/artist/{{$featured->artists->slug}}">
+          <h3>{{ $featured->artists->name }}</h3>
+        </a>
         <p>{{ $featured->category->name}} </p>
         <p>{{ $featured->sizeHeight }} cm (H) / {{ $featured->sizeWidth }} cm (W)</p>
         <p class="mono">Rp.{{ $featured->price }}</p>
@@ -67,7 +73,9 @@
         <a href="/artwork/{{$artwork->slug}}">
           <h2>{{ $artwork->title }}</h2>
         </a>
-        <h3>{{ $artwork->artists->name }}</h3>
+        <a href="/artist/{{$artwork->artists->slug}}">
+          <h3>{{ $artwork->artists->name }}</h3>
+        </a>
         <p>{{ $artwork->category->name}} </p>
         <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p>
         <p class="mono">Rp.{{ $artwork->price }}</p>

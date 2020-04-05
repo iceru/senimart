@@ -19,6 +19,10 @@
 		margin: 5px 10px 5px 0;
 	}
 
+	#price {
+		font-family: $fontmono;
+	}
+
 	a {
 		text-decoration: none;
 		color: black;
@@ -43,6 +47,10 @@
 
 			@media only screen and (min-width: $break-small) {
 				width: 25%;
+			}
+
+			@media only screen and (min-width: $break-large) {
+				width: 15%;
 			}
 
 			@media only screen and (max-width: $break-small) {
