@@ -20,7 +20,6 @@ class SalesController extends Controller
         Sales::create([
             'id' => $sid,
             'user_id' => $userid,
-            'paid' => '0',
             'totalPrice' => Cart::subtotal(0,'',''),
             'address' => ''
         ]);

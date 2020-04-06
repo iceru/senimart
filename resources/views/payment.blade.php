@@ -42,8 +42,30 @@ Senimart - Payment
     <div class="total">
         <div class="cart-button">
             <a href="/checkout/{{$sales->id}}" class="button">Cancel</a>
-            <a href="" class="button">Pay</a>
+            <button id="pay-button">Pay!</button>
+            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
         </div>
     </div>
 </div>
+
+<script src="{{ !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
+<script type="text/javascript">
+    document.getElementById('pay-button').onclick = function(){
+    // SnapToken acquired from previous step
+    snap.pay('{{ $sales->snap_token }}', {
+        // Optional
+        onSuccess: function(result){
+        /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+        },
+        // Optional
+        onPending: function(result){
+        /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+        },
+        // Optional
+        onError: function(result){
+        /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
+        }
+    });
+    };
+</script>
 @endsection

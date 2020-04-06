@@ -8,7 +8,7 @@ class Sales extends Model
 {
     protected $table = "sales";
 
-    protected $fillable = ['id', 'user_id', 'paid', 'totalPrice', 'address'];
+    protected $fillable = ['id', 'user_id', 'totalPrice', 'address', 'status', 'snap_token'];
 
     public function user()
     {
