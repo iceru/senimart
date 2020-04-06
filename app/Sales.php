@@ -8,7 +8,7 @@ class Sales extends Model
 {
     protected $table = "sales";
 
-    protected $fillable = ['id', 'user_id', 'paid', 'totalPrice'];
+    protected $fillable = ['id', 'user_id', 'paid', 'totalPrice', 'address'];
 
     public function user()
     {

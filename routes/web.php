@@ -33,6 +33,9 @@ Route::delete('/cart/wishlist/{artwork}', 'CartController@rmwish')->name('cart.r
 Route::get('/checkout', 'SalesController@checkout')->name('sales.checkout');
 Route::get('/checkout/{id}', 'SalesController@show');
 Route::get('/checkout/remove/{id}', 'SalesController@destroy');
+Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.address');
+
+Route::get('/payment/{id}', 'PaymentController@show');
 // Route::get('admin/artists', 'AdminArtistsController@index')->name('adminartists.index');
 // Route::get('admin/artists/create', 'AdminArtistsController@create')->name('artists.create');
 // Route::post('admin/artists', 'AdminArtistsController@store')->name('artists.store');

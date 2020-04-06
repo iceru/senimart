@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
 @section ('title')
-Senimart - Checkout
+Senimart - Payment
 @endsection
 
 @section('content')
 <div class="cart">
 
-    <h1>Checkout</h1>
+    <h1>Payment</h1>
     <h4>Order ID: {{$sales->id}}</h4>
     <hr>
-    @foreach ($checkoutItem as $item)
+    @foreach ($paymentItem as $item)
     <div class="cart-product">
         <div class="cart-img">
             <a href="{{route('artworks.show', $item->artworks->slug)}}"><img
@@ -37,17 +37,12 @@ Senimart - Checkout
     </div>
     <hr>
     <h2>Shipping Address</h2>
-    <form method="post" action="{{route('sales.address', $sales->id)}}">
-    @csrf
-    @method('PUT')
-    <textarea name="address" rows="4" cols="40">{{$sales->address}}</textarea>
+    <h4>{{$sales->address}}</h4>
     <hr>
     <div class="total">
         <div class="cart-button">
-            <a href="/checkout/remove/{{$sales->id}}" class="button">Cancel</a>
-            <!-- <a href="" class="button">Confirm</a> -->
-            <input type="submit" value="Confirm">
-            </form> 
+            <a href="/checkout/{{$sales->id}}" class="button">Cancel</a>
+            <a href="" class="button">Pay</a>
         </div>
     </div>
 </div>

@@ -21,7 +21,8 @@ class SalesController extends Controller
             'id' => $sid,
             'user_id' => $userid,
             'paid' => '0',
-            'totalPrice' => Cart::subtotal(0,'','')
+            'totalPrice' => Cart::subtotal(0,'',''),
+            'address' => ''
         ]);
 
         foreach(Cart::content() as $item) {
@@ -37,14 +38,34 @@ class SalesController extends Controller
     }
 
     public function show($checkout) {
+        $id = Auth::id();
+
         $sales = Sales::where('id', $checkout)->firstOrFail();
-        $checkoutItem = ArtworksSales::where('sales_id', $checkout)->get();
-        return view('checkout', compact('sales', 'checkoutItem'));
+        
+        if($id == $sales->user_id) {
+            $checkoutItem = ArtworksSales::where('sales_id', $checkout)->get();
+            return view('checkout', compact('sales', 'checkoutItem'));
+        }
+        else {
+            return redirect()->route('home');
+        }
+        
     }
 
     public function destroy($checkout) {
         ArtworksSales::where('sales_id', $checkout)->delete();
         Sales::find($checkout)->delete();
         return redirect()->route('home');
+    }
+
+    public function address($sid, Request $request) {
+        $this->validate($request, [
+            'address' => 'required'
+        ]);
+
+        $sales = Sales::find($sid);
+        $sales->address = $request->address;
+        $sales->save();
+        return redirect()->action('PaymentController@show', ['id' => $sid]);
     }
 }
