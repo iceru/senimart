@@ -9,34 +9,35 @@ Senimart - Artists
     <h1>Artists</h1>
 </div>
 
-<section class="artists">
-    <div class="sort-name">
-        <a href="{{request()->url()}}">All</a>
-        &nbsp;|&nbsp;
-        <a href="{{ route('artists.index', ['sortname' => 'noalpha'])}}">#</a>
-        @foreach(range('A','Z') as $letter)
-        <a href="{{ route('artists.index', ['sortname' => $letter])}}"> {{ $letter }}</a>
-        @endforeach
-    </div>
-    <div class="break"></div>
-    @forelse ($artists as $artist)
-    <div class="artist-profile">
-        <div class="artist-image">
+<div class="sort-name">
+    <a href="{{request()->url()}}">All</a>
+    <p>&nbsp;|&nbsp;</p>
+    <a href="{{ route('artists.index', ['sortname' => 'noalpha'])}}">#</a>
+    @foreach(range('A','Z') as $letter)
+    <a href="{{ route('artists.index', ['sortname' => $letter])}}"> {{ $letter }}</a>
+    @endforeach
+</div>
+
+<div class="artists-home">
+    <div class="artist-items">
+        @forelse ($artists as $artist)
+        <div class="artist1">
             <a href="artist/{{ $artist->slug}}">
                 <img src="{{ URL::asset('storage/'.$artist->photo)}}" alt="">
             </a>
+            <div class="artist-name">
+                <a href="artist/{{ $artist->slug}}">
+                    <h4>{{ $artist->name }}</h4>
+                </a>
+                <p>b.{{ $artist->yearbirth }}</p>
+            </div>
+
         </div>
-        <div class="artist-desc">
-            <a href="artist/{{ $artist->slug}}">
-                <h3>{{ $artist->name }}</h3>
-            </a>
-            <p>{{ $artist->hometown }}</p>
-            <p>{{ $artist->yearbirth }}</p>
-        </div>
+
+        @empty
+        <p>Artists Not Found</p>
+        @endforelse
     </div>
-    @empty
-    <p>Artists Not Found</p>
-    @endforelse
-</section>
+</div>
 
 @endsection

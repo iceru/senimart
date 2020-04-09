@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Senimart - Register
+@endsection
+
 @section('content')
 <div class="container">
     <div class="content">
@@ -35,7 +39,7 @@
             </div>
 
             <div class="formgroup">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                <label for="password">{{ __('Password') }}</label>
 
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
                     name="password" required autocomplete="new-password">
@@ -48,8 +52,7 @@
             </div>
 
             <div class="formgroup">
-                <label for="password-confirm"
-                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                <label for="password-confirm">{{ __('Confirm Password') }}</label>
 
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required
                     autocomplete="new-password">

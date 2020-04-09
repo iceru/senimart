@@ -14,8 +14,10 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::view('/about', 'about');
-Route::get('/projects', 'ProjectsController@index');
+Route::view('/about', 'about')->name('about.index');
+
+Route::get('/projects', 'ProjectsController@index')->name('projects.index');
+Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.show');
 
 Route::get('/artworks', 'ArtworksController@index')->name('artworks.index');
 Route::get('/artwork/{artwork}', 'ArtworksController@show')->name('artworks.show');

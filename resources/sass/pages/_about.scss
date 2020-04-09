@@ -2,7 +2,7 @@
 	h1 {
 		font-family: $fontbold;
 		margin: 5px 0;
-		font-size: 2.5em;
+		font-size: 2.2em;
 	}
 
 	hr {
@@ -63,49 +63,42 @@
 	}
 
 	.team {
-		padding: 50px 15%;
-
-		img {
-			width: 250px;
-			height: 250px;
-			border-radius: 300px;
-			object-fit: cover;
-			object-position: center;
-		}
+		padding: 50px 10%;
+		text-align: center;
 
 		hr {
-			width: 80%;
 			height: 2px;
+			margin: auto;
 		}
 
 		p {
 			margin-top: 10px;
-			font-size: 1.2em;
+			font-size: 1.5em;
+			color: $orange;
+		}
+
+		.team-img {
+			margin-bottom: -90px;
+			img {
+				width: 250px;
+				height: 250px;
+				border-radius: 300px;
+				object-fit: cover;
+				object-position: center;
+			}
 		}
 
 		.team-name {
-			margin: 0 50px;
+			background-color: rgba($color: $grey, $alpha: 0.3);
+			padding: 100px 5px 30px 5px;
+			margin-top: -50px;
+			border-radius: 30px;
 		}
 
-		.diagonal {
-			margin-right: 150px;
-			margin-top: -30px;
-			width: 400px;
-			height: 300px;
-			border-right: 3px solid $orange;
-			transform: rotate(22deg);
-		}
-
-		.vertical {
-			width: 45%;
-			margin-right: 5%;
-			padding-right: 150px;
-			border-right: 3px solid $orange;
-		}
-
-		.team-under {
-			display: grid;
-			grid-template-columns: repeat(2, 2fr);
+		.team-items {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-evenly;
 		}
 
 		.team1,
@@ -113,8 +106,9 @@
 		.team3,
 		.team4,
 		.team5 {
-			display: flex;
+			display: block;
 			margin-top: 100px;
+			width: 30%;
 		}
 	}
 }

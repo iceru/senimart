@@ -50,55 +50,53 @@ About - Senimart
     </div>
 
     <div class="team">
-        <div class="team1">
-            <img src="/image/artist1.png" alt="">
-            <div class="team-name">
-                <h1>Name</h1>
-                <hr>
-                <p>Founder</p>
-            </div>
-            <div class="diagonal"></div>
-            <div class="team-about">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias unde ratione, porro est optio fugit?
-                    Maiores, magni? Porro ipsum adipisci consectetur quis dicta inventore atque maxime architecto, ab
-                    amet mollitia?</p>
-                <hr>
-            </div>
-        </div>
-        <div class="team-under">
-            <div class="team2">
-                <img src="/image/artist1.png" alt="">
+        <img src="image/team.png" alt="">
+        <div class="team-items">
+            <div class="team1">
+                <div class="team-img">
+                    <img src="/image/artist1.png" alt="">
+                </div>
                 <div class="team-name">
-                    <h1>Name</h1>
-                    <hr>
-                    <p>Founder</p>
+                    <h1>Bintang Gemilang</h1>
+                    <p>Creative Director</p>
+                </div>
+            </div>
+            <div class="team2">
+                <div class="team-img">
+                    <img src="/image/artist1.png" alt="">
+                </div>
+                <div class="team-name">
+                    <h1>Hally Ahmad</h1>
+                    <p>Marketing & Communication Director</p>
                 </div>
             </div>
 
             <div class="team3">
-                <img src="/image/artist1.png" alt="">
+                <div class="team-img">
+                    <img src="/image/artist1.png" alt="">
+                </div>
                 <div class="team-name">
-                    <h1>Name</h1>
-                    <hr>
-                    <p>Founder</p>
+                    <h1>Adam Irfan Hawari</h1>
+                    <p>Operational Manager</p>
                 </div>
             </div>
 
             <div class="team4">
-                <img src="/image/artist1.png" alt="">
+                <div class="team-img">
+                    <img src="/image/artist1.png" alt="">
+                </div>
                 <div class="team-name">
-                    <h1>Name</h1>
-                    <hr>
-                    <p>Founder</p>
+                    <h1>Edho Habinsaran</h1>
+                    <p>Account & Event Manager</p>
                 </div>
             </div>
-
             <div class="team5">
-                <img src="/image/artist1.png" alt="">
+                <div class="team-img">
+                    <img src="/image/artist1.png" alt="">
+                </div>
                 <div class="team-name">
-                    <h1>Name</h1>
-                    <hr>
-                    <p>Founder</p>
+                    <h1>Mona Liem</h1>
+                    <p>Business Development Manager</p>
                 </div>
             </div>
         </div>

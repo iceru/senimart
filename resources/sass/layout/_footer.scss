@@ -13,22 +13,24 @@ footer {
 		justify-content: space-between;
 
 		div {
-			width: 30%;
+			width: 32%;
 		}
 
 		.contactus {
 			display: flex;
 			flex-wrap: wrap;
-			h4 {
-				margin: 0px 10px 3px 10px;
+			h3 {
+				margin: 0px 0 3px 10px;
+				font-size: 1.2em;
+				font-family: $fontmed;
 			}
 
 			p {
-				margin: 0 27px 15px 27px;
+				margin: 0 0 15px 27px;
 			}
 
 			#p2 {
-				margin: 0 10px 15px 10px;
+				margin: 0 0 15px 10px;
 			}
 			.break {
 				flex-basis: 100%;

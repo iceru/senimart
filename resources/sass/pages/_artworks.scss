@@ -15,8 +15,9 @@
 		height: 30px;
 		width: 30px;
 		border-radius: 30px;
-		border: 1px solid #ededed;
+		border: 1px solid rgba($color: #000000, $alpha: 0.2);
 		margin: 5px 10px 5px 0;
+		box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.2);
 	}
 
 	#price {
@@ -26,11 +27,12 @@
 	a {
 		text-decoration: none;
 		color: black;
-	}
+		transition: 0.2s ease-out;
 
-	.selected {
-		font-weight: bolder;
-		color: blue;
+		&:hover {
+			color: $orange;
+			transition: 0.2s ease-in;
+		}
 	}
 
 	.flex-artworks {
@@ -42,7 +44,7 @@
 
 		.sidebar {
 			padding: 0px 10px;
-			width: 15%;
+			width: 20%;
 			border-right: 1px solid black;
 
 			@media only screen and (min-width: $break-small) {
@@ -50,7 +52,7 @@
 			}
 
 			@media only screen and (min-width: $break-large) {
-				width: 15%;
+				width: 20%;
 			}
 
 			@media only screen and (max-width: $break-small) {
@@ -90,6 +92,8 @@
 
 			h1 {
 				margin: 40px 0 10px 0;
+				font-size: 1.5em;
+				font-family: $fontmed;
 			}
 
 			.item {
@@ -108,65 +112,36 @@
 			}
 
 			.blue {
-				background-color: blue;
+				background-color: rgb(52, 104, 216);
 				@extend %circle;
 			}
 
 			.red {
-				background-color: red;
+				background-color: rgb(216, 76, 57);
 				@extend %circle;
 			}
 
 			.green {
-				background-color: green;
+				background-color: rgb(71, 163, 71);
 				@extend %circle;
 			}
 
 			.multicolor {
 				background: rgb(238, 10, 14);
 				background: linear-gradient(
-					90deg,
-					rgba(238, 10, 14, 1) 0%,
-					rgba(12, 12, 238, 1) 35%,
-					rgba(11, 231, 43, 1) 65%,
-					rgba(255, 246, 47, 1) 100%
+					180deg,
+					rgb(202, 61, 64) 33.3%,
+					rgb(76, 76, 202) 33.3%,
+					rgb(108, 184, 120) 66.6%,
+					rgb(155, 150, 63) 66.6%
 				);
 				@extend %circle;
 			}
 		}
-
-		.products {
-			display: grid;
-			grid-template-columns: repeat(4, 2fr);
-			grid-gap: 30px;
-
-			@media only screen and (max-width: 1024px) {
-				grid-template-columns: repeat(2, 2fr);
-			}
-
-			@media only screen and (max-width: 450px) {
-				grid-template-columns: repeat(1, 2fr);
-			}
-
-			text-align: center;
-			margin-left: 40px;
-			.products-img {
-				img {
-					width: 90%;
-				}
-
-				h2 {
-					margin: 20px 0 0 0;
-				}
-
-				h3 {
-					margin: 10px 0 0 0;
-				}
-
-				p {
-					margin: 10px 0 0 0;
-				}
-			}
-		}
 	}
+}
+
+.selected {
+	font-weight: bolder;
+	color: $orange;
 }

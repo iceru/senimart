@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+Senimart - Login
+@endsection
+
 @section('content')
 <div class="container">
     <div class="content">
@@ -27,11 +31,14 @@
                 </span>
                 @enderror
             </div>
-            <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                {{ old('remember') ? 'checked' : '' }}>
-            <label class="form-check-label" for="remember">
-                {{ __('Remember Me') }}
-            </label>
+            <div class="formgroup-check">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                    {{ old('remember') ? 'checked' : '' }}>
+                <label class="form-check-label" for="remember">
+                    {{ __('Remember Me') }}
+                </label>
+            </div>
+
             <div class="forgot">
                 @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">

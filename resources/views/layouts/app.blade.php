@@ -11,7 +11,7 @@
   <title>@yield ('title')</title>
 
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}"></script>
 
 
   <!-- Styles -->
@@ -52,26 +52,21 @@
           <a href="{{route('cart.index')}}">Cart &nbsp;<i class="fa fa-shopping-basket"></i></a>
           &nbsp;|&nbsp;
           <a href="{{route('cart.wishindex')}}">Wishlist &nbsp;<i class="fa fa-heart"></i></a>
-
-
         </div>
       </nav>
       <nav class="navbar2">
         <img src="/image/logo.png" alt="senimart" />
-        <div class="burger">
-          <div class="line1"></div>
-          <div class="line2"></div>
-          <div class="line3"></div>
-        </div>
       </nav>
+
+
 
       <nav class="navigation">
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
           <li><a href="{{route('artworks.index')}}">Artworks</a></li>
           <li><a href="{{route('artists.index')}}">Artists</a></li>
-          <li><a href="projects">Projects</a></li>
-          <li><a href="about">About</a></li>
+          <li><a href="{{route('projects.index')}}">Projects</a></li>
+          <li><a href="{{route('about.index')}}">About</a></li>
         </ul>
       </nav>
     </header>
@@ -80,37 +75,16 @@
       @yield('content')
     </main>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
-      integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
-
-    <script>
-      const navSlide = () => {
-          const burger = document.querySelector('.burger');
-          const nav = document.querySelector('.nav-links');
-          const navLinks = document.querySelectorAll('.nav-links li');
-    
-          burger.addEventListener('click', () => {
-            nav.classList.toggle('nav-active');
-          });
-    
-          nav.Links.forEach((link, index)=> {
-            console.log(index);
-          });
-        }
-      navSlide();
-    
-    </script>
   </div>
   <footer>
     <img src="/image/logo.png" alt="senimart" />
     <div class="footersect">
       <div class="contactus">
         <i class="fa fa-map-marked-alt"></i>
-        <h4>
+        <h3>
           ARIMBI OFFICE SPACE <br />
           2nd floor, Suite 206
-        </h4>
+        </h3>
         <div class="break"></div>
         <p>
           Jl. Kemang Timur Raya No. 38 <br />
@@ -143,6 +117,8 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+    integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
 
 </body>
 

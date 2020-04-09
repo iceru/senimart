@@ -62,23 +62,61 @@
 
 			img {
 				width: 100%;
+				height: 300px;
+				object-fit: cover;
+				object-position: center;
 				border-top-left-radius: 20px;
 				border-top-right-radius: 20px;
 			}
 
 			.project-text {
-				padding: 30px;
+				padding: 10px 30px 20px 30px;
 
 				h4 {
 					margin: 10px 0;
 					font-size: 2em;
 				}
 
+				.place-date {
+					p {
+						margin: 5px 0 5px 0;
+						font-size: 1em;
+					}
+				}
+
 				p {
 					margin: 10px 0;
-					font-size: 1.2em;
+					font-size: 1.3em;
+				}
+			}
+
+			.button-list-black {
+				margin: 5px 0;
+				padding: 10px 20px;
+				border-radius: 10px;
+				background-color: $orange;
+				border: none;
+				color: white;
+				transition: 0.2s ease-out;
+
+				&:hover {
+					background-color: black;
+					transition: 0.2s ease-in;
 				}
 			}
 		}
+	}
+}
+
+.modalcustom {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	max-width: 100%;
+
+	.modal-body {
+		width: 600px;
 	}
 }

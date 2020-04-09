@@ -29,6 +29,10 @@
 	font-style: normal;
 }
 
+
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '~@fortawesome/fontawesome-free/scss/solid.scss';
 html,
 body {
 	padding: 0;
@@ -36,7 +40,6 @@ body {
 	font-family: "aperculight";
 	height: 100%;
 }
-
 // Variables
 @import 'base/variables';
 @import 'pages/index';

@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section ('content')
-<div class="breadcrumb">
+<div class="breadcrumbs">
     <p><a href="{{ route('home') }}">Home</a> / <a href="{{ route('artworks.index') }}">Artworks</a> /
         {{ $artwork->title }}</p>
 </div>

@@ -49503,7 +49503,14 @@ module.exports = function(module) {
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+window.$ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.JQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ./navbar */ "./resources/js/navbar.js");
+
+__webpack_require__(/*! ./selected */ "./resources/js/selected.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -49640,6 +49647,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/navbar.js":
+/*!********************************!*\
+  !*** ./resources/js/navbar.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var navSlide = function navSlide() {
+  var burger = document.querySelector('.burger');
+  var nav = document.querySelector('.nav-links');
+  var navLinks = document.querySelector('.nav-links li');
+  burger.addEventListener('click', function () {
+    nav.classList.toggle('nav-active');
+  });
+};
+
+navSlide();
+
+/***/ }),
+
+/***/ "./resources/js/selected.js":
+/*!**********************************!*\
+  !*** ./resources/js/selected.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.sidebar > ul > li > a').click(function () {
+  // when clicking any of these links
+  $('.sidebar > ul > li > a').removeClass('selected'); // remove highlight from all links
+
+  $(this).addClass('selected'); // add highlight to clicked link
+});
 
 /***/ }),
 

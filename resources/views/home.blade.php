@@ -35,9 +35,10 @@ Senimart
         <a href="/artist/{{$featured->artists->slug}}">
           <h3>{{ $featured->artists->name }}</h3>
         </a>
+        <h5 class="mono">Rp{{ $featured->price }}</h5>
         <p>{{ $featured->category->name}} </p>
-        <p>{{ $featured->sizeHeight }} cm (H) / {{ $featured->sizeWidth }} cm (W)</p>
-        <p class="mono">Rp.{{ $featured->price }}</p>
+        <p></p>
+
       </div>
       @endforeach
 
@@ -76,9 +77,11 @@ Senimart
         <a href="/artist/{{$artwork->artists->slug}}">
           <h3>{{ $artwork->artists->name }}</h3>
         </a>
-        <p>{{ $artwork->category->name}} </p>
-        <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p>
-        <p class="mono">Rp.{{ $artwork->price }}</p>
+        <h5 class="mono">Rp{{ $artwork->price }}</h5>
+        <a href="{{ route('artworks.index', ['category' => $artwork->category->slug])}}">
+          <p>{{ $artwork->category->name}} </p>
+        </a>
+        {{-- <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p> --}}
       </div>
       @endforeach
     </div>
@@ -90,23 +93,25 @@ Senimart
       Browse Arts <br />
       by Categories.
     </h1>
-    <div class="categories2">
+    <div class="category-items">
       <div class="category1">
         <a href="{{ route('artworks.index', ['category' => 'painting-and-drawing'])}}">
           <p>Painting & Drawing</p>
         </a>
       </div>
       <div class="category2">
-        <a href="{{ route('artworks.index', ['category' => 'photography'])}}">
-          <p>Photography</p>
-        </a>
-      </div>
-      <div class="category3">
         <a href="{{ route('artworks.index', ['category' => 'digital-art-prints'])}}">
           <p>Digital Art Prints</p>
         </a>
       </div>
-      <div class="break"></div>
+    </div>
+
+    <div class="category-items2">
+      <div class="category3">
+        <a href="{{ route('artworks.index', ['category' => 'photography'])}}">
+          <p>Photography</p>
+        </a>
+      </div>
       <div class="category4">
         <a href="{{ route('artworks.index', ['category' => 'mix-media'])}}">
           <p>Mix Media</p>
@@ -122,10 +127,8 @@ Senimart
 
   <div class="artists-home">
     <h1>FEATURED ARTISTS</h1>
-    <div class="break"></div>
     <hr />
-    <div class="break"></div>
-    <div class="artists2">
+    <div class="artist-items">
       @foreach ($artists as $artist)
       <div class="artist1">
         <a href="/artist/{{$artist->slug}}">
@@ -133,7 +136,8 @@ Senimart
         </a>
         <div class="artist-name">
           <a href="/artist/{{$artist->slug}}">
-            <p>{{ $artist->name}}</p>
+            <h4>{{ $artist->name}}</h4>
+            <p>b.{{ $artist->yearbirth }}</p>
           </a>
         </div>
       </div>
