@@ -8,18 +8,19 @@
 }
 
 .sort-name {
-	margin: 40px 35% 0 35%;
+	margin: 10px 35% 10px 35%;
 	display: flex;
 	justify-content: space-around;
 
 	a,
 	p {
-		color: $orange;
+		color: black;
 		transition: 0.2s ease-out;
-		font-size: 1.5em;
+		font-size: 1.3em;
+		height: 100%;
 
 		&:hover {
-			color: black;
+			color: $orange;
 			transition: 0.2s ease-in;
 		}
 	}

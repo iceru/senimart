@@ -46,17 +46,17 @@
 	}
 
 	%text {
-		letter-spacing: 0.3rem;
 		margin: 0 0 10px 0;
 	}
 
 	h1 {
-		font-size: 4em;
+		font-size: 3em;
+		font-family: $fontmed;
 		@extend %text;
 	}
 
 	h2 {
-		font-size: 2em;
+		font-size: 1.8em;
 		@extend %text;
 	}
 
@@ -112,23 +112,26 @@
 }
 
 .title {
-	margin: 100px 17% 10px 17%;
+	margin: 100px 17% 50px 17%;
 	@media only screen and (max-width: $break-small) {
 		margin: 100px 5% 20px 5%;
 	}
 	h1 {
-		font-size: 3.1em;
+		font-size: 3em;
 		letter-spacing: 0.1em;
 		text-align: center;
+		font-family: $fontmed;
 	}
-	hr {
-		display: block;
-		height: 1px;
-		border: 0;
-		border-top: 1px solid black;
-		padding: 0;
-		width: 15%;
-		margin: auto;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	transition: 0.2s ease-out;
+
+	&:hover {
+		color: $orange;
+		transition: 0.2s ease-in;
 	}
 }
 
@@ -148,9 +151,14 @@
 
 		h2 {
 			margin: 20px 0 0 0;
+			font-family: $fontmed;
 		}
 
 		h3 {
+			margin: 10px 0 0 0;
+		}
+
+		h5 {
 			margin: 10px 0 0 0;
 		}
 

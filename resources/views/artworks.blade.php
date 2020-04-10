@@ -55,14 +55,14 @@ Senimart - Artworks
         <a href="/artist/{{$artwork->artists->slug}}">
           <h3>{{ $artwork->artists->name }} </h3>
         </a>
+        <h5 id="price">Rp{{ $artwork->price}}</h5>
         <a href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">
           <p>{{$artwork->category->name}}</p>
         </a>
-        <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p>
-        <p id="price">Rp{{ $artwork->price}}</p>
+        {{-- <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p> --}}
       </div>
       @empty
-      <p>No Items Found</p>
+      <h4>No Items Found</h4>
       @endforelse
     </div>
   </div>

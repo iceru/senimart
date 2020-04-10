@@ -21,12 +21,19 @@
 <div class="art-related">
     @foreach ($artworks as $artwork)
     <div class="art-image">
-        <img src="{{asset('storage/'. $artwork->image)}}" alt="" />
-        <h2>{{$artwork->title}}</h2>
+        <a href="/artwork/{{$artwork->slug}}">
+            <img src="{{asset('storage/'. $artwork->image)}}" alt="" />
+        </a>
+        <a href="/artwork/{{$artwork->slug}}">
+            <h2>{{$artwork->title}}</h2>
+        </a>
         <h3>{{$artwork->artists->name}}</h3>
-        <p>{{$artwork->category->name}}</p>
+        <h5 id="price">Rp{{$artwork->price}}</h5>
+        <a href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">
+            <p>{{$artwork->category->name}}</p>
+        </a>
         <p>{{$artwork->sizeHeight}} cm (H) / {{$artwork->sizeWidth}} cm (W)</p>
-        <p>Rp{{$artwork->price}}</p>
+
     </div>
     @endforeach
 </div>

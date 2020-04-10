@@ -49660,7 +49660,6 @@ __webpack_require__.r(__webpack_exports__);
 var navSlide = function navSlide() {
   var burger = document.querySelector('.burger');
   var nav = document.querySelector('.nav-links');
-  var navLinks = document.querySelector('.nav-links li');
   burger.addEventListener('click', function () {
     nav.classList.toggle('nav-active');
   });

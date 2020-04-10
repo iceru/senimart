@@ -108,15 +108,33 @@
 	}
 }
 
-.modalcustom {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 600px;
-	max-width: 100%;
+.modal-body {
+	padding: 0;
 
-	.modal-body {
-		width: 600px;
+	.container-fluid {
+		padding: 0;
+
+		img {
+			height: 400px;
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+		}
+
+		.modal-text {
+			padding: 20px 30px;
+		}
+
+		.place-date {
+			p {
+				margin: 5px 0 5px 0;
+				font-size: 1em;
+			}
+		}
+
+		p {
+			margin: 10px 0;
+			font-size: 1.3em;
+		}
 	}
 }

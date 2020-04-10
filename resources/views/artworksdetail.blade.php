@@ -13,8 +13,12 @@
 
     <div class="desc">
         <h1>{{ $artwork->title}}</h1>
-        <h2>{{ $artwork->artists->name}}</h2>
-        <p>{{$artwork->category->name}}</p>
+        <a href="/artist/{{$artwork->artists->slug}}">
+            <h2>{{ $artwork->artists->name}}</h2>
+        </a>
+        <a href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">
+            <p>{{$artwork->category->name}}</p>
+        </a>
         <hr />
         <h3>Rp.{{ $artwork->price}}</h3>
         <p>{{$artwork->subcategory}}</p>
@@ -47,12 +51,21 @@
 <div class="similiar">
     @foreach ($similiars as $similiar)
     <div class="art-image">
-        <img src="{{asset('storage/'. $similiar->image)}}" alt="" />
-        <h2>{{$similiar->title}}</h2>
-        <h3>{{$similiar->artists->name}}</h3>
-        <p>{{$similiar->category->name}}</p>
-        <p>{{$similiar->sizeHeight}} cm (H) / {{$similiar->sizeWidth}} cm (W)</p>
-        <p id="price">Rp.{{$similiar->price}}</p>
+        <a href="/artwork/{{$similiar->slug}}">
+            <img src="{{asset('storage/'. $similiar->image)}}" alt="" />
+        </a>
+        <a href="/artwork/{{$similiar->slug}}">
+            <h2>{{$similiar->title}}</h2>
+        </a>
+        <a href="/artist/{{$similiar->artists->slug}}">
+            <h3>{{$similiar->artists->name}}</h3>
+        </a>
+        <h5 id="price">Rp.{{$similiar->price}}</h5>
+        <a href="{{ route('artworks.index', ['category' => $similiar->category->slug ])}}">
+            <p>{{$similiar->category->name}}</p>
+        </a>
+        {{-- <p>{{$similiar->sizeHeight}} cm (H) / {{$similiar->sizeWidth}} cm (W)</p> --}}
+
     </div>
     @endforeach
 </div>

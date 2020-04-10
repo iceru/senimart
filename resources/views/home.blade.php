@@ -8,15 +8,18 @@ Senimart
 
 <section class="index">
   <div class="calltoaction">
-    <img src="/image/header.jpg" alt="" />
-  </div>
-  <div class="cta-text">
-    <h1>Call to Action</h1>
-    <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
-    <div class="button-ctr">
-      <a href="{{route('artworks.index')}}" class="button-white">Shop Now</a>
+    <div class="cta-text">
+      <h1>Call to Action</h1>
+      <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
+      <div class="button-ctr">
+        <a href="{{route('artworks.index')}}" class="button-white">Shop Now</a>
+      </div>
     </div>
+
   </div>
+  {{-- <div class="cta-text">
+    
+  </div> --}}
 
   <div class="featured">
     <h1>FEATURED ARTS</h1>
@@ -36,7 +39,9 @@ Senimart
           <h3>{{ $featured->artists->name }}</h3>
         </a>
         <h5 class="mono">Rp{{ $featured->price }}</h5>
-        <p>{{ $featured->category->name}} </p>
+        <a href="{{ route('artworks.index', ['category' => $featured->category->slug])}}">
+          <p>{{ $featured->category->name}} </p>
+        </a>
         <p></p>
 
       </div>
