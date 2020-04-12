@@ -108,6 +108,57 @@
 	}
 }
 
+@media only screen and (max-width: $break-small) {
+	.services {
+		padding: 30px 5%;
+
+		h1 {
+			font-size: 3em;
+		}
+
+		hr {
+			width: 30%;
+		}
+		.service-item {
+			grid-template-columns: repeat(1, 1fr);
+			margin-bottom: 60px;
+			margin-top: 0;
+
+			.number {
+				width: 80px;
+			}
+
+			.service1,
+			.service2,
+			.service3 {
+				margin-top: 50px;
+			}
+
+			.p-1 {
+				margin: 10px 0;
+			}
+
+			p {
+				font-size: 1.7em;
+			}
+		}
+	}
+
+	.porjects {
+		margin: 50px 5%;
+
+		.title-projects {
+			p {
+				font-size: 1.2em;
+			}
+		}
+
+		.projects-item {
+			grid-template-columns: repeat(1, 2fr);
+		}
+	}
+}
+
 .modal-body {
 	padding: 0;
 
@@ -129,6 +180,7 @@
 			p {
 				margin: 5px 0 5px 0;
 				font-size: 1em;
+				color: $orange;
 			}
 		}
 

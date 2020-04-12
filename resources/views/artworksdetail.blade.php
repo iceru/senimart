@@ -1,5 +1,9 @@
 @extends ('layouts.app')
 
+@section('title')
+Senimart - {{ $artwork->title }}
+@endsection
+
 @section ('content')
 <div class="breadcrumbs">
     <p><a href="{{ route('home') }}">Home</a> / <a href="{{ route('artworks.index') }}">Artworks</a> /
@@ -14,13 +18,13 @@
     <div class="desc">
         <h1>{{ $artwork->title}}</h1>
         <a href="/artist/{{$artwork->artists->slug}}">
-            <h2>{{ $artwork->artists->name}}</h2>
+            <h4>{{ $artwork->artists->name}}</h5>
         </a>
+        <h3>Rp.{{ $artwork->price}}</h3>
+        <hr />
         <a href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">
             <p>{{$artwork->category->name}}</p>
         </a>
-        <hr />
-        <h3>Rp.{{ $artwork->price}}</h3>
         <p>{{$artwork->subcategory}}</p>
         <p>{{ $artwork->sizeHeight}}cm (H) / {{ $artwork->sizeWidth}}cm (W)</p>
         <hr />
@@ -35,7 +39,7 @@
                 <input type="hidden" name="title" value="{{$artwork->title}}">
                 <input type="hidden" name="price" value="{{$artwork->price}}">
                 <button type="submit" class="button-black">Add to Cart</button>
-                <a href="/cart/wishlist/{{$artwork->id}}" class="button-black">Wishlist &nbsp; <i
+                <a href="/cart/wishlist/{{$artwork->id}}" class="button-list-black">Wishlist &nbsp; <i
                         class="fa fa-heart"></i></a>
             </form>
 

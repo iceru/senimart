@@ -14,8 +14,26 @@
 		color: black;
 	}
 
+	.left {
+		li {
+			list-style-type: none;
+		}
+	}
+
 	.right {
 		display: flex;
+
+		.badge {
+			background-color: $orange;
+			border-radius: 10px;
+			color: white;
+			display: inline-block;
+			font-size: 10px;
+			line-height: 1;
+			padding: 3px 7px;
+			text-align: center;
+			white-space: nowrap;
+		}
 	}
 }
 
@@ -25,7 +43,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	vertical-align: middle;
-	margin: 5px 15% 0px 10%;
+	margin: 5px 10% 0px 10%;
 	@media only screen and (max-width: $break-small) {
 		margin: 20px 5%;
 	}
@@ -40,7 +58,7 @@
 		justify-content: center;
 		vertical-align: middle;
 		cursor: pointer;
-		@media only screen and (min-width: $break-med) {
+		@media only screen and (min-width: $break-small) {
 			display: none;
 		}
 	}
@@ -61,10 +79,16 @@
 }
 
 .navigation {
+	position: sticky;
+	top: 20px;
 	display: flex;
 	justify-content: center;
 	margin-top: 5px;
 	box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.2);
+
+	img {
+		display: none;
+	}
 	ul {
 		list-style-type: none;
 		padding: 0;
@@ -79,7 +103,7 @@
 
 		li a {
 			font-size: 1.3em;
-			margin: 0 30px;
+			margin: 0 20px;
 			color: black;
 			position: relative;
 			text-decoration: none;
@@ -123,37 +147,57 @@
 	}
 }
 
-@media only screen and (max-width: $break-med) {
+@media only screen and (max-width: $break-small) {
 	body {
 		overflow-x: hidden;
 	}
 	.navigation {
-		.nav-links {
-			position: absolute;
-			height: 100vh;
-			top: 0vh;
-			right: 0px;
-			background-color: #ededed;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			width: 50%;
-			transform: translateX(100%);
-			opacity: 90%;
-			transition: transform 0.5s ease-in;
-			z-index: 3;
+		position: absolute;
+		height: 100%;
+		top: 0;
+		right: 0px;
+		background-color: rgba($color: white, $alpha: 1);
+		width: 50%;
+		transform: translateX(-200%);
+		transition: 0.5s ease-in;
+		z-index: 3;
+		box-shadow: -5px -5px 10px rgba($color: #000000, $alpha: 0.1);
+		text-align: center;
+		img {
+			display: block;
+			width: 200px;
 		}
 
-		li {
-			opacity: 0;
+		#burger {
+			width: 20px;
+			cursor: pointer;
+		}
+
+		ul {
+			display: flex;
+			flex-direction: column;
+			margin-top: 30px;
+			text-align: center;
+
+			li {
+				margin-top: 30px;
+				opacity: 60%;
+				transition: 0.3s ease-in;
+
+				&:hover {
+					opacity: 100%;
+					transition: 0.3s ease-out;
+				}
+			}
 		}
 	}
 
 	.burger {
 		display: block;
 	}
+}
 
-	.nav-active {
-		transform: translateX(0%);
-	}
+.active {
+	transform: translateX(-100%);
+	transition: 0.5s ease-out;
 }

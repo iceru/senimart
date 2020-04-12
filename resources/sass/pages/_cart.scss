@@ -10,6 +10,8 @@ a {
 	margin-bottom: 20px;
 	border: 1px solid transparent;
 	border-radius: 4px;
+	transition: 0.3s ease-in;
+	font-size: 1.2em;
 }
 
 .alert-danger {
@@ -20,6 +22,12 @@ a {
 	margin-bottom: 20px;
 	border: 1px solid transparent;
 	border-radius: 4px;
+	transition: 0.3s ease-in;
+}
+
+.alert {
+	padding: 0;
+	padding-right: 20%;
 }
 
 .cart {

@@ -12,7 +12,7 @@ Senimart - Artworks
   <div class="flex-artworks">
     <div class="sidebar">
       @if(request()->fullurl() != request()->url())
-      <h1><a href="{{request()->url()}}">Clear Filter</a></h1>
+      <h1 class="clear"><a href="{{request()->url()}}">Clear Filter</a></h1>
       @endif
 
       <div class="category">
@@ -45,10 +45,26 @@ Senimart - Artworks
       </div>
 
     </div>
+    <div class="artworks-product">
+
+    </div>
     <div class="products-items">
       @forelse ($artworks as $artwork)
       <div class="item">
-        <img src="{{ asset('storage/'.$artwork->image) }}" alt="arts" />
+        <a href="/artwork/{{$artwork->slug}}">
+          <img src="{{ asset('storage/'.$artwork->image) }}" alt="arts" />
+        </a>
+        <div class="cart-wishlist">
+          <form action="{{route('cart.store')}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="id" value="{{$artwork->id}}">
+            <input type="hidden" name="title" value="{{$artwork->title}}">
+            <input type="hidden" name="price" value="{{$artwork->price}}">
+            <button type="submit" class="button-list-black">Add to Cart</button>
+            <a href="/cart/wishlist/{{$artwork->id}}" class="button-list-black">Wishlist &nbsp; <i
+                class="fa fa-heart"></i></a>
+          </form>
+        </div>
         <a href="/artwork/{{$artwork->slug}}">
           <h2>{{ $artwork->title}}</h2>
         </a>
@@ -59,6 +75,8 @@ Senimart - Artworks
         <a href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">
           <p>{{$artwork->category->name}}</p>
         </a>
+
+
         {{-- <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p> --}}
       </div>
       @empty

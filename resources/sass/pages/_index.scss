@@ -7,11 +7,12 @@
 	margin: 0 20px;
 	cursor: pointer;
 	transition: 0.2s ease-out;
+	border-radius: 3px;
 }
 
 .button-white {
 	background-color: rgba($color: #000000, $alpha: 0);
-	border: 2px solid white;
+	border: 1px solid white;
 	color: white;
 	@extend %button;
 
@@ -24,7 +25,7 @@
 
 .button-list-black {
 	background-color: rgba($color: #000000, $alpha: 0);
-	border: 2px solid black;
+	border: 1px solid black;
 	color: black;
 	@extend %button;
 
@@ -37,14 +38,14 @@
 
 .button-black {
 	background-color: black;
-	border: 2px solid black;
+	border: 1px solid black;
 	color: white;
 	@extend %button;
 	transition: 0.2s ease-in;
 
 	&:hover {
 		background-color: $orange;
-		border: 2px solid $orange;
+		border: 1px solid $orange;
 		color: white;
 		transition: 0.2s ease-in;
 	}
@@ -75,7 +76,7 @@ a:hover {
 	@media only screen and (max-width: $break-med) {
 		grid-template-columns: repeat(2, 2fr);
 	}
-	grid-gap: 30px;
+	grid-gap: 40px;
 	text-align: center;
 	margin: 20px 20px;
 
@@ -90,7 +91,6 @@ a:hover {
 			margin: 20px 0 0 0;
 			font-size: 1.6em;
 			color: black;
-			font-family: $fontmed;
 			transition: 0.2s ease-out;
 
 			&:hover {
@@ -164,16 +164,8 @@ a:hover {
 		justify-content: center;
 		vertical-align: middle;
 
-		@media only screen and (max-width: $break-large) {
-			height: 500px;
-
-			img {
-				height: 500px;
-			}
-		}
-
 		.cta-text {
-			padding: 150px 0;
+			padding: 15vh 0;
 			background-color: rgba($color: #000000, $alpha: 0.8);
 		}
 
@@ -229,6 +221,13 @@ a:hover {
 				padding: 40px;
 				img {
 					width: 90%;
+					opacity: 100%;
+					transition: 0.2s ease-out;
+
+					&:hover {
+						opacity: 80%;
+						transition: 0.2s ease-in;
+					}
 				}
 
 				h2 {
@@ -300,16 +299,19 @@ a:hover {
 			grid-template-columns: repeat(2, 2fr);
 			grid-gap: 20px;
 			margin: 20px 40px;
+			opacity: 100%;
 
 			h2 {
 				font-size: 3.6em;
 				margin: 0;
+				transition: 0.3s ease-out;
 			}
 
 			h1 {
 				margin: 0;
 				font-size: 6em;
 				color: white;
+				transition: 0.3s ease-out;
 			}
 
 			@media only screen and (max-width: $break-med) {
@@ -332,6 +334,24 @@ a:hover {
 			cursor: pointer;
 			background-repeat: no-repeat;
 			background-size: cover;
+
+			opacity: 100%;
+			transition: 0.3s ease-out;
+
+			&:hover {
+				opacity: 80%;
+				transition: 0.4s ease-in;
+
+				h1 {
+					font-size: 6.2em;
+					transition: 0.4s ease-in;
+				}
+
+				h2 {
+					font-size: 3.8em;
+					transition: 0.4s ease-in;
+				}
+			}
 		}
 
 		.price-pic1 {
@@ -405,6 +425,16 @@ a:hover {
 			p {
 				background-color: rgba($color: black, $alpha: 0.6);
 				padding: 120px 20px;
+				transition: 0.3s ease-out;
+			}
+
+			&:hover {
+				p {
+					background-color: rgba($color: black, $alpha: 0.2);
+					font-size: 3.3em;
+					padding: 116px 20px;
+					transition: 0.4s ease-in;
+				}
 			}
 		}
 	}
@@ -466,7 +496,7 @@ a:hover {
 			width: 60%;
 			margin: auto;
 			margin-top: -50px;
-			z-index: 4;
+			z-index: 2;
 			h4 {
 				font-size: 1.7em;
 				margin: 0;

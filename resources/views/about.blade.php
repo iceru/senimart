@@ -22,7 +22,7 @@ About - Senimart
         </div>
         <div class="contact-detail">
             <hr>
-            <img src="image/contact.png" alt="">
+            <img class="contact-title" src="image/contact.png" alt="">
             <p><i class="fa fa-phone-alt"></i> +62-816-627-582</p>
             <p><i class="fa fa-envelope"></i> contact@senimart.id</p>
         </div>
@@ -50,7 +50,7 @@ About - Senimart
     </div>
 
     <div class="team">
-        <img src="image/team.png" alt="">
+        <img class="team-title" src="image/team.png" alt="">
         <div class="team-items">
             <div class="team1">
                 <div class="team-img">

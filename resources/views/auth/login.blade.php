@@ -15,9 +15,9 @@ Senimart - Login
                 <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"
                     value="{{ old('email') }}" required autocomplete="email" autofocus>
                 @error('email')
-                <span class="invalid-feedback" role="alert">
+                <div class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
-                </span>
+                </div>
                 @enderror
             </div>
 

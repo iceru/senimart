@@ -25,3 +25,18 @@
 		}
 	}
 }
+
+@media only screen and (max-width: $break-small) {
+	.sort-name {
+		margin: 20px 5%;
+
+		a,
+		p {
+			font-size: 1.1em;
+		}
+	}
+
+	.artists-home {
+		margin: 20px 10%;
+	}
+}
