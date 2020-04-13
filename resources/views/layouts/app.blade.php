@@ -157,9 +157,9 @@
     burger.addEventListener('click', () => {
       nav.classList.toggle('active');
     });
-
-
   </script>
+
+  @yield('js')
 
 
 

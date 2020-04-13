@@ -67,27 +67,6 @@ Senimart - Projects
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="container-fluid">
-                            <div id="carouselId" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="carousel-item active">
-                                        <img src="{{ asset('storage/'.$project->image) }}" alt="project">
-                                    </div>
-                                    @foreach(json_decode($project->gallery, true) as $image)
-                                    <div class="carousel-item">
-                                        <img src="{{ URL::to('storage/'.$image)}}" alt="{{ $project->name }}">
-                                    </div>
-                                    @endforeach
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-
                             <div class="modal-text">
                                 <h4>{{ $project->name }}</h4>
                                 <div class="place-date">
@@ -105,7 +84,7 @@ Senimart - Projects
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="button-black" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

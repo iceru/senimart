@@ -56,14 +56,18 @@ Senimart
       by Price.
     </h1>
     <div class="price2">
-      <div class="price-pic1" onclick="location.href='#';">
-        <h2>UNDER</h2>
-        <h1>500$</h1>
-      </div>
-      <div class="price-pic2">
-        <h2>OVER</h2>
-        <h1>500$</h1>
-      </div>
+      <a href="{{ route('artworks.index', ['price' => 'under500'])}}">
+        <div class="price-pic1" onclick="location.href='#';">
+          <h2>UNDER</h2>
+          <h1>500$</h1>
+        </div>
+      </a>
+      <a href="{{ route('artworks.index', ['price' => 'above500'])}}">
+        <div class="price-pic2">
+          <h2>OVER</h2>
+          <h1>500$</h1>
+        </div>
+      </a>
     </div>
   </div>
 

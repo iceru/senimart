@@ -71,9 +71,9 @@
 	}
 
 	img {
-		width: 20%;
-		@media only screen and (min-width: $break-med) {
-			width: 15%;
+		width: 10%;
+		@media only screen and (max-width: $break-med) {
+			width: 5%;
 		}
 	}
 }
@@ -83,7 +83,7 @@
 	top: 20px;
 	display: flex;
 	justify-content: center;
-	margin-top: 5px;
+	margin-top: 10px;
 	box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.2);
 
 	img {
@@ -151,6 +151,13 @@
 	body {
 		overflow-x: hidden;
 	}
+
+	.navbar2 {
+		img {
+			width: 15%;
+		}
+	}
+
 	.navigation {
 		position: absolute;
 		height: 100%;

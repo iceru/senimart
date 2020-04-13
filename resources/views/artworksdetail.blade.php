@@ -12,8 +12,24 @@ Senimart - {{ $artwork->title }}
 
 <section class="artworks-detail">
     <div class="art">
-        <img src="{{ asset('storage/'.$artwork->image) }}" alt="{{$artwork->slug}}" />
+        <div class="art-item">
+            <img class="activeimg" src="{{ asset('storage/'.$artwork->image) }}" alt="{{$artwork->slug}}"
+                id="currentImage" />
+        </div>
+        @if ($artwork->gallery)
+        <div class="arts">
+            <div class="arts-item">
+                <img src="{{ asset('storage/'.$artwork->image) }}" alt="{{$artwork->slug}}" />
+            </div>
+            @foreach (json_decode($artwork->gallery, true) as $images)
+            <div class="arts-item">
+                <img src="{{ URL::to('storage/' . $images)}}" alt="{{$artwork->slug}}">
+            </div>
+            @endforeach
+        </div>
+        @endif
     </div>
+
 
     <div class="desc">
         <h1>{{ $artwork->title}}</h1>
@@ -77,4 +93,29 @@ Senimart - {{ $artwork->title }}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
     integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
 
+@endsection
+
+@section('js')
+<script>
+    (function() {
+        const currentImage = document.querySelector('#currentImage');
+        const images = document.querySelectorAll('.arts-item');
+
+        images.forEach((element) => element.addEventListener('click', thumbnailClick));
+
+        function thumbnailClick(e) {
+          // currentImage.src = this.querySelector('img').src;
+
+            currentImage.classList.remove('activeimg');
+
+            currentImage.addEventListener('transitionend', () => {
+                currentImage.src = this.querySelector('img').src;
+                currentImage.classList.add('activeimg')
+            })
+
+            images.foreach((element) => element.classList.remove('selectedimg'));
+            this.classList.add('selectedimg');
+        }
+    })();
+</script>
 @endsection

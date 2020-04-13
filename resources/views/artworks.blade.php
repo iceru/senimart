@@ -10,7 +10,7 @@ Senimart - Artworks
     <h1>Artworks</h1>
   </div>
   <div class="flex-artworks">
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       @if(request()->fullurl() != request()->url())
       <h1 class="clear"><a href="{{request()->url()}}">Clear Filter</a></h1>
       @endif
@@ -51,18 +51,21 @@ Senimart - Artworks
     <div class="products-items">
       @forelse ($artworks as $artwork)
       <div class="item">
-        <a href="/artwork/{{$artwork->slug}}">
-          <img src="{{ asset('storage/'.$artwork->image) }}" alt="arts" />
-        </a>
         <div class="cart-wishlist">
-          <form action="{{route('cart.store')}}" method="post">
+          <a href="/artwork/{{$artwork->slug}}">
+            <img src="{{ asset('storage/'.$artwork->image) }}" alt="arts" />
+          </a>
+          <form class="form-cart" action="{{route('cart.store')}}" method="post">
             {{ csrf_field() }}
             <input type="hidden" name="id" value="{{$artwork->id}}">
             <input type="hidden" name="title" value="{{$artwork->title}}">
             <input type="hidden" name="price" value="{{$artwork->price}}">
-            <button type="submit" class="button-list-black">Add to Cart</button>
-            <a href="/cart/wishlist/{{$artwork->id}}" class="button-list-black">Wishlist &nbsp; <i
-                class="fa fa-heart"></i></a>
+            <button type="submit" class="button-white">
+              <i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i>
+            </button>
+            <a href="/cart/wishlist/{{$artwork->id}}" class="button-white">
+              <i class="fa fa-heart fa-lg"></i>
+            </a>
           </form>
         </div>
         <a href="/artwork/{{$artwork->slug}}">
@@ -88,6 +91,5 @@ Senimart - Artworks
 @endsection
 
 
-</body>
 
 </html>

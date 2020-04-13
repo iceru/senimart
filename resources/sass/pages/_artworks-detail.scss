@@ -28,20 +28,28 @@
 
 	.art {
 		margin: 0 3% 0 0;
-		width: 40%;
+		width: 35%;
 
 		img {
 			width: 100%;
 		}
-		.art-img {
-			text-align: center;
+	}
+
+	.art-item {
+		border: 1px solid $grey;
+		vertical-align: center;
+		text-align: center;
+
+		img {
+			width: 430px;
+			height: 430px;
+			object-fit: contain;
+			opacity: 0;
+			transition: opacity .5s ease-in-out;
 		}
 
-		.art-nav {
-			img {
-				width: 90%;
-				margin-top: 10px;
-			}
+		img.activeimg {
+			opacity: 1;
 		}
 	}
 
@@ -93,6 +101,33 @@
 		}
 	}
 
+	.arts {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 20px;
+		justify-content: space-between;
+		text-align: center;
+		margin-top: 30px;
+
+		.arts-item {
+			padding: 10px;
+			width: 100%;
+			cursor: pointer;
+			border: 1px solid $grey;
+			transition: 0.3s ease-out;
+
+			img {
+				height: 100%;
+				object-fit: scale-down;
+			}
+
+			&:hover {
+				border: 1px solid $orange;
+				transition: 0.3s ease-in;
+			}
+		}
+	}
+
 	@media only screen and (max-width: $break-small) {
 		margin: 10px 5% 50px 5%;
 		flex-direction: column;
@@ -105,6 +140,10 @@
 			img {
 				width: 80%;
 			}
+		}
+
+		.arts {
+			margin: 10px 10%;
 		}
 
 		h1 {
@@ -197,4 +236,8 @@ a {
 			}
 		}
 	}
+}
+
+.selectedimg {
+	background-color: red;
 }
