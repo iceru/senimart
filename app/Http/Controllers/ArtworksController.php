@@ -24,4 +24,8 @@ class ArtworksController extends Controller
         
         return view('artworksdetail', compact('artwork', 'similiars'));
     }  
+
+    public function search(Request $request) {
+        return view('searchpage');
+    }
 }

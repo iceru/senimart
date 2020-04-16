@@ -21,6 +21,7 @@ Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.sho
 
 Route::get('/artworks', 'ArtworksController@index')->name('artworks.index');
 Route::get('/artwork/{artwork}', 'ArtworksController@show')->name('artworks.show');
+Route::get('/search', 'ArtworksController@search')->name('search');
 
 Route::get('/artists', 'ArtistsController@index')->name('artists.index');
 Route::get('/artist/{artist}', 'ArtistsController@show');

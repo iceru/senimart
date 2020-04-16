@@ -21,7 +21,7 @@
 <body>
   <div id="app">
     <header>
-      <nav class="navbar1">
+      <nav class="navbar1" id="navbar1">
         <div class="left">
           @guest
           <div class="signin">
@@ -33,7 +33,7 @@
           @else
           <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-              <i class="fa fa-user"></i>&nbsp;{{ Auth::user()->name }} <span class="caret"></span>
+              Welcome, {{ Auth::user()->name }} <span class="caret"></span>
             </a>
 
             <ul class="dropdown-menu" role="menu">
@@ -47,17 +47,36 @@
                   {{ csrf_field() }}
                 </form>
               </li>
+
+              <li>
+                <a href="{{route('cart.wishindex')}}">Wishlist &nbsp;<i class="fa fa-heart"></i></a>
+              </li>
             </ul>
           </li>
           @endguest
         </div>
 
 
-        <div class="right">
-          <a href="{{ route('cart.index') }}" id="cart"><i class="fa fa-shopping-basket"></i> Cart <span
-              class="badge">{{ Cart::count() }}</span></a>
-          &nbsp;|&nbsp;
-          <a href="{{route('cart.wishindex')}}">Wishlist &nbsp;<i class="fa fa-heart"></i></a>
+        <div class="right" id="right">
+
+          <a href="{{ route('cart.index') }}" id="cart">
+            <div class="cart-nav">
+              <p><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;Cart</p>
+
+              {{-- <span class="badge">{{ Cart::count() }}</span> --}}
+            </div>
+          </a>
+
+          &nbsp;|&nbsp; {{-- 
+          --}}
+          <div class="search-button">
+            <a href="#" class="search-toggle" data-selector="#right"> <i class="fa fa-search"
+                aria-hidden="true"></i>&nbsp;Search
+            </a>
+          </div>
+          <form action="{{ route('search') }}" method="GET" class="search-box">
+            <input type="text" name="query" value="{{ request()->input('query') }}" id="query" class="text search-input" placeholder="Type here to search..." />
+          </form>
         </div>
       </nav>
       <nav class="navbar2">
@@ -155,8 +174,19 @@
     let nav = document.getElementById('nav-links');
 
     burger.addEventListener('click', () => {
-      nav.classList.toggle('active');
+      nav.classList.toggle('activenav');
     });
+  </script>
+
+  <script>
+    $('.right').on('click', '.search-toggle', function(e) {
+  var selector = $(this).data('selector');
+
+  $(selector).toggleClass('show').find('.search-input').focus();
+  $(this).toggleClass('activenav');
+
+  e.preventDefault();
+});
   </script>
 
   @yield('js')

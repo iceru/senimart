@@ -1,6 +1,7 @@
 footer {
 	img {
-		width: 15%;
+		width: 10%;
+		margin: 10px;
 	}
 
 	background-color: $grey;
@@ -88,7 +89,7 @@ footer {
 	@media only screen and (max-width: $break-small) {
 		padding: 20px 5%;
 		img {
-			width: 40%;
+			width: 30%;
 			margin: 10px 0;
 		}
 		.footersect {

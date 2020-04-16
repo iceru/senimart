@@ -48,24 +48,17 @@
 
 		@media only screen and (max-width: $break-small) {
 			flex-direction: column;
+			margin-top: 30px;
 		}
 
 		.sidebar {
 			padding: 0px 10px;
-			width: 20%;
+			width: 30%;
 			border-right: 1px solid black;
 
 			.clear {
 				font-size: 1.8em;
 				margin: 0 0 20px 0;
-			}
-
-			@media only screen and (min-width: $break-small) {
-				width: 25%;
-			}
-
-			@media only screen and (min-width: $break-large) {
-				width: 20%;
 			}
 
 			@media only screen and (max-width: $break-small) {
@@ -89,6 +82,7 @@
 					.item {
 						display: grid;
 						grid-template-columns: repeat(2, 1fr);
+						margin-top: 5px;
 					}
 				}
 			}

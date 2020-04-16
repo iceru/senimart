@@ -9,12 +9,13 @@ Senimart
 <section class="index">
   <div class="calltoaction">
     <div class="cta-text">
-      <h1>Call to Action</h1>
-      <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
-      <div class="button-ctr">
+      <h1>We're Back</h1>
+      <img src="/image/logowhite.png" alt="">
+      {{-- <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4> --}}
+      {{-- <div class="button-ctr">
         <a href="{{route('artworks.index')}}" class="button-white">Shop Now</a>
-      </div>
-    </div>
+    </div> --}}
+  </div>
 
   </div>
   {{-- <div class="cta-text">
@@ -22,7 +23,7 @@ Senimart
   </div> --}}
 
   <div class="featured">
-    <h1>FEATURED ARTS</h1>
+    <h1>Featured Arts</h1>
     <div class="break"></div>
     <hr />
     <div class="break"></div>
@@ -32,16 +33,24 @@ Senimart
         <a href="/artwork/{{$featured->slug}}">
           <img src="{{asset('storage/'. $featured->image)}}" alt="picture-1" />
         </a>
-        <a href="/artwork/{{$featured->slug}}">
-          <h2>{{ $featured->title }}</h2>
-        </a>
-        <a href="/artist/{{$featured->artists->slug}}">
-          <h3>{{ $featured->artists->name }}</h3>
-        </a>
-        <h5 class="mono">Rp{{ $featured->price }}</h5>
-        <a href="{{ route('artworks.index', ['category' => $featured->category->slug])}}">
-          <p>{{ $featured->category->name}} </p>
-        </a>
+        <div class="painting-text">
+          <a href="/artwork/{{$featured->slug}}">
+            <h2>{{ $featured->title }}</h2>
+          </a>
+          <div class="author-price">
+            <div class="author">
+              <a href="/artist/{{$featured->artists->slug}}">
+                <h5>{{ $featured->artists->name }}</h5>
+              </a>
+              <a href="{{ route('artworks.index', ['category' => $featured->category->slug])}}">
+                <p>{{ $featured->category->name}} </p>
+              </a>
+            </div>
+            <h3>Rp{{ $featured->price }}</h3>
+          </div>
+        </div>
+
+
         <p></p>
 
       </div>
@@ -72,7 +81,7 @@ Senimart
   </div>
 
   <div class="products">
-    <h1>PRODUCTS</h1>
+    <h1>Products</h1>
     <hr />
     <div class="products-items">
       @foreach ($artworks as $artwork)
@@ -135,7 +144,7 @@ Senimart
   </div>
 
   <div class="artists-home">
-    <h1>FEATURED ARTISTS</h1>
+    <h1>Featured Artists</h1>
     <hr />
     <div class="artist-items">
       @foreach ($artists as $artist)
