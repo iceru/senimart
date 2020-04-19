@@ -7,6 +7,17 @@ $line-height-base: 1.6;
 
 $fa-font-path: "../webfonts";
 
+a {
+	text-decoration: none;
+	color: black;
+	transition: 0.2s ease-out;
+
+	&:hover {
+		color: $orange;
+		transition: 0.2s ease-in;
+	}
+}
+
 $fontbold: "apercubold";
 $fontmed: "apercumedium";
 $fontmono: "apercu_monoregular";

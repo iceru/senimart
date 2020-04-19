@@ -31,8 +31,6 @@
 
 
 @import '~bootstrap/scss/bootstrap';
-@import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
-@import '~@fortawesome/fontawesome-free/scss/solid.scss';
 html,
 body {
 	padding: 0;
@@ -41,6 +39,7 @@ body {
 }
 // Variables
 @import 'base/variables';
+@import 'component/button';
 @import 'pages/index';
 @import 'pages/artworks';
 @import 'pages/artists';
@@ -50,7 +49,7 @@ body {
 @import 'pages/cart';
 @import 'pages/about';
 @import 'pages/projects';
+@import 'pages/searchpage';
 @import 'layout/footer';
 @import 'layout/navbar';
-@import 'layout/admin.scss';
 @import 'pages/loginregister';

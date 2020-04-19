@@ -46,7 +46,10 @@ Senimart
                 <p>{{ $featured->category->name}} </p>
               </a>
             </div>
-            <h3>Rp{{ $featured->price }}</h3>
+            <div>
+              <h3>Rp{{ $featured->price }}</h3>
+            </div>
+
           </div>
         </div>
 

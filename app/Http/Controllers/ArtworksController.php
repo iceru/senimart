@@ -26,6 +26,10 @@ class ArtworksController extends Controller
     }  
 
     public function search(Request $request) {
-        return view('searchpage');
+        $query = $request->input('query');
+
+        $artworks = Artworks::where('title', 'like', "%$query%")->paginate(10);
+
+        return view('searchpage')->with('artworks', $artworks);
     }
 }

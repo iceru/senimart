@@ -58,6 +58,13 @@ Senimart - Register
                     autocomplete="new-password">
             </div>
 
+            <div class="already-account">
+                <a href="{{ route('login') }}">
+                    <p> <strong>Already have an account?</strong> </p>
+                </a>
+
+            </div>
+
             <div class="loginbutton">
                 <button id="login-btn" type="submit">Register</button>
             </div>

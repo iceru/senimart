@@ -17,6 +17,7 @@ Senimart - Artworks
 
       <div class="category">
         <h1>Category</h1>
+        <hr>
         <ul>
           @foreach ($categories as $category)
           <li><a href="{{ request()->fullUrlWithQuery(['category' => $category->slug])}}">{{$category->name}}</a></li>
@@ -27,6 +28,7 @@ Senimart - Artworks
 
       <div class="price">
         <h1>Price</h1>
+        <hr>
         <ul>
           <li><a href="{{request()->fullUrlWithQuery(['price' => 'under500'])}}">Under 500$</a></li>
           <li><a href="{{request()->fullUrlWithQuery(['price' => 'above500'])}}">Above 500$</a></li>
@@ -35,6 +37,7 @@ Senimart - Artworks
 
       <div class="color">
         <h1>Color</h1>
+        <hr>
         <div class="item">
           @foreach ($colors as $color)
           <a class="{{$color->name}}" data-toggle="tooltip" data-placement="top" title="{{$color->name}}"
@@ -43,9 +46,6 @@ Senimart - Artworks
         </div>
 
       </div>
-
-    </div>
-    <div class="artworks-product">
 
     </div>
     <div class="products-items">
@@ -71,10 +71,10 @@ Senimart - Artworks
         <a href="/artwork/{{$artwork->slug}}">
           <h2>{{ $artwork->title}}</h2>
         </a>
+        <h3 id="price">Rp{{ $artwork->price}} </h3>
         <a href="/artist/{{$artwork->artists->slug}}">
-          <h3>{{ $artwork->artists->name }} </h3>
+          <h5>{{ $artwork->artists->name }} </h5>
         </a>
-        <h5 id="price">Rp{{ $artwork->price}}</h5>
         <a href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">
           <p>{{$artwork->category->name}}</p>
         </a>
