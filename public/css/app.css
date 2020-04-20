@@ -10342,6 +10342,12 @@ a:hover {
   }
   .products .products-items .item img {
     width: 100%;
+    opacity: 100%;
+    transition: 0.2s ease-out;
+  }
+  .products .products-items .item img:hover {
+    opacity: 80%;
+    transition: 0.2s ease-in;
   }
   .products .products-items .item h2 {
     margin: 20px 0 0 0;
@@ -10997,10 +11003,9 @@ a:hover {
   }
 }
 .artist-detail {
-  margin: 50px 25%;
   display: flex;
 }
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 100px) {
   .artist-detail {
     flex-direction: column;
     margin: 20px 5%;
@@ -11015,6 +11020,23 @@ a:hover {
   }
   .artist-detail .artistd-photo {
     text-align: center;
+  }
+  .artist-detail .artistd-photo img {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .artist-detail {
+    margin: 50px 10%;
+    flex-direction: row;
+  }
+  .artist-detail .artistd-photo img {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .artist-detail {
+    margin: 50px 25%;
   }
 }
 
@@ -11046,29 +11068,26 @@ a:hover {
   justify-content: center;
   text-align: center;
 }
-.art-related .art-image {
-  margin: 0px 10px;
-  margin-bottom: 50px;
-  width: 33%;
-  justify-content: center;
-}
-.art-related .art-image img {
+.art-related img {
   width: 90%;
 }
-.art-related .art-image h2 {
+.art-related .art-image {
+  justify-content: center;
+}
+.art-related h2 {
   margin: 20px 0 0 0;
   font-family: "apercumedium";
 }
-.art-related .art-image h3 {
+.art-related h3 {
   margin: 5px 0 0 0;
 }
-.art-related .art-image h5 {
+.art-related h5 {
   margin: 5px 0 0 0;
 }
-.art-related .art-image p {
+.art-related p {
   margin: 5px 0 0 0;
 }
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 100px) {
   .art-related {
     margin: 10px 5% 100px 5%;
     flex-wrap: wrap;
@@ -11082,22 +11101,31 @@ a:hover {
     width: 250px;
   }
 }
-
-.break {
-  flex-basis: 100%;
-  height: 0;
+@media only screen and (min-width: 900px) {
+  .art-related {
+    margin: 10px 18% 100px 18%;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+  .art-related .art-image {
+    margin: 0px 10px;
+    margin-bottom: 50px;
+    width: 33%;
+  }
 }
 
-.breadcrumbs {
-  margin: 70px 15% 0 15%;
-  display: flex;
-  text-align: left;
-  justify-content: flex-start;
+@media only screen and (min-width: 100px) {
+  .breadcrumbs {
+    margin: 70px 5% 0 5%;
+    display: flex;
+    text-align: left;
+    justify-content: flex-start;
+  }
+  .breadcrumbs a {
+    color: #de641b;
+  }
 }
-.breadcrumbs a {
-  color: #de641b;
-}
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 100px) and (max-width: 550px) {
   .breadcrumbs {
     margin: 20px 5% 0px 5%;
   }
@@ -11105,99 +11133,9 @@ a:hover {
     margin: 5px;
   }
 }
-
-.artworks-detail {
-  margin: 10px 15% 100px 15%;
-  display: flex;
-}
-.artworks-detail .art {
-  margin: 0 3% 0 0;
-  width: 35%;
-}
-.artworks-detail .art img {
-  width: 100%;
-}
-.artworks-detail .art-item {
-  border: 1px solid #dedcd5;
-  vertical-align: center;
-  text-align: center;
-}
-.artworks-detail .art-item img {
-  width: 430px;
-  height: 430px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-.artworks-detail .art-item img.activeimg {
-  opacity: 1;
-}
-.artworks-detail h1 {
-  font-size: 3em;
-  font-family: "apercumedium";
-  margin: 0 0 5px 0;
-}
-.artworks-detail h4 {
-  margin: 0 0 25px 0;
-  color: rgba(0, 0, 0, 0.7);
-  transition: 0.2s ease-in;
-}
-.artworks-detail h4:hover {
-  color: black;
-  transition: 0.2s ease-out;
-}
-.artworks-detail h3 {
-  font-size: 2.4em;
-  margin: 0 0 25px 0;
-  letter-spacing: 0.1em;
-}
-.artworks-detail p {
-  font-size: 1.1em;
-  margin: 0 0 5px 0;
-}
-.artworks-detail .artwork-button {
-  display: inline-block;
-}
-.artworks-detail .artwork-button .button-black {
-  margin: 20px 20px 0 0;
-}
-.artworks-detail .artwork-button .button-list-black {
-  margin: 0;
-  transition: 0.2s ease-out;
-}
-.artworks-detail .artwork-button .button-list-black:hover {
-  color: white;
-  background-color: #de641b;
-  border: 1px solid #de641b;
-  transition: 0.2s ease-in;
-}
-.artworks-detail .arts {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  justify-content: space-between;
-  text-align: center;
-  margin-top: 30px;
-}
-.artworks-detail .arts .arts-item {
-  padding: 10px;
-  width: 100%;
-  cursor: pointer;
-  border: 1px solid #dedcd5;
-  transition: 0.3s ease-out;
-}
-.artworks-detail .arts .arts-item img {
-  height: 100%;
-  -o-object-fit: scale-down;
-     object-fit: scale-down;
-}
-.artworks-detail .arts .arts-item:hover {
-  border: 1px solid #de641b;
-  transition: 0.3s ease-in;
-}
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 100px) {
   .artworks-detail {
+    display: flex;
     margin: 10px 5% 50px 5%;
     flex-direction: column;
   }
@@ -11209,94 +11147,213 @@ a:hover {
   .artworks-detail .art img {
     width: 80%;
   }
-  .artworks-detail .arts {
-    margin: 10px 10%;
+  .artworks-detail .art-item {
+    border: 1px solid #dedcd5;
+    vertical-align: center;
+    text-align: center;
+  }
+  .artworks-detail .art-item img {
+    width: 430px;
+    height: 430px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  .artworks-detail .art-item img.activeimg {
+    opacity: 1;
   }
   .artworks-detail h1 {
     font-size: 2.5em;
+    font-family: "apercumedium";
+    margin: 0 0 5px 0;
   }
   .artworks-detail h2 {
     font-size: 1.6em;
   }
   .artworks-detail h3 {
     font-size: 1.3em;
+    margin: 0 0 25px 0;
+    letter-spacing: 0.1em;
+  }
+  .artworks-detail h4 {
+    margin: 0 0 25px 0;
   }
   .artworks-detail p {
     font-size: 1.05em;
+    margin: 0 0 5px 0;
+  }
+  .artworks-detail .artwork-button {
+    display: inline-block;
+  }
+  .artworks-detail .artwork-button .button-black {
+    margin: 20px 20px 0 0;
+  }
+  .artworks-detail .artwork-button .button-list-black {
+    margin: 0;
+    transition: 0.2s ease-out;
+  }
+  .artworks-detail .artwork-button .button-list-black:hover {
+    color: white;
+    background-color: #de641b;
+    border: 1px solid #de641b;
+    transition: 0.2s ease-in;
+  }
+  .artworks-detail .arts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    justify-content: space-between;
+    text-align: center;
+    margin: 10px 10%;
+  }
+  .artworks-detail .arts .arts-item {
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #dedcd5;
+    transition: 0.3s ease-out;
+  }
+  .artworks-detail .arts .arts-item img {
+    height: 100%;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+  }
+  .artworks-detail .arts .arts-item:hover {
+    border: 1px solid #de641b;
+    transition: 0.3s ease-in;
   }
 }
-
-.title {
-  margin: 100px 17% 50px 17%;
-}
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 100px) {
   .title {
     margin: 100px 5% 20px 5%;
   }
+  .title h1 {
+    font-size: 3em;
+    letter-spacing: 0.1em;
+    text-align: center;
+    font-family: "apercumedium";
+  }
 }
-.title h1 {
-  font-size: 3em;
-  letter-spacing: 0.1em;
-  text-align: center;
-  font-family: "apercumedium";
-}
-
-a {
-  text-decoration: none;
-  color: black;
-  transition: 0.2s ease-out;
-}
-a:hover {
-  color: #de641b;
-  transition: 0.2s ease-in;
-}
-
-.similiar {
-  margin: 10px 12% 100px 12%;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.similiar .art-image {
-  margin: 0px 10px;
-  margin-bottom: 50px;
-}
-.similiar .art-image img {
-  width: 100%;
-}
-.similiar .art-image h2 {
-  margin: 20px 0 0 0;
-  font-family: "apercumedium";
-}
-.similiar .art-image h3 {
-  margin: 10px 0 0 0;
-}
-.similiar .art-image h5 {
-  margin: 10px 0 0 0;
-}
-.similiar .art-image p {
-  margin: 10px 0 0 0;
-}
-.similiar .art-image #price {
-  font-family: "apercu_monoregular";
-}
-@media only screen and (max-width: 550px) {
+@media only screen and (min-width: 100px) {
   .similiar {
     margin: 10px 5% 100px 5%;
-    grid-template-columns: repeat(1, 2fr);
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
   .similiar .art-image {
+    margin: 0px 10px;
+    margin-bottom: 50px;
     width: 100%;
   }
   .similiar .art-image img {
-    width: 80%;
+    width: 240px;
+  }
+  .similiar .art-image h2 {
+    margin: 20px 0 0 0;
+    font-family: "apercumedium";
+  }
+  .similiar .art-image h3 {
+    margin: 10px 0 0 0;
+  }
+  .similiar .art-image h5 {
+    margin: 10px 0 0 0;
+  }
+  .similiar .art-image p {
+    margin: 10px 0 0 0;
+  }
+  .similiar .art-image #price {
+    font-family: "apercu_monoregular";
   }
 }
+@media only screen and (min-width: 900px) {
+  .breadcrumbs {
+    margin: 70px 10% 0 10%;
+  }
 
-.selectedimg {
-  background-color: red;
+  .artworks-detail {
+    margin: 10px 10% 100px 10%;
+    flex-direction: row;
+  }
+  .artworks-detail .art {
+    margin: 0 3% 0 0;
+    width: 40%;
+  }
+  .artworks-detail .art img {
+    width: 100%;
+  }
+  .artworks-detail .desc {
+    width: 60%;
+  }
+  .artworks-detail h1 {
+    font-size: 3em;
+  }
+  .artworks-detail h4 {
+    margin: 0 0 25px 0;
+  }
+  .artworks-detail h3 {
+    font-size: 2.4em;
+  }
+  .artworks-detail p {
+    font-size: 1.1em;
+  }
+  .artworks-detail .arts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    justify-content: space-between;
+    text-align: center;
+    margin: 20px 10px 0px 10px;
+  }
+  .artworks-detail .arts .arts-item {
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border: 1px solid #dedcd5;
+    transition: 0.3s ease-out;
+  }
+  .artworks-detail .arts .arts-item img {
+    height: 100%;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
+  }
+  .artworks-detail .arts .arts-item:hover {
+    border: 1px solid #de641b;
+    transition: 0.3s ease-in;
+  }
+
+  .title {
+    margin: 100px 17% 50px 17%;
+  }
+
+  .similiar {
+    margin: 10px 12% 100px 12%;
+  }
+  .similiar .art-image {
+    margin: 0px 10px;
+    margin-bottom: 50px;
+  }
+  .similiar .art-image img {
+    width: 220px;
+  }
 }
+@media only screen and (min-width: 1360px) {
+  .breadcrumbs {
+    margin: 70px 15% 0 15%;
+  }
 
+  .artworks-detail {
+    margin: 10px 15% 100px 15%;
+  }
+  .artworks-detail .art {
+    margin: 0 3% 0 0;
+    width: 35%;
+  }
+  .artworks-detail .desc {
+    width: 60%;
+  }
+}
 a {
   text-decoration: none;
 }
@@ -11395,6 +11452,104 @@ a {
   border-radius: 5px;
 }
 
+@media only screen and (min-width: 100px) {
+  .checkout {
+    margin: 70px 5%;
+    display: flex;
+    flex-direction: column;
+  }
+  .checkout .button-black {
+    margin: 10px 0;
+  }
+  .checkout .data-input {
+    width: 100%;
+  }
+  .checkout .item-checkout {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .checkout .item-checkout .os {
+    margin-bottom: 30px;
+  }
+  .checkout .item-checkout .product-item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .checkout .item-checkout .product-item .detail-img {
+    width: 15%;
+  }
+  .checkout .item-checkout .product-item .detail-text {
+    width: 45%;
+  }
+  .checkout .item-checkout .product-item .price {
+    width: 33%;
+    text-align: right;
+  }
+  .checkout .item-checkout .product-item img {
+    width: 100px;
+    margin-right: 20px;
+  }
+  .checkout .item-checkout .product-item h2 {
+    font-size: 1.5em;
+    margin: 0 0 5px 0;
+    font-family: "apercumedium";
+  }
+  .checkout .item-checkout .product-item h3 {
+    font-size: 1.2em;
+    margin: 0 0 5px 0;
+  }
+  .checkout .item-checkout .product-item p {
+    font-size: 0.9em;
+    margin: 0 0 3px 0;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .checkout {
+    margin: 100px 10%;
+    flex-direction: row;
+  }
+  .checkout .data-input {
+    width: 47%;
+    margin-right: 100px;
+  }
+  .checkout .item-checkout {
+    width: 40%;
+  }
+  .checkout .item-checkout .os {
+    margin-bottom: 30px;
+  }
+  .checkout .item-checkout .product-item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .checkout .item-checkout .product-item .detail-img {
+    width: 15%;
+  }
+  .checkout .item-checkout .product-item .detail-text {
+    width: 45%;
+  }
+  .checkout .item-checkout .product-item .price {
+    width: 33%;
+    text-align: right;
+  }
+  .checkout .item-checkout .product-item img {
+    width: 100px;
+    margin-right: 20px;
+  }
+  .checkout .item-checkout .product-item h2 {
+    font-size: 1.5em;
+    margin: 0 0 5px 0;
+    font-family: "apercumedium";
+  }
+  .checkout .item-checkout .product-item h3 {
+    font-size: 1.2em;
+    margin: 0 0 5px 0;
+  }
+  .checkout .item-checkout .product-item p {
+    font-size: 0.9em;
+    margin: 0 0 3px 0;
+  }
+}
 @media only screen and (min-width: 100px) {
   .about-main h1 {
     font-family: "apercubold";
@@ -11749,6 +11904,9 @@ a {
     margin: 150px 0;
     padding: 100px 15%;
     flex-direction: row;
+  }
+  .about-main .location img {
+    width: 50%;
   }
   .about-main .location .location-detail {
     margin-right: 100px;
@@ -12351,14 +12509,36 @@ footer .footersect .link2 {
 }
 .navbar1 .right .search-box {
   position: absolute;
-  width: 75%;
   height: 100%;
   max-height: 0;
   transform: translateY(60%) translatex(-90%);
+  z-index: 4;
   background-color: white;
   transition: all 0.3s;
   color: black;
   box-shadow: 7px 2px 10px grey;
+}
+@media only screen and (min-width: 100px) {
+  .navbar1 .right .search-box {
+    width: 90%;
+    transform: translateY(60%) translatex(-72%);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .navbar1 .right .search-box {
+    transform: translateY(60%) translatex(-72%);
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .navbar1 .right .search-box {
+    transform: translateY(60%) translatex(-76%);
+  }
+}
+@media only screen and (min-width: 1910px) {
+  .navbar1 .right .search-box {
+    width: 75%;
+    transform: translateY(40%) translatex(-90%);
+  }
 }
 .navbar1 .right .search-box .search-input {
   width: 100%;
@@ -12376,8 +12556,27 @@ footer .footersect .link2 {
 }
 .navbar1 .right.show .search-box {
   max-height: 75px;
-  transform: translateY(40%) translatex(-90%);
   transition: all 0.3s;
+}
+@media only screen and (min-width: 100px) {
+  .navbar1 .right.show .search-box {
+    transform: translateY(60%) translatex(-66%);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .navbar1 .right.show .search-box {
+    transform: translateY(60%) translatex(-72%);
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .navbar1 .right.show .search-box {
+    transform: translateY(60%) translatex(-76%);
+  }
+}
+@media only screen and (min-width: 1910px) {
+  .navbar1 .right.show .search-box {
+    transform: translateY(40%) translatex(-90%);
+  }
 }
 .navbar1 .right.show .search-box .search-input {
   display: block;

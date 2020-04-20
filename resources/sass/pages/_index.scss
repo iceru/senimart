@@ -339,6 +339,13 @@ a:hover {
 
 				img {
 					width: 100%;
+					opacity: 100%;
+					transition: 0.2s ease-out;
+
+					&:hover {
+						opacity: 80%;
+						transition: 0.2s ease-in;
+					}
 				}
 				h2 {
 					margin: 20px 0 0 0;

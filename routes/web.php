@@ -33,12 +33,8 @@ Route::get('/cart/wishlist', 'CartController@wishindex')->name('cart.wishindex')
 Route::get('/cart/wishlist/{artwork}', 'CartController@wishlist')->name('cart.wishlist');
 Route::delete('/cart/wishlist/{artwork}', 'CartController@rmwish')->name('cart.rmwish');
 
-// Route::get('admin/artists', 'AdminArtistsController@index')->name('adminartists.index');
-// Route::get('admin/artists/create', 'AdminArtistsController@create')->name('artists.create');
-// Route::post('admin/artists', 'AdminArtistsController@store')->name('artists.store');
-// Route::get('admin/artists/{artist}/edit', 'AdminArtistsController@edit')->name('artists.edit');
-// Route::patch('admin/artists/{artist}', 'AdminArtistsController@update')->name('artists.update');
-// Route::delete('admin/artists/{artist}', 'AdminArtistsController@destroy')->name('artists.destroy');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

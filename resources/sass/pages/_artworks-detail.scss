@@ -1,134 +1,25 @@
-.break {
-	flex-basis: 100%;
-	height: 0;
-}
+@media only screen and (min-width: $break-xs) {
+	.breadcrumbs {
+		margin: 70px 5% 0 5%;
+		display: flex;
+		text-align: left;
+		justify-content: flex-start;
 
-.breadcrumbs {
-	margin: 70px 15% 0 15%;
-	display: flex;
-	text-align: left;
-	justify-content: flex-start;
-
-	a {
-		color: $orange;
-	}
-
-	@media only screen and (max-width: $break-small) {
-		margin: 20px 5% 0px 5%;
-
-		p {
-			margin: 5px;
-		}
-	}
-}
-
-.artworks-detail {
-	margin: 10px 15% 100px 15%;
-	display: flex;
-
-	.art {
-		margin: 0 3% 0 0;
-		width: 35%;
-
-		img {
-			width: 100%;
-		}
-	}
-
-	.art-item {
-		border: 1px solid $grey;
-		vertical-align: center;
-		text-align: center;
-
-		img {
-			width: 430px;
-			height: 430px;
-			object-fit: contain;
-			opacity: 0;
-			transition: opacity .5s ease-in-out;
+		a {
+			color: $orange;
 		}
 
-		img.activeimg {
-			opacity: 1;
-		}
-	}
+		@media only screen and (max-width: $break-small) {
+			margin: 20px 5% 0px 5%;
 
-	h1 {
-		font-size: 3em;
-		font-family: $fontmed;
-		margin: 0 0 5px 0;
-	}
-
-	h4 {
-		margin: 0 0 25px 0;
-		color: rgba($color: #000000, $alpha: 0.7);
-		transition: 0.2s ease-in;
-
-		&:hover {
-			color: black;
-			transition: 0.2s ease-out;
-		}
-	}
-
-	h3 {
-		font-size: 2.4em;
-		margin: 0 0 25px 0;
-		letter-spacing: 0.1em;
-	}
-
-	p {
-		font-size: 1.1em;
-		margin: 0 0 5px 0;
-	}
-
-	.artwork-button {
-		display: inline-block;
-
-		.button-black {
-			margin: 20px 20px 0 0;
-		}
-
-		.button-list-black {
-			margin: 0;
-			transition: 0.2s ease-out;
-
-			&:hover {
-				color: white;
-				background-color: $orange;
-				border: 1px solid $orange;
-				transition: 0.2s ease-in;
+			p {
+				margin: 5px;
 			}
 		}
 	}
 
-	.arts {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: 20px;
-		justify-content: space-between;
-		text-align: center;
-		margin-top: 30px;
-
-		.arts-item {
-			padding: 10px;
-			width: 100%;
-			cursor: pointer;
-			border: 1px solid $grey;
-			transition: 0.3s ease-out;
-
-			img {
-				height: 100%;
-				object-fit: scale-down;
-			}
-
-			&:hover {
-				border: 1px solid $orange;
-				transition: 0.3s ease-in;
-			}
-		}
-	}
-
-	@media only screen and (max-width: $break-small) {
+	.artworks-detail {
+		display: flex;
 		margin: 10px 5% 50px 5%;
 		flex-direction: column;
 
@@ -142,12 +33,28 @@
 			}
 		}
 
-		.arts {
-			margin: 10px 10%;
+		.art-item {
+			border: 1px solid $grey;
+			vertical-align: center;
+			text-align: center;
+
+			img {
+				width: 430px;
+				height: 430px;
+				object-fit: contain;
+				opacity: 0;
+				transition: opacity .5s ease-in-out;
+			}
+
+			img.activeimg {
+				opacity: 1;
+			}
 		}
 
 		h1 {
 			font-size: 2.5em;
+			font-family: $fontmed;
+			margin: 0 0 5px 0;
 		}
 
 		h2 {
@@ -156,88 +63,213 @@
 
 		h3 {
 			font-size: 1.3em;
+			margin: 0 0 25px 0;
+			letter-spacing: 0.1em;
+		}
+
+		h4 {
+			margin: 0 0 25px 0;
 		}
 
 		p {
 			font-size: 1.05em;
+			margin: 0 0 5px 0;
+		}
+
+		.artwork-button {
+			display: inline-block;
+
+			.button-black {
+				margin: 20px 20px 0 0;
+			}
+
+			.button-list-black {
+				margin: 0;
+				transition: 0.2s ease-out;
+
+				&:hover {
+					color: white;
+					background-color: $orange;
+					border: 1px solid $orange;
+					transition: 0.2s ease-in;
+				}
+			}
+		}
+
+		.arts {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 20px;
+			justify-content: space-between;
+			text-align: center;
+			margin: 10px 10%;
+
+			.arts-item {
+				padding: 10px;
+				width: 100%;
+				cursor: pointer;
+				border: 1px solid $grey;
+				transition: 0.3s ease-out;
+
+				img {
+					height: 100%;
+					object-fit: scale-down;
+				}
+
+				&:hover {
+					border: 1px solid $orange;
+					transition: 0.3s ease-in;
+				}
+			}
 		}
 	}
-}
 
-.title {
-	margin: 100px 17% 50px 17%;
-	@media only screen and (max-width: $break-small) {
+	.title {
 		margin: 100px 5% 20px 5%;
-	}
-	h1 {
-		font-size: 3em;
-		letter-spacing: 0.1em;
-		text-align: center;
-		font-family: $fontmed;
-	}
-}
-
-a {
-	text-decoration: none;
-	color: black;
-	transition: 0.2s ease-out;
-
-	&:hover {
-		color: $orange;
-		transition: 0.2s ease-in;
-	}
-}
-
-.similiar {
-	margin: 10px 12% 100px 12%;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-
-	.art-image {
-		margin: 0px 10px;
-		margin-bottom: 50px;
-
-		img {
-			width: 100%;
-		}
-
-		h2 {
-			margin: 20px 0 0 0;
+		h1 {
+			font-size: 3em;
+			letter-spacing: 0.1em;
+			text-align: center;
 			font-family: $fontmed;
 		}
-
-		h3 {
-			margin: 10px 0 0 0;
-		}
-
-		h5 {
-			margin: 10px 0 0 0;
-		}
-
-		p {
-			margin: 10px 0 0 0;
-		}
-
-		#price {
-			font-family: "apercu_monoregular";
-		}
 	}
 
-	@media only screen and (max-width: $break-small) {
+	.similiar {
 		margin: 10px 5% 100px 5%;
-		grid-template-columns: repeat(1, 2fr);
+		display: flex;
+		justify-content: center;
+		text-align: center;
 
 		.art-image {
+			margin: 0px 10px;
+			margin-bottom: 50px;
 			width: 100%;
 
 			img {
-				width: 80%;
+				width: 240px;
+			}
+
+			h2 {
+				margin: 20px 0 0 0;
+				font-family: $fontmed;
+			}
+
+			h3 {
+				margin: 10px 0 0 0;
+			}
+
+			h5 {
+				margin: 10px 0 0 0;
+			}
+
+			p {
+				margin: 10px 0 0 0;
+			}
+
+			#price {
+				font-family: "apercu_monoregular";
 			}
 		}
 	}
 }
 
-.selectedimg {
-	background-color: red;
+@media only screen and (min-width: $break-med) {
+	.breadcrumbs {
+		margin: 70px 10% 0 10%;
+	}
+	.artworks-detail {
+		margin: 10px 10% 100px 10%;
+		flex-direction: row;
+
+		.art {
+			margin: 0 3% 0 0;
+			width: 40%;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		.desc {
+			width: 60%;
+		}
+
+		h1 {
+			font-size: 3em;
+		}
+
+		h4 {
+			margin: 0 0 25px 0;
+		}
+
+		h3 {
+			font-size: 2.4em;
+		}
+
+		p {
+			font-size: 1.1em;
+		}
+
+		.arts {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 20px;
+			justify-content: space-between;
+			text-align: center;
+			margin: 20px 10px 0px 10px;
+
+			.arts-item {
+				padding: 10px;
+				width: 100%;
+				cursor: pointer;
+				border: 1px solid $grey;
+				transition: 0.3s ease-out;
+
+				img {
+					height: 100%;
+					object-fit: scale-down;
+				}
+
+				&:hover {
+					border: 1px solid $orange;
+					transition: 0.3s ease-in;
+				}
+			}
+		}
+	}
+
+	.title {
+		margin: 100px 17% 50px 17%;
+	}
+
+	.similiar {
+		margin: 10px 12% 100px 12%;
+
+		.art-image {
+			margin: 0px 10px;
+			margin-bottom: 50px;
+
+			img {
+				width: 220px;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $break-lg) {
+	.breadcrumbs {
+		margin: 70px 15% 0 15%;
+	}
+	.artworks-detail {
+		margin: 10px 15% 100px 15%;
+
+		.art {
+			margin: 0 3% 0 0;
+			width: 35%;
+		}
+
+		.desc {
+			width: 60%;
+		}
+	}
 }
