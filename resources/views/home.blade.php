@@ -12,10 +12,10 @@ Senimart
       <h1>We're Back</h1>
       <img src="/image/logowhite.png" alt="">
       {{-- <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4> --}}
-      {{-- <div class="button-ctr">
+      <div class="button-ctr">
         <a href="{{route('artworks.index')}}" class="button-white">Shop Now</a>
-    </div> --}}
-  </div>
+      </div>
+    </div>
 
   </div>
   {{-- <div class="cta-text">

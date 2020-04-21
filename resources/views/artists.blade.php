@@ -38,6 +38,7 @@ Senimart - Artists
         <p>Artists Not Found</p>
         @endforelse
     </div>
+    {{ $artists->links() }}
 </div>
 
 @endsection

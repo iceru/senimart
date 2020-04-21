@@ -10034,6 +10034,55 @@ a:hover {
   transition: 0.2s ease-in;
 }
 
+@-webkit-keyframes appearing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appearing {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes leftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes leftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@-webkit-keyframes rightToLeft {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(150%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 a:hover {
   text-decoration: none;
 }
@@ -10394,7 +10443,7 @@ a:hover {
   }
   .artists-home .artist-items img {
     opacity: 100%;
-    width: 100%;
+    width: 350px;
     height: 400px;
     -o-object-fit: cover;
        object-fit: cover;
@@ -10589,27 +10638,11 @@ a:hover {
   }
   .artists-home .artist-items .artist1 {
     margin: 30px 10px;
-    padding: 20px;
+    padding: 10px;
   }
 }
 .artworks #price {
   font-family: "apercu_monoregular";
-}
-@-webkit-keyframes appearing {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes appearing {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 @media only screen and (min-width: 100px) {
   .artworks {
@@ -11386,6 +11419,10 @@ a {
   padding-right: 20%;
 }
 
+.button-black {
+  margin: 10px 0;
+}
+
 .cart {
   margin: 100px 15%;
   display: block;
@@ -11404,31 +11441,21 @@ a {
   grid-gap: 20px;
   padding: 20px 20% 20px 0;
 }
-.cart .cart-product .cart-detail h1 {
+.cart .cart-product h1 {
   margin: 0 0 10px 0;
-  font-size: 2em;
+  font-size: 1.6em;
   font-family: "apercumedium";
 }
-.cart .cart-product .cart-detail h3 {
+.cart .cart-product h3 {
   margin: 0 0 10px 0;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
-.cart .cart-product .cart-detail p {
+.cart .cart-product p {
+  font-size: 1em;
   margin: 0 0 10px 0;
 }
 .cart .cart-product .cart-price {
   text-align: right;
-}
-.cart .cart-product .cart-price h1 {
-  margin: 0 0 10px 0;
-  font-size: 2em;
-}
-.cart .cart-product .cart-price h3 {
-  margin: 0 0 10px 0;
-  font-size: 1.5em;
-}
-.cart .cart-product .cart-price p {
-  margin: 0 0 10px 0;
 }
 .cart .cart-product .cart-price .button-list-black {
   margin: 5px 0;
@@ -11445,9 +11472,11 @@ a {
 }
 .cart .total h1 {
   margin-bottom: 20px;
+  font-size: 1.6em;
+  font-family: "apercumedium";
 }
 .cart .total .button-black {
-  margin-right: 0;
+  margin-left: 10px;
   padding: 10px;
   border-radius: 5px;
 }
@@ -11884,13 +11913,19 @@ a {
   }
   .about-main .about .text1 {
     width: 36%;
+    -webkit-animation: 1s ease-in-out 0s 1 rightToLeft;
+            animation: 1s ease-in-out 0s 1 rightToLeft;
   }
   .about-main .about .text2 {
     width: 36%;
+    -webkit-animation: 1s ease-in-out 0s 1 rightToLeft;
+            animation: 1s ease-in-out 0s 1 rightToLeft;
   }
   .about-main .about img {
     margin-top: 30px;
     width: 100%;
+    -webkit-animation: 1s ease-in-out 0s 1 leftToRight;
+            animation: 1s ease-in-out 0s 1 leftToRight;
   }
   .about-main .about p {
     padding: 0 20px;

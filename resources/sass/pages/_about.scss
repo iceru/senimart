@@ -381,15 +381,18 @@
 
 			.text1 {
 				width: 36%;
+				animation: 1s ease-in-out 0s 1 rightToLeft;
 			}
 
 			.text2 {
 				width: 36%;
+				animation: 1s ease-in-out 0s 1 rightToLeft;
 			}
 
 			img {
 				margin-top: 30px;
 				width: 100%;
+				animation: 1s ease-in-out 0s 1 leftToRight;
 			}
 
 			p {

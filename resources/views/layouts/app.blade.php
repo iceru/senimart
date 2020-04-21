@@ -40,7 +40,7 @@
               <li>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                  document.getElementById('logout-form').submit();">
-                  Logout
+                  Logout &nbsp; <i class="fas fa-sign-out-alt"></i>
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -75,7 +75,8 @@
             </a>
           </div>
           <form action="{{ route('search') }}" method="GET" class="search-box">
-            <input type="text" name="query" value="{{ request()->input('query') }}" id="query" class="text search-input" placeholder="Type here to search..." />
+            <input type="text" name="query" value="{{ request()->input('query') }}" id="query" class="text search-input"
+              placeholder="Type here to search..." />
           </form>
         </div>
       </nav>
