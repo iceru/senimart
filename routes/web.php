@@ -44,8 +44,8 @@ Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.add
 
 Route::get('/payment/{id}', 'PaymentController@show');
 
-Route::get('/redirect/{driver}', 'Auth\LoginController@redirectToProvider')->name('login.provider');
-Route::get('{driver}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');;
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider')->name('login.provider');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');;
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

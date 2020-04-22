@@ -10,11 +10,7 @@
     <div class="data-input">
         <h1 class="os">Billing Address</h1>
         <div class="form-group">
-            <label for="">First Name</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-        </div>
-        <div class="form-group">
-            <label for="">Last Name</label>
+            <label for="">Full Name</label>
             <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
         </div>
         <div class="form-group">

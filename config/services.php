@@ -37,7 +37,7 @@ return [
     'google' => [
         'client_id'     => env('247115383792-g0hq0m5acfv5gdekqoj43cngoh6v8s73.apps.googleusercontent.com'),
         'client_secret' => env('pktKm89FEEjJozMkJyNOYXFN'),
-        'redirect'      => env('http://localhost:8000/google/callback')
+        'redirect'      => env('http://localhost:8000/callback')
     ],
 
     'midtrans' => [

@@ -7,12 +7,7 @@ Senimart - Artworks
 @section('content')
 <section class="profile">
     <div class="flex-profile">
-        <h1>My</h1>
         <div class="sidebar" id="sidebar">
-            @if(request()->fullurl() != request()->url())
-            <h1 class="clear"><a href="{{request()->url()}}">Clear Filter</a></h1>
-            @endif
-
             <div class="category">
                 <h1>My Profile</h1>
                 <hr>

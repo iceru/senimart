@@ -10,7 +10,7 @@ Senimart - Login
         <h1>Login</h1>
         <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
                 aria-hidden="true"></i>
-            &nbsp; Login with Google </a>
+            &nbsp; Login with Google</a>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="formgroup">
