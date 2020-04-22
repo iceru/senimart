@@ -33,7 +33,12 @@ Route::get('/cart/wishlist', 'CartController@wishindex')->name('cart.wishindex')
 Route::get('/cart/wishlist/{artwork}', 'CartController@wishlist')->name('cart.wishlist');
 Route::delete('/cart/wishlist/{artwork}', 'CartController@rmwish')->name('cart.rmwish');
 
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::get('/checkout', 'SalesController@checkout')->name('sales.checkout');
+Route::get('/checkout/{id}', 'SalesController@show');
+Route::get('/checkout/remove/{id}', 'SalesController@destroy');
+Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.address');
+
+Route::get('/payment/{id}', 'PaymentController@show');
 
 
 Route::group(['prefix' => 'admin'], function () {
