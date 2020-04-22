@@ -27,6 +27,11 @@ class Artworks extends Model
         return $this->belongsTo(Colors::class);
     }
 
+    public function artworksSales()
+    {
+        return $this->hasMany('App\ArtworksSales');
+    }
+
     public function scopeFilter($a)
     {   
         if(request('category')) {

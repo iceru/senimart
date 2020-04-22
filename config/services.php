@@ -40,4 +40,15 @@ return [
         'redirect'      => env('http://localhost:8000/google/callback')
     ],
 
+    'midtrans' => [
+        // Midtrans server key
+        'serverKey'     => env('SB-Mid-server-dIJfDGxXkYO5EvS9m5px575p'),
+        // Midtrans client key
+        'clientKey'     => env('SB-Mid-client-6TjTY3gEDbKoKqVy'),
+        // Isi false jika masih tahap development dan true jika sudah di production, default false (development)
+        'isProduction'  => env('MIDTRANS_IS_PRODUCTION', false),
+        'isSanitized'   => env('MIDTRANS_IS_SANITIZED', true),
+        'is3ds'         => env('MIDTRANS_IS_3DS', true),                
+    ],
+
 ];

@@ -10648,7 +10648,7 @@ a:hover {
   .artworks {
     margin: 20px 2%;
   }
-  .artworks .flex-artworks .sidebar .multicolor, .artworks .flex-artworks .sidebar .green, .artworks .flex-artworks .sidebar .red, .artworks .flex-artworks .sidebar .blue, .artworks .flex-artworks .sidebar .white, .artworks .flex-artworks .sidebar .black {
+  .artworks .profile .flex-profile .sidebar .multicolor, .profile .flex-profile .sidebar .artworks .multicolor, .artworks .profile .flex-profile .sidebar .green, .profile .flex-profile .sidebar .artworks .green, .artworks .profile .flex-profile .sidebar .red, .profile .flex-profile .sidebar .artworks .red, .artworks .profile .flex-profile .sidebar .blue, .profile .flex-profile .sidebar .artworks .blue, .artworks .profile .flex-profile .sidebar .white, .profile .flex-profile .sidebar .artworks .white, .artworks .profile .flex-profile .sidebar .black, .profile .flex-profile .sidebar .artworks .black, .artworks .flex-artworks .sidebar .multicolor, .artworks .flex-artworks .sidebar .green, .artworks .flex-artworks .sidebar .red, .artworks .flex-artworks .sidebar .blue, .artworks .flex-artworks .sidebar .white, .artworks .flex-artworks .sidebar .black {
     height: 30px;
     width: 30px;
     border-radius: 30px;
@@ -10658,7 +10658,7 @@ a:hover {
     opacity: 100%;
     transition: 0.3s ease-out;
   }
-  .artworks .flex-artworks .sidebar .multicolor:hover, .artworks .flex-artworks .sidebar .green:hover, .artworks .flex-artworks .sidebar .red:hover, .artworks .flex-artworks .sidebar .blue:hover, .artworks .flex-artworks .sidebar .white:hover, .artworks .flex-artworks .sidebar .black:hover {
+  .artworks .profile .flex-profile .sidebar .multicolor:hover, .profile .flex-profile .sidebar .artworks .multicolor:hover, .artworks .profile .flex-profile .sidebar .green:hover, .profile .flex-profile .sidebar .artworks .green:hover, .artworks .profile .flex-profile .sidebar .red:hover, .profile .flex-profile .sidebar .artworks .red:hover, .artworks .profile .flex-profile .sidebar .blue:hover, .profile .flex-profile .sidebar .artworks .blue:hover, .artworks .profile .flex-profile .sidebar .white:hover, .profile .flex-profile .sidebar .artworks .white:hover, .artworks .profile .flex-profile .sidebar .black:hover, .profile .flex-profile .sidebar .artworks .black:hover, .artworks .flex-artworks .sidebar .multicolor:hover, .artworks .flex-artworks .sidebar .green:hover, .artworks .flex-artworks .sidebar .red:hover, .artworks .flex-artworks .sidebar .blue:hover, .artworks .flex-artworks .sidebar .white:hover, .artworks .flex-artworks .sidebar .black:hover {
     opacity: 70%;
     transition: 0.3s ease-in;
   }
@@ -12391,6 +12391,172 @@ a {
 .modal-body .container-fluid p, .modal-body .container-sm p, .modal-body .container-md p, .modal-body .container-lg p, .modal-body .container-xl p {
   margin: 10px 0;
   font-size: 1em;
+}
+
+.profile #price {
+  font-family: "apercu_monoregular";
+}
+@media only screen and (min-width: 100px) {
+  .profile {
+    margin: 20px 5%;
+  }
+  .profile .flex-profile .sidebar .multicolor, .profile .flex-profile .sidebar .green, .profile .flex-profile .sidebar .red, .profile .flex-profile .sidebar .blue, .profile .flex-profile .sidebar .white, .profile .flex-profile .sidebar .black, .profile .artworks .flex-artworks .sidebar .black, .artworks .flex-artworks .sidebar .profile .black, .profile .artworks .flex-artworks .sidebar .white, .artworks .flex-artworks .sidebar .profile .white, .profile .artworks .flex-artworks .sidebar .blue, .artworks .flex-artworks .sidebar .profile .blue, .profile .artworks .flex-artworks .sidebar .red, .artworks .flex-artworks .sidebar .profile .red, .profile .artworks .flex-artworks .sidebar .green, .artworks .flex-artworks .sidebar .profile .green, .profile .artworks .flex-artworks .sidebar .multicolor, .artworks .flex-artworks .sidebar .profile .multicolor {
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 5px 10px 5px 0;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    opacity: 100%;
+    transition: 0.3s ease-out;
+  }
+  .profile .flex-profile .sidebar .multicolor:hover, .profile .flex-profile .sidebar .green:hover, .profile .flex-profile .sidebar .red:hover, .profile .flex-profile .sidebar .blue:hover, .profile .flex-profile .sidebar .white:hover, .profile .flex-profile .sidebar .black:hover, .profile .artworks .flex-artworks .sidebar .black:hover, .artworks .flex-artworks .sidebar .profile .black:hover, .profile .artworks .flex-artworks .sidebar .white:hover, .artworks .flex-artworks .sidebar .profile .white:hover, .profile .artworks .flex-artworks .sidebar .blue:hover, .artworks .flex-artworks .sidebar .profile .blue:hover, .profile .artworks .flex-artworks .sidebar .red:hover, .artworks .flex-artworks .sidebar .profile .red:hover, .profile .artworks .flex-artworks .sidebar .green:hover, .artworks .flex-artworks .sidebar .profile .green:hover, .profile .artworks .flex-artworks .sidebar .multicolor:hover, .artworks .flex-artworks .sidebar .profile .multicolor:hover {
+    opacity: 70%;
+    transition: 0.3s ease-in;
+  }
+  .profile .title-artist {
+    margin-bottom: 70px;
+  }
+  .profile .flex-profile {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    -webkit-animation: 0.5s ease-in 0s 1 appearing;
+            animation: 0.5s ease-in 0s 1 appearing;
+  }
+  .profile .flex-profile .sidebar {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
+    border-right: 0px;
+    margin: 0 0 30px 0;
+  }
+  .profile .flex-profile .sidebar hr {
+    display: none;
+  }
+  .profile .flex-profile .sidebar div {
+    width: 30%;
+  }
+  .profile .flex-profile .sidebar div h1 {
+    margin: 0;
+  }
+  .profile .flex-profile .sidebar .category {
+    width: 39%;
+  }
+  .profile .flex-profile .sidebar .clear {
+    font-size: 1.8em;
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+  .profile .flex-profile .sidebar .color {
+    display: block;
+  }
+  .profile .flex-profile .sidebar .color .item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 5px;
+  }
+  .profile .flex-profile .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 5px 0;
+  }
+  .profile .flex-profile .sidebar ul li {
+    margin: 10px 0;
+  }
+  .profile .flex-profile .sidebar h1 {
+    margin: 20px 0 10px 0;
+    font-size: 1.5em;
+  }
+  .profile .flex-profile .sidebar .category h1 {
+    margin-top: 0;
+  }
+  .profile .flex-profile .sidebar .item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .profile .flex-profile .sidebar .black {
+    background-color: black;
+  }
+  .profile .flex-profile .sidebar .white {
+    background-color: white;
+  }
+  .profile .flex-profile .sidebar .blue {
+    background-color: #3468d8;
+  }
+  .profile .flex-profile .sidebar .red {
+    background-color: #d84c39;
+  }
+  .profile .flex-profile .sidebar .green {
+    background-color: #47a347;
+  }
+  .profile .flex-profile .sidebar .multicolor {
+    background: #ee0a0e;
+    background: linear-gradient(180deg, #ca3d40 33.3%, #4c4cca 33.3%, #6cb878 66.6%, #9b963f 66.6%);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .profile {
+    margin: 20px 10%;
+    justify-content: center;
+  }
+  .profile .flex-profile {
+    margin-top: 100px;
+    flex-direction: row;
+  }
+  .profile .flex-profile .sidebar {
+    display: block;
+    padding: 0px 10px;
+    width: 30%;
+  }
+  .profile .flex-profile .sidebar div {
+    width: 100%;
+  }
+  .profile .flex-profile .sidebar div h1 {
+    padding: 5px 0;
+  }
+  .profile .flex-profile .sidebar div hr {
+    display: block;
+    margin: 10px 0;
+  }
+  .profile .flex-profile .sidebar .category {
+    width: 100%;
+  }
+  .profile .profile-content {
+    width: 60%;
+    margin-left: 100px;
+  }
+}
+@media only screen and (min-width: 1360px) {
+  .profile {
+    margin: 20px 15%;
+  }
+  .profile .flex-profile {
+    margin-top: 100px;
+    flex-direction: row;
+  }
+  .profile .flex-profile .sidebar {
+    width: 20%;
+  }
+}
+@media only screen and (min-width: 1910px) {
+  .profile {
+    margin: 20px 15%;
+  }
+  .profile h1 {
+    margin: 10px 0;
+  }
+  .profile .flex-profile {
+    margin-top: 100px;
+    flex-direction: row;
+  }
+  .profile .flex-profile .sidebar {
+    display: block;
+    padding: 0px 10px;
+    width: 15%;
+  }
 }
 
 .search-container {
