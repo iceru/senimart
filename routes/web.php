@@ -14,11 +14,14 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::view('/about', 'about');
-Route::get('/projects', 'ProjectsController@index');
+Route::view('/about', 'about')->name('about.index');
+
+Route::get('/projects', 'ProjectsController@index')->name('projects.index');
+Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.show');
 
 Route::get('/artworks', 'ArtworksController@index')->name('artworks.index');
 Route::get('/artwork/{artwork}', 'ArtworksController@show')->name('artworks.show');
+Route::get('/search', 'ArtworksController@search')->name('search');
 
 Route::get('/artists', 'ArtistsController@index')->name('artists.index');
 Route::get('/artist/{artist}', 'ArtistsController@show');
@@ -46,6 +49,7 @@ Route::post('/notif/handler', 'PaymentController@notifHandler')->name('notif.han
 // Route::get('admin/artists/{artist}/edit', 'AdminArtistsController@edit')->name('artists.edit');
 // Route::patch('admin/artists/{artist}', 'AdminArtistsController@update')->name('artists.update');
 // Route::delete('admin/artists/{artist}', 'AdminArtistsController@destroy')->name('artists.destroy');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
