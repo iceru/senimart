@@ -45,10 +45,20 @@ Route::get('/checkout/{id}', 'SalesController@show');
 Route::get('/checkout/remove/{id}', 'SalesController@destroy');
 Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.address');
 
+Route::post('/finish', function () {
+    return redirect()->route('home');
+})->name('payment.finish');
 Route::get('/payment/{id}', 'PaymentController@show');
+Route::post('/notif/handler', 'PaymentController@notifHandler')->name('notif.handler');
+// Route::get('admin/artists', 'AdminArtistsController@index')->name('adminartists.index');
+// Route::get('admin/artists/create', 'AdminArtistsController@create')->name('artists.create');
+// Route::post('admin/artists', 'AdminArtistsController@store')->name('artists.store');
+// Route::get('admin/artists/{artist}/edit', 'AdminArtistsController@edit')->name('artists.edit');
+// Route::patch('admin/artists/{artist}', 'AdminArtistsController@update')->name('artists.update');
+// Route::delete('admin/artists/{artist}', 'AdminArtistsController@destroy')->name('artists.destroy');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider')->name('login.provider');
-Route::get('/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');;
+Route::get('/google/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');;
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
