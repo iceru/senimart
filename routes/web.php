@@ -58,7 +58,7 @@ Route::post('/notif/handler', 'PaymentController@notifHandler')->name('notif.han
 // Route::delete('admin/artists/{artist}', 'AdminArtistsController@destroy')->name('artists.destroy');
 
 Route::get('/redirect', 'Auth\LoginController@redirectToProvider')->name('login.provider');
-Route::get('/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');;
+Route::get('/google/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');;
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
