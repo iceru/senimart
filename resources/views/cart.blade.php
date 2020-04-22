@@ -50,8 +50,10 @@ Senimart - Cart
             <form action="{{route('cart.destroy', $item->rowId)}}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('DELETE') }}
-                <button type="submit" class="button">Remove</button>
+                <button type="submit" class="button-list-black">Remove</button>
             </form>
+            <a href="/cart/wishlist/{{$item->id}}" class="button-list-black">Wishlist &nbsp; <i
+                    class="fa fa-heart"></i></a>
             {{-- 
             <form action="{{route('cart.wishlist', $item->rowId)}}" method="post">
             {{ csrf_field() }}

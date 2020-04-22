@@ -1,10 +1,14 @@
 .content {
 	padding: 100px;
-	width: 50%;
-	vertical-align: center;
 	margin: auto;
+
+	h1 {
+		font-family: $fontbold;
+	}
 	.formgroup {
 		display: flex;
+		flex-wrap: wrap;
+		vertical-align: middle;
 		margin: 40px 0;
 
 		select {
@@ -33,6 +37,10 @@
 			outline: 0;
 		}
 
+		.invalid-feedback {
+			width: 100%;
+		}
+
 		input[type=text]:focus {
 			border: 1px solid #545454;
 		}
@@ -52,5 +60,16 @@
 		color: white;
 		padding: 15px;
 		margin-top: 10px;
+		border: 1px solid #545454;
 	}
+}
+
+.formgroup-check {
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 20px;
+}
+
+.reset {
+	margin: 100px 0;
 }

@@ -1,0 +1,52 @@
+%button {
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 0 20px;
+	cursor: pointer;
+	transition: 0.2s ease-out;
+	border-radius: 3px;
+}
+
+.button-white {
+	background-color: rgba($color: #000000, $alpha: 0);
+	border: 1px solid white;
+	color: white;
+	@extend %button;
+
+	&:hover {
+		background-color: white;
+		color: rgba($color: #000000, $alpha: 1);
+		transition: 0.2s ease-in;
+	}
+}
+
+.button-list-black {
+	background-color: rgba($color: #000000, $alpha: 0);
+	border: 1px solid black;
+	color: black;
+	@extend %button;
+
+	&:hover {
+		background-color: black;
+		color: white;
+		transition: 0.2s ease-in;
+	}
+}
+
+.button-black {
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+	@extend %button;
+	transition: 0.2s ease-in;
+
+	&:hover {
+		background-color: $orange;
+		border: 1px solid $orange;
+		color: white;
+		transition: 0.2s ease-in;
+	}
+}
