@@ -9987,6 +9987,29 @@ a:hover {
   transition: 0.2s ease-in;
 }
 
+.alert-success {
+  color: #545454;
+  background-color: #dddcd9;
+  border-color: #dddcd9;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: 0.3s ease-in;
+  font-size: 1.2em;
+}
+
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: 0.3s ease-in;
+}
+
 .button-black, .button-list-black, .button-white {
   padding: 10px 20px;
   text-align: center;
@@ -11389,29 +11412,6 @@ a:hover {
 }
 a {
   text-decoration: none;
-}
-
-.alert-success {
-  color: #545454;
-  background-color: #dddcd9;
-  border-color: #dddcd9;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  transition: 0.3s ease-in;
-  font-size: 1.2em;
-}
-
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  transition: 0.3s ease-in;
 }
 
 .alert {

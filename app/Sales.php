@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\User;
+use App\Artworks;
 use Illuminate\Database\Eloquent\Model;
 
 class Sales extends Model
@@ -12,11 +14,11 @@ class Sales extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(User::class);
     }
 
-    public function artworksSales()
+    public function artworks()
     {
-        return $this->hasMany('App\ArtworksSales');
+        return $this->belongsToMany(Artworks::class);
     }
 }

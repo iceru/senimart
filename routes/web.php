@@ -29,6 +29,8 @@ Route::get('/artist/{artist}', 'ArtistsController@show');
 Route::middleware('auth')->group(function() {
     Route::get('/user', 'ProfileController@edit')->name('profile.edit');
     Route::patch('/user', 'ProfileController@update')->name('profile.update');
+    
+    Route::get('/my-orders', 'OrdersController@index')->name('orders.index');
 });
 
 Route::get('/cart', 'CartController@index')->name('cart.index');

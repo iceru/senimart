@@ -6,6 +6,24 @@ Senimart - Artworks
 
 @section('content')
 <section class="profile">
+    <div class="alert">
+        @if (session()->has('success_message'))
+
+        <div class="alert-success">
+            {{ session()->get('success_message') }}
+        </div>
+        @endif
+
+        @if(count($errors) > 0)
+        <div class="alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+    </div>
     <div class="flex-profile">
         <div class="sidebar" id="sidebar">
             <div class="category">
@@ -15,13 +33,15 @@ Senimart - Artworks
                 <hr>
             </div>
 
-            <div class="price">
-                <h1>Wishlist</h1>
+            <div class="orders">
+                <a href="{{ route('orders.index') }}">
+                    <h1>Orders</h1>
+                </a>
                 <hr>
             </div>
 
-            <div class="color">
-                <h1>Orders</h1>
+            <div class="wishlist">
+                <h1>Wishlist</h1>
                 <hr>
             </div>
         </div>
