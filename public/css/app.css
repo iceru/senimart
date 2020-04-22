@@ -10671,7 +10671,7 @@ a:hover {
   .artworks {
     margin: 20px 2%;
   }
-  .artworks .profile .flex-profile .sidebar .multicolor, .profile .flex-profile .sidebar .artworks .multicolor, .artworks .profile .flex-profile .sidebar .green, .profile .flex-profile .sidebar .artworks .green, .artworks .profile .flex-profile .sidebar .red, .profile .flex-profile .sidebar .artworks .red, .artworks .profile .flex-profile .sidebar .blue, .profile .flex-profile .sidebar .artworks .blue, .artworks .profile .flex-profile .sidebar .white, .profile .flex-profile .sidebar .artworks .white, .artworks .profile .flex-profile .sidebar .black, .profile .flex-profile .sidebar .artworks .black, .artworks .flex-artworks .sidebar .multicolor, .artworks .flex-artworks .sidebar .green, .artworks .flex-artworks .sidebar .red, .artworks .flex-artworks .sidebar .blue, .artworks .flex-artworks .sidebar .white, .artworks .flex-artworks .sidebar .black {
+  .artworks .flex-artworks .sidebar .multicolor, .artworks .flex-artworks .sidebar .green, .artworks .flex-artworks .sidebar .red, .artworks .flex-artworks .sidebar .blue, .artworks .flex-artworks .sidebar .white, .artworks .flex-artworks .sidebar .black {
     height: 30px;
     width: 30px;
     border-radius: 30px;
@@ -10681,7 +10681,7 @@ a:hover {
     opacity: 100%;
     transition: 0.3s ease-out;
   }
-  .artworks .profile .flex-profile .sidebar .multicolor:hover, .profile .flex-profile .sidebar .artworks .multicolor:hover, .artworks .profile .flex-profile .sidebar .green:hover, .profile .flex-profile .sidebar .artworks .green:hover, .artworks .profile .flex-profile .sidebar .red:hover, .profile .flex-profile .sidebar .artworks .red:hover, .artworks .profile .flex-profile .sidebar .blue:hover, .profile .flex-profile .sidebar .artworks .blue:hover, .artworks .profile .flex-profile .sidebar .white:hover, .profile .flex-profile .sidebar .artworks .white:hover, .artworks .profile .flex-profile .sidebar .black:hover, .profile .flex-profile .sidebar .artworks .black:hover, .artworks .flex-artworks .sidebar .multicolor:hover, .artworks .flex-artworks .sidebar .green:hover, .artworks .flex-artworks .sidebar .red:hover, .artworks .flex-artworks .sidebar .blue:hover, .artworks .flex-artworks .sidebar .white:hover, .artworks .flex-artworks .sidebar .black:hover {
+  .artworks .flex-artworks .sidebar .multicolor:hover, .artworks .flex-artworks .sidebar .green:hover, .artworks .flex-artworks .sidebar .red:hover, .artworks .flex-artworks .sidebar .blue:hover, .artworks .flex-artworks .sidebar .white:hover, .artworks .flex-artworks .sidebar .black:hover {
     opacity: 70%;
     transition: 0.3s ease-in;
   }
@@ -12384,22 +12384,20 @@ a {
   .profile {
     margin: 20px 5%;
   }
-  .profile .flex-profile .sidebar .multicolor, .profile .flex-profile .sidebar .green, .profile .flex-profile .sidebar .red, .profile .flex-profile .sidebar .blue, .profile .flex-profile .sidebar .white, .profile .flex-profile .sidebar .black, .profile .artworks .flex-artworks .sidebar .black, .artworks .flex-artworks .sidebar .profile .black, .profile .artworks .flex-artworks .sidebar .white, .artworks .flex-artworks .sidebar .profile .white, .profile .artworks .flex-artworks .sidebar .blue, .artworks .flex-artworks .sidebar .profile .blue, .profile .artworks .flex-artworks .sidebar .red, .artworks .flex-artworks .sidebar .profile .red, .profile .artworks .flex-artworks .sidebar .green, .artworks .flex-artworks .sidebar .profile .green, .profile .artworks .flex-artworks .sidebar .multicolor, .artworks .flex-artworks .sidebar .profile .multicolor {
-    height: 30px;
-    width: 30px;
-    border-radius: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 5px 10px 5px 0;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-    opacity: 100%;
-    transition: 0.3s ease-out;
-  }
-  .profile .flex-profile .sidebar .multicolor:hover, .profile .flex-profile .sidebar .green:hover, .profile .flex-profile .sidebar .red:hover, .profile .flex-profile .sidebar .blue:hover, .profile .flex-profile .sidebar .white:hover, .profile .flex-profile .sidebar .black:hover, .profile .artworks .flex-artworks .sidebar .black:hover, .artworks .flex-artworks .sidebar .profile .black:hover, .profile .artworks .flex-artworks .sidebar .white:hover, .artworks .flex-artworks .sidebar .profile .white:hover, .profile .artworks .flex-artworks .sidebar .blue:hover, .artworks .flex-artworks .sidebar .profile .blue:hover, .profile .artworks .flex-artworks .sidebar .red:hover, .artworks .flex-artworks .sidebar .profile .red:hover, .profile .artworks .flex-artworks .sidebar .green:hover, .artworks .flex-artworks .sidebar .profile .green:hover, .profile .artworks .flex-artworks .sidebar .multicolor:hover, .artworks .flex-artworks .sidebar .profile .multicolor:hover {
-    opacity: 70%;
-    transition: 0.3s ease-in;
-  }
   .profile .title-artist {
     margin-bottom: 70px;
+  }
+  .profile .order-item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  .profile .order-item img {
+    width: 150px;
+    height: auto;
+  }
+  .profile .order-item .order-text {
+    margin-left: 30px;
+    width: 40%;
   }
   .profile .flex-profile {
     display: flex;
@@ -12460,25 +12458,6 @@ a {
   .profile .flex-profile .sidebar .item {
     display: flex;
     flex-wrap: wrap;
-  }
-  .profile .flex-profile .sidebar .black {
-    background-color: black;
-  }
-  .profile .flex-profile .sidebar .white {
-    background-color: white;
-  }
-  .profile .flex-profile .sidebar .blue {
-    background-color: #3468d8;
-  }
-  .profile .flex-profile .sidebar .red {
-    background-color: #d84c39;
-  }
-  .profile .flex-profile .sidebar .green {
-    background-color: #47a347;
-  }
-  .profile .flex-profile .sidebar .multicolor {
-    background: #ee0a0e;
-    background: linear-gradient(180deg, #ca3d40 33.3%, #4c4cca 33.3%, #6cb878 66.6%, #9b963f 66.6%);
   }
 }
 @media only screen and (min-width: 900px) {

@@ -13,7 +13,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = auth()->user()->sales;
+        $orders = auth()->user()->sales()->with('artworks')->paginate(5);
 
 
         return view('userorder', compact('orders'));

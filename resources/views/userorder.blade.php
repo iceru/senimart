@@ -47,13 +47,21 @@ Senimart - Artworks
         </div>
         <div class="profile-content">
             @foreach ($orders as $order)
-            <h2>{{ $order->id }}</h2>
-            <p>Rp{{ $order->totalPrice }}</p>
+            <h3>Order ID: {{ $order->id }}</h3>
+            <p>Total Payment: Rp{{ $order->totalPrice }}</p>
 
             @foreach ($order->artworks as $artwork)
-            <h2>{{ $artwork->title }}</h2>
-            <h2><img src="{{ asset($artwork->image) }}" alt=""></h2>
+            <div class="order-item">
+                <img src="{{ asset('storage/'. $artwork->image) }}" alt="">
+                <div class="order-text">
+                    <h4>{{ $artwork->title }}</h4>
+                    <h5>{{ $artwork->artists->name }}</h5>
+                </div>
+
+            </div>
+
             @endforeach
+            <hr>
             @endforeach
         </div>
     </div>
