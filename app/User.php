@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Wishlist;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -40,5 +41,9 @@ class User extends \TCG\Voyager\Models\User
     public function sales()
     {
         return $this->hasMany('App\Sales');
+    }
+
+    public function wishlist() {
+        return $this->hasMany(Wishlist::class);
     }
 }

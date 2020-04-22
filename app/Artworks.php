@@ -6,6 +6,7 @@ use App\Sales;
 use App\Colors;
 use App\Artists;
 use App\Category;
+use App\Wishlist;
 use Illuminate\Database\Eloquent\Model;
 
 class Artworks extends Model
@@ -31,6 +32,11 @@ class Artworks extends Model
     public function sales()
     {
         return $this->belongsToMany(Sales::class);
+    }
+
+    public function wishlist()
+    {
+        return $this->hasMany(Wishlist::class);
     }
 
     public function scopeFilter($a)
