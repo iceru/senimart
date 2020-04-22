@@ -24,4 +24,12 @@ class ArtworksController extends Controller
         
         return view('artworksdetail', compact('artwork', 'similiars'));
     }  
+
+    public function search(Request $request) {
+        $query = $request->input('query');
+
+        $artworks = Artworks::where('title', 'like', "%$query%")->paginate(10);
+
+        return view('searchpage')->with('artworks', $artworks);
+    }
 }

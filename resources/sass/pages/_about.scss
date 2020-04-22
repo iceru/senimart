@@ -1,120 +1,542 @@
 .about-main {
-	h1 {
-		font-family: $fontbold;
-		margin: 5px 0;
-		font-size: 2.5em;
-	}
-
-	hr {
-		content: "";
-		background-color: $orange;
-		height: 4px;
-		width: 40%;
-		margin-left: 0;
-		border: 0px;
-	}
-
-	h4 {
-		font-size: 1.6em;
-		margin: 10px 0 5px 0;
-	}
-
-	p {
-		font-size: 1.4em;
-		margin-bottom: 5px;
-	}
-
-	.about {
-		margin: 100px 15%;
-		display: flex;
-
-		p {
-			padding: 0 50px;
-			font-size: 1.2em;
-		}
-	}
-
-	.contact {
-		display: flex;
-		margin: 150px 15%;
-
-		img {
-			width: 70%;
-			margin-right: 100px;
-		}
-	}
-
-	.location {
-		display: flex;
-		padding: 100px 15%;
-		background-color: $grey;
-
-		.location-detail {
-			margin-right: 100px;
-		}
-
-		.map {
-			width: 70%;
-		}
-
-		p {
-			margin-top: 5px;
-		}
-	}
-
-	.team {
-		padding: 50px 15%;
-
-		img {
-			width: 250px;
-			height: 250px;
-			border-radius: 300px;
-			object-fit: cover;
-			object-position: center;
+	@media only screen and (min-width: $break-xs) {
+		h1 {
+			font-family: $fontbold;
+			margin: 5px 0;
+			font-size: 2.2em;
 		}
 
 		hr {
-			width: 80%;
-			height: 2px;
+			content: "";
+			background-color: $orange;
+			height: 4px;
+			width: 40%;
+			margin-left: 0;
+			border: 0px;
+		}
+
+		h4 {
+			font-size: 1.4em;
+			margin: 10px 0 5px 0;
 		}
 
 		p {
-			margin-top: 10px;
 			font-size: 1.2em;
+			margin-bottom: 5px;
 		}
 
-		.team-name {
-			margin: 0 50px;
-		}
-
-		.diagonal {
-			margin-right: 150px;
-			margin-top: -30px;
-			width: 400px;
-			height: 300px;
-			border-right: 3px solid $orange;
-			transform: rotate(22deg);
-		}
-
-		.vertical {
-			width: 45%;
-			margin-right: 5%;
-			padding-right: 150px;
-			border-right: 3px solid $orange;
-		}
-
-		.team-under {
-			display: grid;
-			grid-template-columns: repeat(2, 2fr);
-		}
-
-		.team1,
-		.team2,
-		.team3,
-		.team4,
-		.team5 {
+		.about {
 			display: flex;
-			margin-top: 100px;
+			flex-wrap: wrap;
+			vertical-align: middle;
+			justify-content: flex-start;
+			flex-direction: column;
+			margin: 50px 5%;
+
+			img {
+				width: 250px;
+			}
+
+			.blank {
+				width: 0%;
+			}
+
+			.text1 {
+				width: 90%;
+			}
+
+			.text2 {
+				width: 90%;
+			}
+
+			.about-img {
+				margin-top: 50px;
+				img {
+					width: 80%;
+				}
+			}
+
+			p {
+				padding: 20px;
+				font-size: 1.1em;
+				text-align: justify;
+			}
+
+			.slogan {
+				font-size: 1.4em;
+			}
+		}
+
+		.location {
+			display: flex;
+			flex-direction: column;
+			padding: 50px 5%;
+			background-color: $grey;
+
+			img {
+				width: 55%;
+			}
+
+			.location-detail {
+				margin: 0;
+			}
+
+			.location-text {
+				display: flex;
+				margin-top: 20px;
+
+				img {
+					width: 30px;
+					margin-top: 13px;
+					margin-right: 10px;
+				}
+			}
+
+			h4 {
+				font-family: $fontmed;
+			}
+
+			p {
+				margin-top: 5px;
+			}
+
+			.map {
+				width: 100%;
+				margin-top: 30px;
+			}
+		}
+
+		.contact {
+			display: flex;
+			flex-direction: column;
+			margin: 50px 5%;
+
+			.button-black {
+				margin: 30px 0;
+				background-color: $orange;
+				transition: 0.2s ease-in;
+				border: 1px solid $orange;
+
+				&:hover {
+					background-color: black;
+					transition: 0.2s ease-out;
+					border: 1px solid black;
+				}
+			}
+			img {
+				width: 70%;
+				margin-right: 100px;
+			}
+
+			.contact-detail {
+				text-align: center;
+				margin-top: 50px;
+
+				hr {
+					margin: auto;
+				}
+				.contact-title {
+					width: 60%;
+					margin: 20px 0;
+					margin-left: 30px;
+				}
+
+				p {
+					font-size: 1.3em;
+				}
+			}
+		}
+
+		.team {
+			padding: 50px 5%;
+			.team-items {
+				margin-top: 50px;
+
+				.team-title {
+					text-align: center;
+					h1 {
+						font-size: 3em;
+					}
+
+					p {
+						font-size: 1.2em;
+					}
+				}
+
+				.team1 {
+					margin-top: 80px;
+				}
+
+				.team2,
+				.team3,
+				.team4,
+				.team5 {
+					margin-top: 150px;
+				}
+				img {
+					width: 400px;
+					height: auto;
+				}
+
+				hr {
+					width: 30%;
+					height: 2px;
+				}
+
+				h4 {
+					font-style: italic;
+					font-size: 1.4em;
+				}
+
+				p {
+					font-size: 1.1em;
+					margin-top: 15px;
+				}
+
+				.team1,
+				.team3,
+				.team5 {
+					display: flex;
+					flex-direction: column;
+
+					.team-name {
+						margin-left: 30px;
+					}
+				}
+
+				.team2,
+				.team4 {
+					display: flex;
+					flex-wrap: wrap;
+					flex-direction: column;
+					justify-content: center;
+					vertical-align: middle;
+
+					hr {
+						margin: auto;
+						margin-top: 15px;
+					}
+
+					.team-name {
+						width: 100%;
+						text-align: center;
+						order: 2;
+					}
+
+					.team-img {
+						text-align: center;
+						order: 1;
+					}
+
+					.team-desc {
+						width: 100%;
+						margin-top: 10px;
+						margin-bottom: 10px;
+						order: 3;
+					}
+
+					.team-img {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (min-width: $break-small) {
+		.location {
+			hr {
+				width: 15%;
+			}
+
+			img {
+				width: 25%;
+			}
+		}
+
+		.contact {
+			display: flex;
+			flex-direction: row;
+			margin: 50px 5%;
+
+			.button-black {
+				margin: 30px 0;
+				background-color: $orange;
+				transition: 0.2s ease-in;
+				border: 1px solid $orange;
+
+				&:hover {
+					background-color: black;
+					transition: 0.2s ease-out;
+					border: 1px solid black;
+				}
+			}
+			img {
+				width: 70%;
+				margin-right: 20px;
+			}
+
+			.contact-detail {
+				text-align: left;
+				margin-top: 50px;
+
+				hr {
+					margin-left: 0;
+				}
+				.contact-title {
+					width: 80%;
+					margin: 10px 0;
+				}
+
+				p {
+					font-size: 1.3em;
+				}
+			}
+		}
+
+		.team {
+			padding: 50px 5%;
+			.team-items {
+				margin-top: 50px;
+
+				.team-title {
+					text-align: center;
+				}
+
+				.team1,
+				.team3,
+				.team5 {
+					text-align: center;
+					hr {
+						margin: auto;
+						margin-top: 20px;
+					}
+
+					p {
+						text-align: left;
+					}
+
+					.team-name {
+						margin: 0;
+					}
+				}
+
+				.team2,
+				.team4 {
+					display: flex;
+					flex-wrap: wrap;
+					flex-direction: column;
+					justify-content: center;
+					vertical-align: middle;
+
+					hr {
+						margin: auto;
+						margin-top: 15px;
+					}
+
+					.team-name {
+						width: 100%;
+						text-align: center;
+						order: 2;
+					}
+
+					.team-img {
+						text-align: center;
+						order: 1;
+					}
+
+					.team-desc {
+						width: 100%;
+						margin-top: 10px;
+						margin-bottom: 10px;
+						order: 3;
+					}
+
+					.team-img {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	@media only screen and (min-width: $break-lg) {
+		h4 {
+			font-size: 1.6em;
+		}
+
+		p {
+			font-size: 1.4em;
+		}
+
+		.about {
+			display: flex;
+			margin: 150px 15%;
+			flex-wrap: wrap;
+			flex-direction: row;
+
+			.blank {
+				width: 25%;
+			}
+
+			.text1 {
+				width: 36%;
+				animation: 1s ease-in-out 0s 1 rightToLeft;
+			}
+
+			.text2 {
+				width: 36%;
+				animation: 1s ease-in-out 0s 1 rightToLeft;
+			}
+
+			img {
+				margin-top: 30px;
+				width: 100%;
+				animation: 1s ease-in-out 0s 1 leftToRight;
+			}
+
+			p {
+				padding: 0 20px;
+				font-size: 1.1em;
+				text-align: justify;
+			}
+
+			.slogan {
+				font-size: 1.4em;
+			}
+		}
+
+		.location {
+			margin: 150px 0;
+			padding: 100px 15%;
+			flex-direction: row;
+
+			img {
+				width: 50%;
+			}
+
+			.location-detail {
+				margin-right: 100px;
+			}
+
+			.map {
+				width: 70%;
+			}
+		}
+
+		.contact {
+			flex-direction: row;
+			margin: 150px 15%;
+
+			.contact-detail {
+				text-align: left;
+
+				hr {
+					margin-left: 0;
+				}
+
+				.contact-title {
+					margin: 10px 0 20px 0;
+					width: 85%;
+				}
+			}
+		}
+
+		.team {
+			padding: 50px 15%;
+
+			.team-items {
+				margin-top: 50px;
+
+				.team-title {
+					text-align: center;
+					h1 {
+						font-size: 3.5em;
+					}
+
+					p {
+						font-size: 1.4em;
+					}
+				}
+
+				.team1 {
+					margin-top: 80px;
+				}
+
+				.team2,
+				.team3,
+				.team4,
+				.team5 {
+					margin-top: 150px;
+				}
+				img {
+					width: 400px;
+					height: auto;
+				}
+
+				hr {
+					width: 30%;
+					height: 2px;
+				}
+
+				h4 {
+					font-style: italic;
+					font-size: 1.4em;
+				}
+
+				p {
+					font-size: 1.2em;
+					margin-top: 15px;
+				}
+
+				.team1,
+				.team3,
+				.team5 {
+					display: flex;
+					flex-direction: row;
+
+					.team-name {
+						margin-left: 30px;
+					}
+				}
+
+				.team2,
+				.team4 {
+					display: flex;
+					flex-wrap: wrap;
+					justify-content: center;
+					vertical-align: middle;
+					flex-direction: row;
+
+					hr {
+						margin: auto;
+						margin-top: 15px;
+					}
+
+					.team-name {
+						width: 100%;
+						text-align: center;
+						margin-bottom: 30px;
+					}
+
+					.team-img {
+						margin: 0 20px;
+						text-align: center;
+						order: 1;
+					}
+
+					.team-desc {
+						width: 66%;
+						margin-top: 20px;
+						order: 2;
+					}
+
+					.team-img {
+						width: 30%;
+						order: 3;
+					}
+				}
+			}
 		}
 	}
 }

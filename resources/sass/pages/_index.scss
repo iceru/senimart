@@ -1,267 +1,322 @@
-%button {
-	padding: 15px 32px;
-	text-align: center;
+a:hover {
 	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 0 20px;
-	cursor: pointer;
 }
 
-.button-white {
-	background-color: rgba($color: #000000, $alpha: 0);
-	border: 2px solid white;
-	color: white;
-	@extend %button;
-
-	&:hover {
-		background-color: white;
-		color: rgba($color: #000000, $alpha: 1);
-	}
+.mono {
+	font-family: $fontmono;
 }
 
-.button-list-black {
-	background-color: rgba($color: #000000, $alpha: 0);
-	border: 2px solid black;
-	color: black;
-	@extend %button;
-
-	&:hover {
-		background-color: black;
-		color: white;
-	}
+.break {
+	flex-basis: 100%;
+	height: 0;
 }
 
-.button-black {
-	background-color: black;
-	border: 2px solid black;
-	color: white;
-	@extend %button;
-}
+@media only screen and (min-width: $break-xs) {
+	%h1-center {
+		font: 3.1em $fontbold;
+		letter-spacing: 0.11em;
+		margin: 30px 0;
+		color: black;
+		text-align: center;
 
-%grid-3 {
-	display: grid;
-	grid-template-columns: repeat(3, 2fr);
-	grid-gap: 20px;
-}
-
-%h1-font {
-	font: 3.1em $fontbold;
-	letter-spacing: 0.11em;
-	margin: 30px 0;
-	color: black;
-}
-
-.index {
-	hr {
-		display: block;
-		height: 1px;
-		border: 0;
-		border-top: 1px solid black;
-		padding: 0;
-		width: 15%;
-		margin: auto;
 		@media only screen and (max-width: $break-small) {
+			font-size: 2.5em;
+		}
+	}
+
+	%grid-3 {
+		display: grid;
+		grid-template-columns: repeat(3, 2fr);
+		grid-gap: 20px;
+	}
+
+	.index {
+		hr {
+			display: block;
+			height: 1px;
+			border: 0;
+			border-top: 1px solid black;
+			padding: 0;
+			margin: auto;
 			width: 65%;
 		}
-	}
 
-	.mono {
-		font-family: $fontmono;
-	}
-
-	a {
-		color: black;
-	}
-
-	.calltoaction {
-		height: 650px;
-		background: black;
-		filter: blur(2px);
-
-		img {
-			height: 650px;
+		.calltoaction {
+			background-image: url(/image/header.jpg);
+			height: auto;
 			width: 99vw;
-			object-fit: cover;
-			opacity: 0.2;
-		}
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			vertical-align: middle;
 
-		@media only screen and (max-width: $break-large) {
-			height: 500px;
+			.cta-text {
+				padding: 17vh 0;
+				background-color: rgba($color: #000000, $alpha: 0.8);
+				text-align: center;
+			}
+
+			h1 {
+				font-family: $fontbold;
+				color: white;
+				font-size: 3.5em;
+				text-align: center;
+				letter-spacing: 0.1em;
+				margin-bottom: 0;
+			}
 
 			img {
-				height: 500px;
+				width: 35%;
 			}
-		}
-	}
 
-	//call to action text
-	.cta-text {
-		h1 {
-			@extend %h1-font;
+			h4 {
+				font-weight: 300;
+				font-size: 20px;
+				line-height: 36px;
+				text-align: center;
+				letter-spacing: 0.15em;
+				margin: 0;
+			}
+
+			.button-ctr {
+				text-align: center;
+				margin: 30px 0;
+				margin-top: 20px;
+			}
 			color: white;
-			font-size: 6em;
-			text-align: center;
-		}
 
-		h4 {
-			font-weight: 300;
-			font-size: 20px;
-			line-height: 36px;
-			text-align: center;
-			letter-spacing: 0.15em;
-			margin: 0;
-		}
+			a {
+				color: white;
 
-		.button-ctr {
-			text-align: center;
-			margin: 30px 0;
-		}
-
-		color: white;
-		position: absolute;
-		top: 55%;
-		width: 90%;
-		@media only screen and (max-width: $break-med) {
-			top: 37%;
-			h1 {
-				font-size: 4em;
-			}
-		}
-		@media only screen and (max-width: $break-small) {
-			top: 40%;
-
-			h1 {
-				font-size: 3.5em;
-			}
-		}
-		left: 50%;
-		transform: translate(-50%, -50%);
-
-		a {
-			color: white;
-		}
-	}
-
-	//featured
-	.featured {
-		display: block;
-		margin: 20px 10% 100px 10%;
-
-		h1 {
-			@extend %h1-font;
-			text-align: center;
-		}
-
-		.painting-featured {
-			@extend %grid-3;
-			text-align: center;
-			margin-top: 20px;
-
-			.painting-item {
-				padding: 40px;
-				@media only screen and (max-width: 1024px) {
-					padding: 30px 10px;
-				}
-				img {
-					width: 90%;
-
-					@media only screen and (max-width: 1366px) {
-						width: 80%;
-					}
-				}
-
-				h2 {
-					margin: 20px 0 0 0;
-					font-size: 1.6em;
+				&:hover {
 					color: black;
 				}
-
-				h3 {
-					margin: 10px 0 0 0;
-					font-size: 1.4em;
-				}
-
-				p {
-					margin: 10px 0 0 0;
-				}
-			}
-
-			@media only screen and (max-width: $break-small) {
-				grid-template-columns: repeat(1, 2fr);
-
-				img {
-					width: 75%;
-				}
 			}
 		}
-	}
 
-	.break {
-		flex-basis: 100%;
-		height: 0;
-	}
-
-	//Price
-	.price {
-		margin: 100px 10%;
-		text-decoration: none;
-
-		h1 {
-			@extend %h1-font;
-		}
-
-		.price2 {
-			display: grid;
-			grid-template-columns: repeat(2, 2fr);
-			grid-gap: 20px;
-			margin: 20px 40px;
-
-			h2 {
-				font-size: 3.6em;
-				margin: 0;
-			}
+		.featured {
+			display: block;
+			margin: 20px 10% 100px 10%;
 
 			h1 {
-				margin: 0;
-				font-size: 6em;
-				color: white;
+				@extend %h1-center;
+				text-align: center;
 			}
 
-			@media only screen and (max-width: $break-med) {
+			.painting-featured {
+				@extend %grid-3;
 				grid-template-columns: repeat(1, 2fr);
+				text-align: center;
+				margin-top: 20px;
 
-				h1 {
-					font-size: 5em;
+				.painting-item {
+					padding: 10px 20px;
+					img {
+						width: 80%;
+						opacity: 100%;
+						transition: 0.2s ease-out;
+
+						&:hover {
+							opacity: 80%;
+							transition: 0.2s ease-in;
+						}
+					}
+
+					.painting-text {
+						text-align: left;
+						padding: 0 20px;
+
+						h2 {
+							margin: 20px 0 0 0px;
+							font-size: 1.8em;
+							color: black;
+							font-family: $fontmed;
+							transition: 0.2s ease-out;
+
+							&:hover {
+								color: $orange;
+								transition: 0.2s ease-in;
+							}
+						}
+
+						h3 {
+							margin: 0 0 0 0px;
+							font-size: 1.6em;
+							transition: 0.2s ease-out;
+						}
+
+						h5 {
+							margin: 0 0 0 0;
+							font-size: 1.2em;
+							&:hover {
+								color: $orange;
+								transition: 0.2s ease-in;
+							}
+						}
+
+						.author-price {
+							display: flex;
+							vertical-align: middle;
+							margin-top: 15px;
+							justify-content: flex-start;
+							align-items: center;
+
+							.author {
+								width: 50%;
+								margin-right: 15px;
+								border-right: 1px solid rgba($color: #000000, $alpha: 0.2);
+								border-width: thin;
+							}
+						}
+
+						p {
+							margin: 3px 0 0 0;
+							color: rgb(173, 173, 173);
+						}
+					}
 				}
+			}
+		}
+
+		.price {
+			margin: 100px 5%;
+			text-decoration: none;
+
+			h1 {
+				@extend %h1-center;
+				text-align: left;
+			}
+
+			.price2 {
+				display: grid;
+				grid-template-columns: repeat(1, 2fr);
+				grid-gap: 20px;
+				margin: 20px 40px;
+				opacity: 100%;
 
 				h2 {
-					font-size: 2.3em;
+					font-size: 2em;
+					margin: 0;
+					transition: 0.3s ease-out;
 				}
+
+				h1 {
+					margin: 0;
+					font-size: 4.2em;
+					color: white;
+					transition: 0.3s ease-out;
+				}
+			}
+
+			%price-pic {
+				color: white;
+				padding: 80px 22% 80px 7%;
+				letter-spacing: 0.1em;
+				cursor: pointer;
+				background-repeat: no-repeat;
+				background-size: cover;
+
+				opacity: 100%;
+				transition: 0.3s ease-out;
+
+				&:hover {
+					opacity: 80%;
+					transition: 0.4s ease-in;
+
+					h1 {
+						font-size: 5.2em;
+						transition: 0.4s ease-in;
+					}
+
+					h2 {
+						font-size: 2.8em;
+						transition: 0.4s ease-in;
+					}
+				}
+			}
+
+			.price-pic1 {
+				background-image: url(/image/price1.png);
+				@extend %price-pic;
+			}
+
+			.price-pic2 {
+				background-image: url(/image/price2.png);
+				@extend %price-pic;
 			}
 		}
 
-		.price-pic1 {
-			background-image: url(/image/price1.png);
+		.categories {
+			margin: 100px 10%;
 			color: white;
-			padding: 40px 22% 60px 7%;
-			letter-spacing: 0.1em;
-			cursor: pointer;
-			background-repeat: no-repeat;
-			background-size: cover;
-		}
 
-		.price-pic2 {
-			background-image: url(/image/price2.png);
-			color: white;
-			padding: 40px 22% 60px 7%;
-			letter-spacing: 0.1em;
-			background-repeat: no-repeat;
-			background-size: cover;
+			h1 {
+				@extend %h1-center;
+				text-align: left;
+			}
+
+			a {
+				color: black;
+			}
+			p {
+				font-size: 1.8em;
+				padding: 10px 0 20px 0;
+				margin: 0;
+				color: white;
+				font-family: $fontmed;
+			}
+
+			.category-items {
+				display: grid;
+				grid-template-columns: repeat(1, 2fr);
+				margin: 0;
+			}
+
+			.category-items2 {
+				display: grid;
+				grid-template-columns: repeat(1, 2fr);
+				margin: 0;
+			}
+
+			.category1,
+			.category2,
+			.category3,
+			.category4,
+			.category5 {
+				background-image: url(/image/cat1.png);
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				margin-bottom: 20px;
+
+				p {
+					background-color: rgba($color: black, $alpha: 0.6);
+					padding: 120px 20px;
+					transition: 0.3s ease-out;
+				}
+
+				&:hover {
+					p {
+						background-color: rgba($color: black, $alpha: 0.2);
+						font-size: 3.3em;
+						padding: 116px 20px;
+						transition: 0.4s ease-in;
+
+						@media only screen and (max-width: $break-small) {
+							font-size: 2.2em;
+						}
+					}
+				}
+			}
+
+			.category3 {
+				background-image: url(/image/photography.jpg);
+			}
 		}
 	}
-
-	//products
 
 	.products {
 		margin: 100px 10%;
@@ -269,139 +324,60 @@
 		text-align: center;
 
 		h1 {
-			@extend %h1-font;
-			text-align: center;
+			@extend %h1-center;
 		}
 
 		.products-items {
 			display: grid;
-			grid-template-columns: repeat(4, 2fr);
-			grid-gap: 20px;
+			grid-template-columns: repeat(1, 2fr);
+			grid-gap: 40px;
 			text-align: center;
-			margin-top: 20px;
+			margin-top: 30px;
 
 			.item {
-				padding: 40px;
 				color: black;
 
 				img {
 					width: 100%;
-				}
+					opacity: 100%;
+					transition: 0.2s ease-out;
 
+					&:hover {
+						opacity: 80%;
+						transition: 0.2s ease-in;
+					}
+				}
 				h2 {
 					margin: 20px 0 0 0;
+					font-size: 1.6em;
 					color: black;
+					transition: 0.2s ease-out;
+
+					&:hover {
+						color: $orange;
+						transition: 0.2s ease-in;
+					}
 				}
 
 				h3 {
 					margin: 10px 0 0 0;
+					font-size: 1.4em;
+					transition: 0.2s ease-out;
+
+					&:hover {
+						color: $orange;
+						transition: 0.2s ease-in;
+					}
+				}
+
+				h5 {
+					margin: 10px 0 0 0;
+					font-size: 1.2em;
 				}
 
 				p {
 					margin: 10px 0 0 0;
 				}
-			}
-
-			@media only screen and (max-width: $break-small) {
-				grid-template-columns: repeat(2, 1fr);
-
-				.item {
-					padding: 10px;
-					margin-bottom: 30px;
-				}
-			}
-		}
-	}
-
-	.categories {
-		margin: 100px 10%;
-		color: white;
-
-		h1 {
-			@extend %h1-font;
-
-			justify-content: flex-start;
-		}
-
-		a {
-			color: white;
-		}
-		p {
-			font-size: 2.5em;
-			@media only screen and (max-width: $break-small) {
-				font-size: 1.8em;
-			}
-		}
-
-		.categories2 {
-			@extend %grid-3;
-			margin: 0 40px;
-			@media only screen and (max-width: $break-med) {
-				grid-template-columns: repeat(1, 1fr);
-				margin: 0;
-			}
-		}
-
-		.category1,
-		.category2,
-		.category3 {
-			background-image: url(/image/cat1.png);
-			background-repeat: no-repeat;
-			background-size: cover;
-			padding: 200px 0 0 0;
-			@media only screen and (max-width: $break-med) {
-				grid-template-columns: repeat(1, 1fr);
-			}
-			p {
-				margin: 0;
-				background-color: rgba($color: #000000, $alpha: 0.8);
-				padding: 20px;
-				text-align: center;
-			}
-		}
-
-		.category4,
-		.category5 {
-			background-image: url(/image/cat2.png);
-			background-repeat: no-repeat;
-			background-size: cover;
-			text-align: center;
-			padding: 0 0 0 300px;
-
-			@media only screen and (max-width: $break-med) {
-				grid-template-columns: repeat(1, 1fr);
-			}
-
-			@media only screen and (max-width: $break-small) {
-				padding: 0 0 0 200px;
-			}
-
-			@media only screen and (min-width: $break-med) {
-				padding: 0 0 0 300px;
-			}
-
-			@media only screen and (min-width: $break-large) {
-				padding: 0 0 0 750px;
-			}
-
-			p {
-				margin: 0;
-				background-color: rgba($color: #000000, $alpha: 0.8);
-				padding: 130px 0px;
-			}
-		}
-
-		.category4 {
-			grid-column: 1/3;
-			@media only screen and (max-width: $break-small) {
-				grid-column: 1;
-			}
-		}
-
-		.category5 {
-			padding: 0 300px 0 0px;
-			@media only screen and (max-width: $break-small) {
-				padding: 0 200px 0 0;
 			}
 		}
 	}
@@ -409,57 +385,289 @@
 	.artists-home {
 		margin: 100px 10%;
 		h1 {
-			@extend %h1-font;
-			text-align: center;
+			@extend %h1-center;
 		}
 
-		.artists2 {
+		a {
+			color: black;
+		}
+
+		.artist-items {
 			@extend %grid-3;
+			grid-template-columns: repeat(1, 1fr);
 			margin: 70px 0;
 			text-align: center;
 
 			.artist1 {
-				margin: 10px 30px;
-				padding: 40px;
-
-				@media only screen and (max-width: $break-med) {
-					padding: 10px;
-				}
+				margin: 0 10px;
+				padding: 20px;
 			}
 
 			img {
-				width: 100%;
+				opacity: 100%;
+				width: 350px;
+				height: 400px;
+				object-fit: cover;
+				object-position: center;
 				z-index: -1;
+				transition: 0.2s ease-out;
+
+				&:hover {
+					opacity: 80%;
+					transition: 0.2s ease-in;
+				}
 			}
 
 			.artist-name {
 				position: relative;
 				background-color: white;
-				padding: 10px;
+				padding: 15px 20px;
 				box-shadow: 2px 4px 10px rgba($color: #000000, $alpha: 0.2);
 				width: 60%;
 				margin: auto;
 				margin-top: -50px;
-				z-index: 4;
-				p {
+				z-index: 2;
+				h4 {
 					font-size: 1.7em;
-				}
-			}
+					margin: 0;
+					transition: 0.2s ease-out;
 
-			@media only screen and (max-width: $break-small) {
-				grid-template-columns: repeat(1, 1fr);
-				margin: 20px 0;
-
-				.artist-name {
-					padding: 5px 30px;
-
-					p {
-						margin: 10px 0;
+					&:hover {
+						color: $orange;
+						transition: 0.2s ease-in;
 					}
+				}
+				p {
+					color: rgb(73, 73, 73);
+					margin: 10px 0;
 				}
 			}
 		}
 	}
 }
 
-//call to action
+@media only screen and (min-width: $break-med) {
+	.index {
+		hr {
+			width: 40%;
+		}
+
+		.calltoaction {
+			h1 {
+				font-size: 5em;
+			}
+
+			img {
+				width: 25%;
+			}
+		}
+
+		.featured {
+			.painting-featured {
+				grid-template-columns: repeat(2, 2fr);
+
+				.painting-item {
+					padding: 10px 20px;
+
+					img {
+						width: 90%;
+					}
+				}
+			}
+		}
+		.price {
+			margin: 100px 10%;
+
+			.price2 {
+				grid-template-columns: repeat(1, 2fr);
+				h1 {
+					font-size: 6em;
+				}
+
+				h2 {
+					font-size: 3.6em;
+				}
+			}
+
+			.price-pic1,
+			.price-pic2 {
+				&:hover {
+					h1 {
+						font-size: 6.2em;
+					}
+
+					h2 {
+						font-size: 3.8em;
+					}
+				}
+			}
+		}
+
+		.products-items {
+			margin-top: 40px;
+		}
+
+		.categories {
+			p {
+				font-size: 3em;
+			}
+
+			.category-items {
+				grid-template-columns: repeat(1, 2fr);
+				margin: 0px 10px;
+				grid-gap: 10px;
+			}
+
+			.category-items2 {
+				grid-template-columns: repeat(1, 2fr);
+				margin: 0 10px;
+				grid-gap: 10px;
+			}
+
+			.category1,
+			.category2,
+			.category3,
+			.category4,
+			.category5 {
+				&:hover {
+					p {
+						font-size: 3.3em;
+					}
+				}
+			}
+		}
+	}
+
+	.products {
+		.products-items {
+			grid-template-columns: repeat(2, 2fr);
+
+			.item {
+				padding: 10px 20px;
+			}
+		}
+	}
+
+	.artists-home {
+		margin: 100px 10%;
+		.artist-items {
+			grid-template-columns: repeat(2, 1fr);
+			margin-top: 20px;
+			.artist1 {
+				margin: 30px 10px;
+				padding: 20px;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: $break-lg) {
+	.index {
+		hr {
+			width: 20%;
+		}
+
+		.calltoaction {
+			h1 {
+				font-size: 5.5em;
+			}
+
+			img {
+				width: 15%;
+			}
+		}
+
+		.featured {
+			.painting-featured {
+				grid-template-columns: repeat(3, 2fr);
+
+				.painting-item {
+					padding: 10px 40px;
+
+					img {
+						width: 90%;
+					}
+				}
+			}
+		}
+		.price {
+			margin: 100px 10%;
+
+			.price2 {
+				grid-template-columns: repeat(2, 2fr);
+				h1 {
+					font-size: 6em;
+				}
+
+				h2 {
+					font-size: 3.6em;
+				}
+			}
+
+			.price-pic1,
+			.price-pic2 {
+				&:hover {
+					h1 {
+						font-size: 6.2em;
+					}
+
+					h2 {
+						font-size: 3.8em;
+					}
+				}
+			}
+		}
+
+		.products-items {
+			margin-top: 40px;
+		}
+
+		.categories {
+			p {
+				font-size: 3em;
+			}
+
+			.category-items {
+				grid-template-columns: repeat(2, 2fr);
+				margin: 30px 30px;
+				grid-gap: 30px;
+			}
+
+			.category-items2 {
+				grid-template-columns: repeat(3, 2fr);
+				margin: 0 30px;
+				grid-gap: 30px;
+			}
+
+			.category1,
+			.category2,
+			.category3,
+			.category4,
+			.category5 {
+				&:hover {
+					p {
+						font-size: 3.3em;
+					}
+				}
+			}
+		}
+	}
+
+	.products {
+		.products-items {
+			grid-template-columns: repeat(4, 2fr);
+		}
+	}
+
+	.artists-home {
+		margin: 100px 10%;
+		.artist-items {
+			grid-template-columns: repeat(3, 1fr);
+			margin-top: 20px;
+			.artist1 {
+				margin: 30px 10px;
+				padding: 10px;
+			}
+		}
+	}
+}

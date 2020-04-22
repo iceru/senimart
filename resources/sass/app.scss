@@ -29,16 +29,18 @@
 	font-style: normal;
 }
 
+
+@import '~bootstrap/scss/bootstrap';
 html,
 body {
 	padding: 0;
 	margin: 0;
 	font-family: "aperculight";
-	height: 100%;
 }
-
 // Variables
 @import 'base/variables';
+@import 'component/button';
+@import 'component/animation';
 @import 'pages/index';
 @import 'pages/artworks';
 @import 'pages/artists';
@@ -46,9 +48,10 @@ body {
 @import 'pages/artistdetail';
 @import 'pages/artworks-detail';
 @import 'pages/cart';
+@import 'pages/checkout';
 @import 'pages/about';
 @import 'pages/projects';
+@import 'pages/searchpage';
 @import 'layout/footer';
 @import 'layout/navbar';
-@import 'layout/admin.scss';
 @import 'pages/loginregister';

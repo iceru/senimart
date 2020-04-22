@@ -8,18 +8,22 @@ Senimart
 
 <section class="index">
   <div class="calltoaction">
-    <img src="/image/header.jpg" alt="" />
-  </div>
-  <div class="cta-text">
-    <h1>Call to Action</h1>
-    <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4>
-    <div class="button-ctr">
-      <a href="{{route('artworks.index')}}" class="button-white">Shop Now</a>
+    <div class="cta-text">
+      <h1>We're Back</h1>
+      <img src="/image/logowhite.png" alt="">
+      {{-- <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4> --}}
+      <div class="button-ctr">
+        <a href="{{route('artworks.index')}}" class="button-white">Shop Now</a>
+      </div>
     </div>
+
   </div>
+  {{-- <div class="cta-text">
+    
+  </div> --}}
 
   <div class="featured">
-    <h1>FEATURED ARTS</h1>
+    <h1>Featured Arts</h1>
     <div class="break"></div>
     <hr />
     <div class="break"></div>
@@ -29,15 +33,29 @@ Senimart
         <a href="/artwork/{{$featured->slug}}">
           <img src="{{asset('storage/'. $featured->image)}}" alt="picture-1" />
         </a>
-        <a href="/artwork/{{$featured->slug}}">
-          <h2>{{ $featured->title }}</h2>
-        </a>
-        <a href="/artist/{{$featured->artists->slug}}">
-          <h3>{{ $featured->artists->name }}</h3>
-        </a>
-        <p>{{ $featured->category->name}} </p>
-        <p>{{ $featured->sizeHeight }} cm (H) / {{ $featured->sizeWidth }} cm (W)</p>
-        <p class="mono">Rp.{{ $featured->price }}</p>
+        <div class="painting-text">
+          <a href="/artwork/{{$featured->slug}}">
+            <h2>{{ $featured->title }}</h2>
+          </a>
+          <div class="author-price">
+            <div class="author">
+              <a href="/artist/{{$featured->artists->slug}}">
+                <h5>{{ $featured->artists->name }}</h5>
+              </a>
+              <a href="{{ route('artworks.index', ['category' => $featured->category->slug])}}">
+                <p>{{ $featured->category->name}} </p>
+              </a>
+            </div>
+            <div>
+              <h3>Rp{{ $featured->price }}</h3>
+            </div>
+
+          </div>
+        </div>
+
+
+        <p></p>
+
       </div>
       @endforeach
 
@@ -50,19 +68,23 @@ Senimart
       by Price.
     </h1>
     <div class="price2">
-      <div class="price-pic1" onclick="location.href='#';">
-        <h2>UNDER</h2>
-        <h1>500$</h1>
-      </div>
-      <div class="price-pic2">
-        <h2>OVER</h2>
-        <h1>500$</h1>
-      </div>
+      <a href="{{ route('artworks.index', ['price' => 'under500'])}}">
+        <div class="price-pic1" onclick="location.href='#';">
+          <h2>UNDER</h2>
+          <h1>500$</h1>
+        </div>
+      </a>
+      <a href="{{ route('artworks.index', ['price' => 'above500'])}}">
+        <div class="price-pic2">
+          <h2>OVER</h2>
+          <h1>500$</h1>
+        </div>
+      </a>
     </div>
   </div>
 
   <div class="products">
-    <h1>PRODUCTS</h1>
+    <h1>Products</h1>
     <hr />
     <div class="products-items">
       @foreach ($artworks as $artwork)
@@ -76,9 +98,11 @@ Senimart
         <a href="/artist/{{$artwork->artists->slug}}">
           <h3>{{ $artwork->artists->name }}</h3>
         </a>
-        <p>{{ $artwork->category->name}} </p>
-        <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p>
-        <p class="mono">Rp.{{ $artwork->price }}</p>
+        <h5 class="mono">Rp{{ $artwork->price }}</h5>
+        <a href="{{ route('artworks.index', ['category' => $artwork->category->slug])}}">
+          <p>{{ $artwork->category->name}} </p>
+        </a>
+        {{-- <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p> --}}
       </div>
       @endforeach
     </div>
@@ -90,23 +114,25 @@ Senimart
       Browse Arts <br />
       by Categories.
     </h1>
-    <div class="categories2">
+    <div class="category-items">
       <div class="category1">
         <a href="{{ route('artworks.index', ['category' => 'painting-and-drawing'])}}">
           <p>Painting & Drawing</p>
         </a>
       </div>
       <div class="category2">
-        <a href="{{ route('artworks.index', ['category' => 'photography'])}}">
-          <p>Photography</p>
-        </a>
-      </div>
-      <div class="category3">
         <a href="{{ route('artworks.index', ['category' => 'digital-art-prints'])}}">
           <p>Digital Art Prints</p>
         </a>
       </div>
-      <div class="break"></div>
+    </div>
+
+    <div class="category-items2">
+      <div class="category3">
+        <a href="{{ route('artworks.index', ['category' => 'photography'])}}">
+          <p>Photography</p>
+        </a>
+      </div>
       <div class="category4">
         <a href="{{ route('artworks.index', ['category' => 'mix-media'])}}">
           <p>Mix Media</p>
@@ -121,11 +147,9 @@ Senimart
   </div>
 
   <div class="artists-home">
-    <h1>FEATURED ARTISTS</h1>
-    <div class="break"></div>
+    <h1>Featured Artists</h1>
     <hr />
-    <div class="break"></div>
-    <div class="artists2">
+    <div class="artist-items">
       @foreach ($artists as $artist)
       <div class="artist1">
         <a href="/artist/{{$artist->slug}}">
@@ -133,7 +157,8 @@ Senimart
         </a>
         <div class="artist-name">
           <a href="/artist/{{$artist->slug}}">
-            <p>{{ $artist->name}}</p>
+            <h4>{{ $artist->name}}</h4>
+            <p>b.{{ $artist->yearbirth }}</p>
           </a>
         </div>
       </div>

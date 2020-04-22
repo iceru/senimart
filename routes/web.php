@@ -14,11 +14,14 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::view('/about', 'about');
-Route::get('/projects', 'ProjectsController@index');
+Route::view('/about', 'about')->name('about.index');
+
+Route::get('/projects', 'ProjectsController@index')->name('projects.index');
+Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.show');
 
 Route::get('/artworks', 'ArtworksController@index')->name('artworks.index');
 Route::get('/artwork/{artwork}', 'ArtworksController@show')->name('artworks.show');
+Route::get('/search', 'ArtworksController@search')->name('search');
 
 Route::get('/artists', 'ArtistsController@index')->name('artists.index');
 Route::get('/artist/{artist}', 'ArtistsController@show');
@@ -36,12 +39,7 @@ Route::get('/checkout/remove/{id}', 'SalesController@destroy');
 Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.address');
 
 Route::get('/payment/{id}', 'PaymentController@show');
-// Route::get('admin/artists', 'AdminArtistsController@index')->name('adminartists.index');
-// Route::get('admin/artists/create', 'AdminArtistsController@create')->name('artists.create');
-// Route::post('admin/artists', 'AdminArtistsController@store')->name('artists.store');
-// Route::get('admin/artists/{artist}/edit', 'AdminArtistsController@edit')->name('artists.edit');
-// Route::patch('admin/artists/{artist}', 'AdminArtistsController@update')->name('artists.update');
-// Route::delete('admin/artists/{artist}', 'AdminArtistsController@destroy')->name('artists.destroy');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

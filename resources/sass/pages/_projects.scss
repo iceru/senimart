@@ -1,84 +1,404 @@
-.services {
-	padding: 100px 15%;
+@media only screen and (min-width: $break-xs) {
+	.services {
+		padding: 30px 5%;
 
-	h1 {
-		font-family: $fontbold;
-		margin: 5px 0;
-		font-size: 3.5em;
-	}
-	hr {
-		content: "";
-		background-color: $orange;
-		height: 4px;
-		width: 10%;
-		margin-left: 0;
-		border: 0px;
-	}
-
-	.service-item {
-		display: grid;
-		grid-template-columns: repeat(3, 2fr);
-		margin-top: 40px;
-		grid-column-gap: 40px;
-
-		.p-1 {
-			margin: 25px 0;
+		h1 {
+			font-size: 3em;
+			font-family: $fontbold;
+			margin: 5px 0;
 		}
 
-		.number {
-			width: 100px;
+		hr {
+			width: 30%;
+			content: "";
+			background-color: $orange;
+			height: 4px;
+			margin-left: 0;
+			border: 0px;
 		}
 
-		p {
-			font-size: 2em;
-			margin: 10px 0;
+		.service-item {
+			grid-template-columns: repeat(1, 1fr);
+			margin-bottom: 60px;
+			margin-top: 0;
+			display: grid;
+
+			.number {
+				width: 80px;
+			}
+
+			.service1,
+			.service2,
+			.service3 {
+				margin-top: 50px;
+			}
+
+			.p-1 {
+				margin: 10px 0;
+			}
+
+			p {
+				font-size: 1.7em;
+			}
+		}
+	}
+
+	.projects {
+		margin: 50px 5%;
+
+		.title-projects {
+			display: block;
+			position: relative;
+			text-align: center;
+
+			p {
+				font-size: 1.4em;
+				margin: 10px 0;
+			}
+		}
+
+		.projects-item {
+			display: grid;
+			grid-template-columns: repeat(1, 2fr);
+			grid-column-gap: 60px;
+			grid-row-gap: 80px;
+			margin-top: 50px;
+			margin-bottom: 100px;
+
+			.project1 {
+				position: relative;
+				width: 400px;
+				height: 500px;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+
+				img {
+					width: 100%;
+					filter: brightness(50%);
+				}
+
+				&:hover {
+					.project-text {
+						color: rgba($color: white, $alpha: 1);
+						transition: 0.5s ease-in;
+						transform: translateY(-270px);
+					}
+
+					.button-list-black {
+						opacity: 1;
+						transition: 0.5s ease-in;
+					}
+				}
+
+				&:hover:before {
+					opacity: 1;
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					top: 0;
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-color: rgba($color: #000000, $alpha: 0.5);
+					z-index: 2;
+					transition: 0.5s;
+					opacity: 0;
+				}
+
+				img {
+					width: 400px;
+					height: 500px;
+					object-fit: cover;
+					object-position: center;
+				}
+
+				.project-text {
+					padding: 10px 30px 20px 30px;
+					position: relative;
+					z-index: 3;
+					transform: translateY(-200px);
+					transition: 0.5s ease-out;
+					justify-content: center;
+					width: 100%;
+					color: rgba($color: #000000, $alpha: 0.0);
+
+					h4 {
+						margin: 10px 0;
+						font-size: 2em;
+						font-family: $fontmed;
+						color: rgba($color: white, $alpha: 1);
+						transition: 0.2s ease-in;
+					}
+
+					.place-date {
+						p {
+							margin: 5px 0 5px 0;
+							font-size: 1em;
+						}
+					}
+
+					p {
+						margin: 10px 0;
+						font-size: 1.3em;
+					}
+				}
+
+				.button-list-black {
+					margin: 0;
+					padding: 5px 0;
+					border-radius: 10px;
+					border: none;
+					color: white;
+					transition: 0.5s ease-out;
+					opacity: 0;
+					outline: none;
+
+					p {
+						font-size: 1em;
+					}
+
+					&:hover {
+						background-color: rgba($color: white, $alpha: 0);
+						color: rgb(197, 197, 197);
+						font-size: 1.1em;
+						transition: 0.5s ease-in;
+					}
+				}
+			}
 		}
 	}
 }
 
-.projects {
-	margin: 50px 15%;
+@media only screen and (min-width: $break-med) {
+	.services {
+		padding: 30px 5%;
 
-	.title-projects {
-		display: block;
-		text-align: center;
+		h1 {
+			font-size: 3em;
+		}
 
-		p {
-			font-size: 1.4em;
-			margin: 10px 0;
+		hr {
+			width: 10%;
+		}
+		.service-item {
+			grid-template-columns: repeat(2, 1fr);
+			margin-bottom: 60px;
+			margin-top: 0;
+
+			.img-service1,
+			.img-service2,
+			.img-service3 {
+				width: 90%;
+			}
+
+			.number {
+				width: 80px;
+			}
+
+			.service1,
+			.service2,
+			.service3 {
+				margin-top: 50px;
+			}
+
+			.p-1 {
+				margin: 21px 0;
+			}
+
+			p {
+				font-size: 1.7em;
+			}
 		}
 	}
 
-	.projects-item {
-		display: grid;
-		grid-template-columns: repeat(2, 2fr);
-		grid-column-gap: 60px;
-		grid-row-gap: 80px;
-		margin-top: 50px;
+	.projects {
+		margin: 50px 5%;
 
-		.project1 {
-			border: 1px solid rgba($color: #000000, $alpha: 0.2);
-			border-radius: 20px;
+		.projects-item {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
 
+@media only screen and (min-width: $break-lg) {
+	.services {
+		padding: 30px 5%;
+
+		h1 {
+			font-size: 3.3em;
+		}
+
+		hr {
+			width: 10%;
+		}
+		.service-item {
+			grid-template-columns: repeat(3, 1fr);
+			margin-bottom: 60px;
+			margin-top: 0;
+
+			.img-service1,
+			.img-service2,
+			.img-service3 {
+				width: 90%;
+			}
+
+			.number {
+				width: 80px;
+			}
+
+			.service1,
+			.service2,
+			.service3 {
+				margin-top: 50px;
+			}
+
+			.p-1 {
+				margin: 21px 0;
+			}
+
+			p {
+				font-size: 1.7em;
+			}
+		}
+	}
+
+	.projects {
+		margin: 50px 5%;
+
+		.projects-item {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+@media only screen and (min-width: $break-xl) {
+	.services {
+		padding: 100px 12%;
+
+		h1 {
+			font-size: 3.5em;
+		}
+		hr {
+			width: 10%;
+		}
+
+		.service-item {
+			display: grid;
+			grid-template-columns: repeat(3, 2fr);
+			margin-top: 40px;
+			grid-column-gap: 40px;
+
+			.p-1 {
+				margin: 25px 0;
+			}
+
+			.number {
+				width: 100px;
+			}
+
+			p {
+				font-size: 2em;
+				margin: 10px 0;
+			}
+		}
+	}
+
+	.projects {
+		margin: 50px 12%;
+
+		.projects-item {
+			display: grid;
+			grid-template-columns: repeat(4, 2fr);
+		}
+	}
+}
+
+.modal-body {
+	padding: 0;
+
+	.container-fluid {
+		padding: 0;
+		justify-items: center;
+
+		img {
+			height: 400px;
+			object-fit: cover;
+			object-position: center;
+			width: 100%;
+			margin: auto;
+			transition: opacity .4s ease-in-out;
+			margin-bottom: 20px;
+		}
+
+		.art {
 			img {
 				width: 100%;
-				border-top-left-radius: 20px;
-				border-top-right-radius: 20px;
 			}
+		}
 
-			.project-text {
-				padding: 30px;
+		.art-item {
+			border: 1px solid $grey;
+			vertical-align: center;
+			text-align: center;
 
-				h4 {
-					margin: 10px 0;
-					font-size: 2em;
+			img.activeimg {
+				opacity: 1;
+			}
+		}
+
+		.arts {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			text-align: center;
+			margin-top: 10px;
+			margin-bottom: 30px;
+
+			.arts-item {
+				padding: 10px;
+				margin: 0 10px;
+				margin-bottom: 10px;
+				width: 30%;
+				cursor: pointer;
+				border: 1px solid $grey;
+				transition: 0.3s ease-out;
+
+				img {
+					height: 100px;
+					object-fit: cover;
+					object-position: center;
 				}
 
-				p {
-					margin: 10px 0;
-					font-size: 1.2em;
+				&:hover {
+					border: 1px solid $orange;
+					transition: 0.3s ease-in;
 				}
 			}
+		}
+
+		.modal-text {
+			padding: 20px 30px;
+
+			h4 {
+				font-family: $fontmed;
+				font-size: 2em;
+			}
+		}
+
+		.place-date {
+			p {
+				margin: 5px 0 5px 0;
+				font-size: 1em;
+				color: black;
+			}
+		}
+
+		p {
+			margin: 10px 0;
+			font-size: 1em;
 		}
 	}
 }

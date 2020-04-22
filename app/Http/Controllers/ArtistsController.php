@@ -9,7 +9,7 @@ use App\Artworks;
 class ArtistsController extends Controller
 {
     public function index() {
-        $artists = Artists::filter()->paginate(10);
+        $artists = Artists::filter()->paginate(12);
 
         return view('artists', compact('artists'));
     }
