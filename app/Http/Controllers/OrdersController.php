@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        
+        $orders = auth()->user()->sales;
+
+
+        return view('userorder', compact('orders'));
     }
 
     /**
@@ -33,8 +35,9 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($user)
+    public function store(Request $request)
     {
+        //
     }
 
     /**
@@ -45,7 +48,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -54,9 +57,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('profile')->with('user', auth()->user());
+        //
     }
 
     /**
@@ -66,27 +69,9 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $request->validate( [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,'.auth()->id()],
-            'password' => ['sometimes', 'nullable', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        $user = auth()->user();
-        $input = $request->except('password', 'password_confirmation');
-
-        if (! $request->filled('password')) {
-            $user->fill($input)->save();
-
-            return back()->with('success_message', 'Profile updated successfully');
-        }
-
-        $user->password = bcrypt($request->password);
-        $user->fill($input)->save();
-        
-        return back()->with('success_message', 'Profile (and password) updated successfully');
+        //
     }
 
     /**

@@ -2,10 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Sales;
+use App\Colors;
 use App\Artists;
 use App\Category;
-use App\Colors;
+use Illuminate\Database\Eloquent\Model;
 
 class Artworks extends Model
 {
@@ -27,9 +28,9 @@ class Artworks extends Model
         return $this->belongsTo(Colors::class);
     }
 
-    public function artworksSales()
+    public function sales()
     {
-        return $this->hasMany('App\ArtworksSales');
+        return $this->belongsToMany(Sales::class);
     }
 
     public function scopeFilter($a)
