@@ -11486,6 +11486,14 @@ a {
     margin: 70px 5%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .checkout .title-checkout {
+    width: 100%;
+    text-align: center;
+  }
+  .checkout .title-checkout h1 {
+    font-family: "apercumedium";
   }
   .checkout .button-black {
     margin: 10px 0;
@@ -11500,6 +11508,11 @@ a {
   .checkout .item-checkout .os {
     margin-bottom: 30px;
   }
+  .checkout .item-checkout h2 {
+    font-size: 1.5em;
+    margin: 0 0 5px 0;
+    font-family: "apercumedium";
+  }
   .checkout .item-checkout .product-item {
     display: flex;
     margin-bottom: 20px;
@@ -11508,20 +11521,15 @@ a {
     width: 15%;
   }
   .checkout .item-checkout .product-item .detail-text {
-    width: 45%;
+    width: 55%;
   }
   .checkout .item-checkout .product-item .price {
-    width: 33%;
+    width: 25%;
     text-align: right;
   }
   .checkout .item-checkout .product-item img {
     width: 100px;
     margin-right: 20px;
-  }
-  .checkout .item-checkout .product-item h2 {
-    font-size: 1.5em;
-    margin: 0 0 5px 0;
-    font-family: "apercumedium";
   }
   .checkout .item-checkout .product-item h3 {
     font-size: 1.2em;
@@ -11537,46 +11545,22 @@ a {
     margin: 100px 10%;
     flex-direction: row;
   }
+  .checkout .os {
+    margin-bottom: 30px;
+    font-size: 2em;
+    font-family: "apercumedium";
+  }
   .checkout .data-input {
     width: 47%;
     margin-right: 100px;
   }
   .checkout .item-checkout {
     width: 40%;
-  }
-  .checkout .item-checkout .os {
-    margin-bottom: 30px;
+    margin-top: 0;
   }
   .checkout .item-checkout .product-item {
     display: flex;
     margin-bottom: 20px;
-  }
-  .checkout .item-checkout .product-item .detail-img {
-    width: 15%;
-  }
-  .checkout .item-checkout .product-item .detail-text {
-    width: 45%;
-  }
-  .checkout .item-checkout .product-item .price {
-    width: 33%;
-    text-align: right;
-  }
-  .checkout .item-checkout .product-item img {
-    width: 100px;
-    margin-right: 20px;
-  }
-  .checkout .item-checkout .product-item h2 {
-    font-size: 1.5em;
-    margin: 0 0 5px 0;
-    font-family: "apercumedium";
-  }
-  .checkout .item-checkout .product-item h3 {
-    font-size: 1.2em;
-    margin: 0 0 5px 0;
-  }
-  .checkout .item-checkout .product-item p {
-    font-size: 0.9em;
-    margin: 0 0 3px 0;
   }
 }
 @media only screen and (min-width: 100px) {

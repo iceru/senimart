@@ -3,6 +3,15 @@
 		margin: 70px 5%;
 		display: flex;
 		flex-direction: column;
+		flex-wrap: wrap;
+
+		.title-checkout {
+			width: 100%;
+			text-align: center;
+			h1 {
+				font-family: $fontmed;
+			}
+		}
 
 		.button-black {
 			margin: 10px 0;
@@ -20,6 +29,12 @@
 				margin-bottom: 30px;
 			}
 
+			h2 {
+				font-size: 1.5em;
+				margin: 0 0 5px 0;
+				font-family: $fontmed;
+			}
+
 			.product-item {
 				display: flex;
 				margin-bottom: 20px;
@@ -29,23 +44,17 @@
 				}
 
 				.detail-text {
-					width: 45%;
+					width: 55%;
 				}
 
 				.price {
-					width: 33%;
+					width: 25%;
 					text-align: right;
 				}
 
 				img {
 					width: 100px;
 					margin-right: 20px;
-				}
-
-				h2 {
-					font-size: 1.5em;
-					margin: 0 0 5px 0;
-					font-family: $fontmed;
 				}
 
 				h3 {
@@ -67,6 +76,12 @@
 		margin: 100px 10%;
 		flex-direction: row;
 
+		.os {
+			margin-bottom: 30px;
+			font-size: 2em;
+			font-family: $fontmed;
+		}
+
 		.data-input {
 			width: 47%;
 			margin-right: 100px;
@@ -74,48 +89,11 @@
 
 		.item-checkout {
 			width: 40%;
-
-			.os {
-				margin-bottom: 30px;
-			}
+			margin-top: 0;
 
 			.product-item {
 				display: flex;
 				margin-bottom: 20px;
-
-				.detail-img {
-					width: 15%;
-				}
-
-				.detail-text {
-					width: 45%;
-				}
-
-				.price {
-					width: 33%;
-					text-align: right;
-				}
-
-				img {
-					width: 100px;
-					margin-right: 20px;
-				}
-
-				h2 {
-					font-size: 1.5em;
-					margin: 0 0 5px 0;
-					font-family: $fontmed;
-				}
-
-				h3 {
-					font-size: 1.2em;
-					margin: 0 0 5px 0;
-				}
-
-				p {
-					font-size: 0.9em;
-					margin: 0 0 3px 0;
-				}
 			}
 		}
 	}
