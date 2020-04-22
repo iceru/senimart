@@ -51,6 +51,9 @@
               <li>
                 <a href="{{route('cart.wishindex')}}">Wishlist &nbsp;<i class="fa fa-heart"></i></a>
               </li>
+              <li>
+                <a href="{{ route('profile.edit') }}">User &nbsp;<i class="fa fa-user" aria-hidden="true"></i>
+              </li>
             </ul>
           </li>
           @endguest

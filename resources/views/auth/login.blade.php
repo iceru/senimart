@@ -8,6 +8,9 @@ Senimart - Login
 <div class="container">
     <div class="content">
         <h1>Login</h1>
+        <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
+                aria-hidden="true"></i>
+            &nbsp; Login with Google</a>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="formgroup">
@@ -48,7 +51,7 @@ Senimart - Login
             </div>
 
             <div class="loginbutton">
-                <button id="login-btn">Login</button>
+                <button class="button-black">Login</button>
             </div>
 
 

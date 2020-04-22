@@ -26,6 +26,10 @@ Route::get('/search', 'ArtworksController@search')->name('search');
 Route::get('/artists', 'ArtistsController@index')->name('artists.index');
 Route::get('/artist/{artist}', 'ArtistsController@show');
 
+Route::middleware('auth')->group(function() {
+    Route::get('/user', 'ProfileController@edit')->name('profile.edit');
+});
+
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{artwork}', 'CartController@destroy')->name('cart.destroy');
@@ -50,6 +54,8 @@ Route::post('/notif/handler', 'PaymentController@notifHandler')->name('notif.han
 // Route::patch('admin/artists/{artist}', 'AdminArtistsController@update')->name('artists.update');
 // Route::delete('admin/artists/{artist}', 'AdminArtistsController@destroy')->name('artists.destroy');
 
+Route::get('/redirect', 'Auth\LoginController@redirectToProvider')->name('login.provider');
+Route::get('/callback', 'Auth\LoginController@handleProviderCallback')->name('login.callback');;
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
