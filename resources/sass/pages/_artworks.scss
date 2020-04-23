@@ -189,7 +189,7 @@
 						opacity: 1;
 					}
 
-					&:hover .form-cart {
+					&:hover .form-cart-wishlist {
 						opacity: 1;
 						transform: translateY(50px);
 					}
@@ -218,8 +218,9 @@
 						text-align: center;
 					}
 
-					.form-cart {
+					.form-cart-wishlist {
 						position: relative;
+						display: flex;
 						z-index: 3;
 						opacity: 0;
 						transform: translateY(80px);
@@ -345,7 +346,7 @@
 						opacity: 1;
 					}
 
-					&:hover .form-cart {
+					&:hover .form-cart-wishlist {
 						opacity: 1;
 						transform: translateY(70px);
 					}

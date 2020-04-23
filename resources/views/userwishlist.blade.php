@@ -46,7 +46,15 @@ Senimart - Artworks
             </div>
         </div>
         <div class="profile-content">
-
+            @foreach ($wishlists as $wishlist)
+            <div class="order-item">
+                <img src="{{ asset('storage/'. $wishlist->artworks->image) }}" alt="">
+                <div class="order-text">
+                    <h4>{{ $wishlist->artworks->title }}</h4>
+                    <h5>{{ $wishlist->artworks->artists->name }}</h5>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </section>

@@ -40,6 +40,9 @@ Route::get('/cart/wishlist', 'CartController@wishindex')->name('cart.wishindex')
 Route::get('/cart/wishlist/{artwork}', 'CartController@wishlist')->name('cart.wishlist');
 Route::delete('/cart/wishlist/{artwork}', 'CartController@rmwish')->name('cart.rmwish');
 
+Route::get('/my-wishlist', 'WishlistController@index')->name('wishlist.index');
+Route::post('/my-wishlist', 'WishlistController@store')->name('wishlist.store');
+
 Route::get('/checkout', 'SalesController@checkout')->name('sales.checkout');
 Route::get('/checkout/{id}', 'SalesController@show');
 Route::get('/checkout/remove/{id}', 'SalesController@destroy');
