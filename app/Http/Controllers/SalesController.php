@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Db;
 use App\Sales;
 use App\Artworks;
 // use App\ArtworksSales;
@@ -61,9 +60,7 @@ class SalesController extends Controller
     }
 
     public function destroy($checkout) {
-        // ArtworksSales::where('sales_id', $checkout)->delete();
-        DB::table('artworks_sales')->where('sales_id', $checkout)->delete();
-
+        Sales::find($checkout)->artworks()->detach();
         Sales::find($checkout)->delete();
         return redirect()->route('home');
     }
