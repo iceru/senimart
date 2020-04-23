@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Db;
 use App\Sales;
 use App\Artworks;
-use App\ArtworksSales;
+// use App\ArtworksSales;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class SalesController extends Controller
@@ -25,12 +26,19 @@ class SalesController extends Controller
         ]);
 
         foreach(Cart::content() as $item) {
-            $data = array(
-                'sales_id' => $sid,
-                'artworks_id' => $item->id,
-                'qty' => $item->qty
-            );
-            ArtworksSales::insert($data);
+            // $data = array(
+            //     'sales_id' => $sid,
+            //     'artworks_id' => $item->id,
+            //     'qty' => $item->qty
+            // );
+            // ArtworksSales::insert($data);
+
+            $sales = new Sales;
+            $sales->id = $sid;
+            // $sales->qty = $item->qty;
+
+            $artworks = Artworks::find($item->id);
+            $artworks->sales()->attach($sales, ['qty' => $item->qty]);
         }
 
         return redirect()->action('SalesController@show', ['id' => $sid]);
@@ -42,8 +50,9 @@ class SalesController extends Controller
         $sales = Sales::where('id', $checkout)->firstOrFail();
         
         if($id == $sales->user_id) {
-            $checkoutItem = ArtworksSales::where('sales_id', $checkout)->get();
-            return view('checkout', compact('sales', 'checkoutItem'));
+            // $checkoutItem = ArtworksSales::where('sales_id', $checkout)->get();
+            $checkoutItem = Sales::with('artworks')->where('id', $checkout)->get();
+            return view('checkout', compact('checkoutItem'));
         }
         else {
             return redirect()->route('home');
@@ -52,7 +61,9 @@ class SalesController extends Controller
     }
 
     public function destroy($checkout) {
-        ArtworksSales::where('sales_id', $checkout)->delete();
+        // ArtworksSales::where('sales_id', $checkout)->delete();
+        DB::table('artworks_sales')->where('sales_id', $checkout)->delete();
+
         Sales::find($checkout)->delete();
         return redirect()->route('home');
     }

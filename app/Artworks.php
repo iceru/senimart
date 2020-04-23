@@ -30,7 +30,7 @@ class Artworks extends Model
 
     public function sales()
     {
-        return $this->belongsToMany(Sales::class);
+        return $this->belongsToMany(Sales::class)->withPivot('sales_id', 'artworks_id', 'qty');
     }
 
     public function scopeFilter($a)
