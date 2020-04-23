@@ -55,18 +55,26 @@ Senimart - Artworks
           <a href="/artwork/{{$artwork->slug}}">
             <img src="{{ asset('storage/'.$artwork->image) }}" alt="arts" />
           </a>
-          <form class="form-cart" action="{{route('cart.store')}}" method="post">
-            {{ csrf_field() }}
-            <input type="hidden" name="id" value="{{$artwork->id}}">
-            <input type="hidden" name="title" value="{{$artwork->title}}">
-            <input type="hidden" name="price" value="{{$artwork->price}}">
-            <button type="submit" class="button-white">
-              <i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i>
-            </button>
-            <a href="/cart/wishlist/{{$artwork->id}}" class="button-white">
-              <i class="fa fa-heart fa-lg"></i>
-            </a>
-          </form>
+          <div class="form-cart-wishlist">
+            <form class="form-cart" action="{{route('cart.store')}}" method="post">
+              {{ csrf_field() }}
+              <input type="hidden" name="id" value="{{$artwork->id}}">
+              <input type="hidden" name="title" value="{{$artwork->title}}">
+              <input type="hidden" name="price" value="{{$artwork->price}}">
+              <button type="submit" class="button-white">
+                <i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i>
+              </button>
+            </form>
+            <form action="{{ route('wishlist.store') }}" method="post">
+              {{ csrf_field() }}
+              <input type="hidden" name="artworks_id" value="{{$artwork->id}}">
+              <button type="submit" class="button-white">
+                <i class="fa fa-heart fa-lg" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+
+
         </div>
         <a href="/artwork/{{$artwork->slug}}">
           <h2>{{ $artwork->title}}</h2>

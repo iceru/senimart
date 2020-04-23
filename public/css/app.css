@@ -10815,7 +10815,7 @@ a:hover {
   .artworks .products-items .item .cart-wishlist:hover:before {
     opacity: 1;
   }
-  .artworks .products-items .item .cart-wishlist:hover .form-cart {
+  .artworks .products-items .item .cart-wishlist:hover .form-cart-wishlist {
     opacity: 1;
     transform: translateY(50px);
   }
@@ -10843,8 +10843,9 @@ a:hover {
        object-position: center;
     text-align: center;
   }
-  .artworks .products-items .item .cart-wishlist .form-cart {
+  .artworks .products-items .item .cart-wishlist .form-cart-wishlist {
     position: relative;
+    display: flex;
     z-index: 3;
     opacity: 0;
     transform: translateY(80px);
@@ -10954,7 +10955,7 @@ a:hover {
   .artworks .products-items .item .cart-wishlist:hover:before {
     opacity: 1;
   }
-  .artworks .products-items .item .cart-wishlist:hover .form-cart {
+  .artworks .products-items .item .cart-wishlist:hover .form-cart-wishlist {
     opacity: 1;
     transform: translateY(70px);
   }
