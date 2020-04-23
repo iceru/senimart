@@ -19,7 +19,7 @@ class Sales extends Model
 
     public function artworks()
     {
-        return $this->belongsToMany(Artworks::class);
+        return $this->belongsToMany(Artworks::class)->withPivot('sales_id', 'artworks_id', 'qty');
     }
 
     /**
