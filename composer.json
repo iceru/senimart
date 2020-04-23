@@ -13,6 +13,7 @@
 		"laravel/socialite": "^4.3",
 		"laravel/tinker": "^1.0",
 		"midtrans/midtrans-php": "^2.2",
+		"o2system/curl": "^2.2",
 		"steevenz/rajaongkir": "^2.2",
 		"tcg/voyager": "^1.3"
 	},
