@@ -52,8 +52,15 @@ Senimart - Cart
                 {{ method_field('DELETE') }}
                 <button type="submit" class="button-list-black">Remove</button>
             </form>
-            <a href="/cart/wishlist/{{$item->id}}" class="button-list-black">Wishlist &nbsp; <i
-                    class="fa fa-heart"></i></a>
+
+            <form action="{{ route('wishlist.store') }}" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="artworks_id" value="{{$item->id}}">
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <button type="submit" class="button-list-black">
+                    Wishlist <i class="fa fa-heart" aria-hidden="true"></i>
+                </button>
+            </form>
             {{-- 
             <form action="{{route('cart.wishlist', $item->rowId)}}" method="post">
             {{ csrf_field() }}
@@ -75,9 +82,9 @@ Senimart - Cart
     <div class="total">
         <h1>Total Price : Rp.{{Cart::subtotal()}}</h1>
         <div class="cart-button">
-            <a href="{{route('artworks.index')}}" class="button">Continue Shopping</a>
+            <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
             @if (Cart::count() > 0)
-            <a href="{{route('sales.checkout')}}" class="button">Checkout</a>
+            <a href="{{route('sales.checkout')}}" class="button-black">Checkout</a>
             @endif
         </div>
     </div>

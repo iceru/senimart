@@ -38,12 +38,13 @@ class WishlistController extends Controller
     public function store(Request $request)
     {
         $wishlist = Wishlist::firstOrCreate ([
-            'user_id' => Auth::user()->id,
-            'artworks_id' => $request->artworks_id,
+            'user_id' =>  request('user_id'),
+            'artworks_id' => request('artworks_id')
         ]);
 
         return redirect('/my-wishlist');
     }
+
 
     /**
      * Display the specified resource.
@@ -87,6 +88,9 @@ class WishlistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $wishlist = Wishlist::find($id);
+        $wishlist->delete();
+
+        return redirect('/my-wishlist');
     }
 }

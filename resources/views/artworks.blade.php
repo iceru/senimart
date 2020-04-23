@@ -68,6 +68,7 @@ Senimart - Artworks
             <form action="{{ route('wishlist.store') }}" method="post">
               {{ csrf_field() }}
               <input type="hidden" name="artworks_id" value="{{$artwork->id}}">
+              <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
               <button type="submit" class="button-white">
                 <i class="fa fa-heart fa-lg" aria-hidden="true"></i>
               </button>

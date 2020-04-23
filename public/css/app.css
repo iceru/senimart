@@ -12393,12 +12393,15 @@ a {
     margin-bottom: 20px;
   }
   .profile .order-item img {
-    width: 150px;
+    width: 200px;
     height: auto;
   }
   .profile .order-item .order-text {
     margin-left: 30px;
     width: 40%;
+  }
+  .profile .order-item form {
+    margin: 0;
   }
   .profile .flex-profile {
     display: flex;
@@ -12459,6 +12462,9 @@ a {
   .profile .flex-profile .sidebar .item {
     display: flex;
     flex-wrap: wrap;
+  }
+  .profile .flex-profile .profile-content {
+    width: 80%;
   }
 }
 @media only screen and (min-width: 900px) {

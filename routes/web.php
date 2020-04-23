@@ -42,6 +42,7 @@ Route::delete('/cart/wishlist/{artwork}', 'CartController@rmwish')->name('cart.r
 
 Route::get('/my-wishlist', 'WishlistController@index')->name('wishlist.index');
 Route::post('/my-wishlist', 'WishlistController@store')->name('wishlist.store');
+Route::get('/my-wishlist/{wishlist}', 'WishlistController@destroy')->name('wishlist.destroy');;
 
 Route::get('/checkout', 'SalesController@checkout')->name('sales.checkout');
 Route::get('/checkout/{id}', 'SalesController@show');
