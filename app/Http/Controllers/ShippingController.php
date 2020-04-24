@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Steevenz\Rajaongkir;
+use App\ShippingAddress;
 
 class ShippingController extends Controller
 {
@@ -65,7 +67,49 @@ class ShippingController extends Controller
         return $costs;
     }
 
-    public function addAddress() {
+    public function addAddress(Request $request) {
+        $shippingAddress = new ShippingAddress;
+        $userid = Auth::id();
+
+        $shippingAddress->user_id = $userid;
+        $shippingAddress->receiver_name = $request->receiver_name;
+        $shippingAddress->phone_no = $request->phone_no;
+        $shippingAddress->address = $request->address;
+        $shippingAddress->province_id = $request->province_id;
+        $shippingAddress->city_id = $request->city_id;
+        $shippingAddress->zipcode = $request->zipcode;
+
+        $shippingAddress->save();
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => "https://api.rajaongkir.com/starter/city?id=".$shippingAddress->city_id."&province=".$shippingAddress->province_id,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => "",
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 30,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => "GET",
+          CURLOPT_HTTPHEADER => array(
+            "key: d09963f00e691b1ade90ec2c14474cf5"
+          ),
+        ));
+        
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        
+        $result = json_decode($response);
+
+        $shippingAddress->province = $result->rajaongkir->results->province;
+        $shippingAddress->city = $result->rajaongkir->results->type." ".$result->rajaongkir->results->city_name;
+
+        return response()->json($shippingAddress);
+    }
+
+    public function addShip() {
         // $config['api_key'] = 'd09963f00e691b1ade90ec2c14474cf5';
         // $config['account_type'] = 'starter';
 

@@ -12,53 +12,60 @@ Senimart - Checkout #{{$sales->id}}
         <hr>
     </div>
     <div class="data-input">
-        <h1 class="os">Billing Address</h1>
-        <div class="form-group">
-            <label for="">Full Name</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{$user->name}}">
-        </div>
-        <div class="form-group">
-            <label for="">Email</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" value="{{$user->email}}">
-        </div>
-        <div class="form-group">
-            <label for="">Mobile Phone</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Input Phone Number">
-        </div>
-        <div class="form-group">
-            <label for="">Address</label>
-            <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Input Address">
-        </div>
-        <div class="form-group">
-            <label for="">Province</label>
-            <select id="prov" class="form-control">
-                <option value="" selected disabled>Select Province</option>
-                @foreach ($provinces as $prov)
-                <option value="{{$prov->province_id}}">{{$prov->province}}</option>
-                @endforeach
-            </select>
-            {{-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> --}}
-        </div>
-        <div class="form-row">
-            <div class="col">
-                <label for="">City</label>
-                <select id="city" class="form-control">
-                    <option value="" selected disabled>Select Province First</option>
+        <h1 class="os">Shipping Address</h1>
+        <form id="addressForm">
+            <div class="form-group">
+                <label for="">Full Name</label>
+                <input type="text" class="form-control" name="receiver_name" id="receiver_name" aria-describedby="helpId" value="{{$user->name}}">
+            </div>
+            <div class="form-group">
+                <label for="">Mobile Phone</label>
+                <input type="text" class="form-control" name="phone_no" id="phone_no" aria-describedby="helpId" placeholder="Input Phone Number">
+            </div>
+            <div class="form-group">
+                <label for="">Address</label>
+                <input type="text" class="form-control" name="address" id="address" aria-describedby="helpId" placeholder="Input Address">
+            </div>
+            <div class="form-group">
+                <label for="">Province</label>
+                <select name="province_id" id="prov" class="form-control">
+                    <option value="" selected disabled>Select Province</option>
+                    @foreach ($provinces as $prov)
+                    <option value="{{$prov->province_id}}">{{$prov->province}}</option>
+                    @endforeach
                 </select>
                 {{-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> --}}
             </div>
-            <div class="col">
-                <label for="">Zip</label>
-                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="Input Zip / Postal Code">
+            <div class="form-row">
+                <div class="col">
+                    <label for="">City</label>
+                    <select name="city_id" id="city" class="form-control">
+                        <option value="" selected disabled>Select Province First</option>
+                    </select>
+                    {{-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> --}}
+                </div>
+                <div class="col">
+                    <label for="">Zip</label>
+                    <input type="text" class="form-control" name="zipcode" id="zipcode" aria-describedby="helpId" placeholder="Input Zip / Postal Code">
+                </div>
             </div>
-        </div>
-        <hr>
+            <hr>
+            <button class="button-black" id="submit">Confirm Shipping Address</button>
+            <a href="/checkout/remove/{{$sales->id}}" class="button-list-black">Cancel</a>
+        </form>
+        {{-- <hr>
         <div class="form-group">
             <label for="">Shipping</label>
             <select id="ship" class="form-control">
                 <option value="" selected disabled>Select Province & City First</option>
             </select>
-        </div>
+        </div> --}}
+        <form id="shipMethod" hidden>
+            <div class="form-group">
+                <label for="">Shipping</label>
+                <select id="ship" class="form-control"></select>
+            </div>
+        </form>
     </div>
 
     <div class="item-checkout">
@@ -85,11 +92,12 @@ Senimart - Checkout #{{$sales->id}}
         <hr>
         @endforeach
         <div class="total">
-            <h2 id="totalprice">Total Price : Rp.{{$sales->totalPrice}}</h2>
+            <p id="subtotal">Item(s) Sub-total : Rp.{{$sales->totalPrice}}</p>
             <p id="shipcost">Shipping Cost : Rp.0</p>
+            <h2 id="totalprice">Total Price : Rp.{{$sales->totalPrice}}</h2>
         </div>
-        <a class="button-black" href="">Proceed to Payment</a>
-        <a href="/checkout/remove/{{$sales->id}}" class="button-list-black">Cancel</a>
+        {{-- <a class="button-black" href="">Proceed to Payment</a>
+        <a href="/checkout/remove/{{$sales->id}}" class="button-list-black">Cancel</a> --}}
     </div>
 </div>
 
@@ -121,30 +129,92 @@ Senimart - Checkout #{{$sales->id}}
         })
     });
 
-    $("#city").on('change', function () {
-        // console.log("changed");
+    //submit Address and then show Shipping Method options
+    $('#addressForm').on('submit', function(event) {
+        event.preventDefault();
 
-        var city_id=$(this).val();
-        // var div=$(this).parent();
-        // console.log(prov_id);
-        var shipopt="";
+        receiver_name = $('#receiver_name').val();
+        phone_no = $('#phone_no').val();
+        address = $('#address').val();
+        province_id = $('#prov').val();
+        city_id = $('#city').val();
+        zipcode = $('#zipcode').val();
+
+        var shipadr = "";
 
         $.ajax({
-            type:'get',
-            url:'{!! URL::to('checkCost') !!}',
-            data:{'id':city_id},
-            success:function(data) {
-                console.log('success');
-                console.log(data);
-                shipopt += '<option value="" selected disabled>Select Shipping</option>';
+            url:'{!! URL::to('addShippingAddress') !!}',
+            type: "post",
+            data: {
+                "_token": "{{csrf_token()}}",
+                receiver_name:receiver_name,
+                phone_no:phone_no,
+                address:address,
+                province_id:province_id,
+                city_id:city_id,
+                zipcode:zipcode,
+            },
+            success:function(response) {
+                console.log(response);
 
-                for (var i=0; i<data.length; i++) {
-                    shipopt += '<option value="'+data[i].cost[0].value+'">JNE '+data[i].service+' ('+data[i].cost[0].etd+' Days) : Rp '+data[i].cost[0].value+'</option>';
-                }
-                $('#ship').html(shipopt);
-            }
-        })
+                shipadr += '<h5>Full Name</h5><p>'+response.receiver_name+'</p>';
+                shipadr += '<h5>Mobile Phone</h5><p>'+response.phone_no+'</p>';
+                shipadr += '<h5>Address</h5><p>'+response.address+'</p>';
+                shipadr += '<h5>Province</h5><p>'+response.province+'</p>';
+                shipadr += '<h5>City</h5><p>'+response.city+'</p>';
+                shipadr += '<h5>Zip</h5><p>'+response.zipcode+'</p>';
+                shipadr += '<hr>';
+
+                $('#addressForm').html(shipadr);
+
+                var shipopt="";
+                $.ajax({
+                    type:'get',
+                    url:'{!! URL::to('checkCost') !!}',
+                    data:{'id':response.city_id},
+                    success:function(data) {
+                        console.log('success');
+                        // console.log(data);
+                        $('#shipMethod').removeAttr('hidden');
+                        shipopt += '<option value="" selected disabled>Select Shipping Method</option>';
+                        // shipadr += '<div class="form-group"><label for="">Shipping</label><select id="ship" class="form-control"><option value="" selected disabled>Select Shipping Method</option>'
+
+                        for (var i=0; i<data.length; i++) {
+                            shipopt += '<option value="'+data[i].cost[0].value+'">JNE '+data[i].service+' ('+data[i].cost[0].etd+' Days) : Rp.'+data[i].cost[0].value+'</option>';
+                        }
+                        
+                        shipopt += '</select></div>'
+                        $('#ship').html(shipopt);
+                    }
+                })
+            },
+        });
     });
+
+    // $("#city").on('change', function () {
+    //     // console.log("changed");
+
+    //     var city_id=$(this).val();
+    //     // var div=$(this).parent();
+    //     // console.log(prov_id);
+    //     var shipopt="";
+
+    //     $.ajax({
+    //         type:'get',
+    //         url:'{!! URL::to('checkCost') !!}',
+    //         data:{'id':city_id},
+    //         success:function(data) {
+    //             console.log('success');
+    //             console.log(data);
+    //             shipopt += '<option value="" selected disabled>Select Shipping</option>';
+
+    //             for (var i=0; i<data.length; i++) {
+    //                 shipopt += '<option value="'+data[i].cost[0].value+'">JNE '+data[i].service+' ('+data[i].cost[0].etd+' Days) : Rp '+data[i].cost[0].value+'</option>';
+    //             }
+    //             $('#ship').html(shipopt);
+    //         }
+    //     })
+    // });
 
     $("#ship").on('change', function () {
         var shippingCost=$(this).val();
@@ -156,12 +226,12 @@ Senimart - Checkout #{{$sales->id}}
     
     $("#ship").on('change', function () {
         var shippingCost = parseInt($(this).val());
-        var total = parseInt($('#totalprice').text().split("Rp.").pop());
+        var total = parseInt($('#subtotal').text().split("Rp.").pop());
 
-        console.log(total);
-        var shipcost = shippingCost+total;
+        // console.log(total);
+        var toalprice = shippingCost+total;
 
-        $('#totalprice').text("Total Price : Rp."+shipcost);
+        $('#totalprice').text("Total Price : Rp."+toalprice);
     });
     
 </script>

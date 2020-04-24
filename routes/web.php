@@ -50,7 +50,8 @@ Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.add
 
 Route::get('/findCity', 'ShippingController@findCity');
 Route::get('/checkCost', 'ShippingController@checkCost');
-Route::get('/shipping', 'ShippingController@addAddress');
+Route::get('/shipping', 'ShippingController@addShip');
+Route::post('/addShippingAddress', 'ShippingController@addAddress');
 
 Route::post('/finish', function () {
     return redirect()->route('home');
