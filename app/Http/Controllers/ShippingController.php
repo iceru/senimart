@@ -69,22 +69,39 @@ class ShippingController extends Controller
     }
 
     public function addAddress(Request $request) {
-        $shippingAddress = new ShippingAddress;
         $userid = Auth::id();
 
-        $shippingAddress->user_id = $userid;
-        $shippingAddress->receiver_name = $request->receiver_name;
-        $shippingAddress->phone_no = $request->phone_no;
-        $shippingAddress->address = $request->address;
-        $shippingAddress->province_id = $request->province_id;
-        $shippingAddress->city_id = $request->city_id;
-        $shippingAddress->zipcode = $request->zipcode;
+        
+        $sales = Sales::find($request->sid)->firstOrFail();
 
-        $shippingAddress->save();
+        if($sales->address_id != '0') {
+          $shippingAddress = ShippingAddress::find($sales->address_id)->firstOrFail();
+          $shippingAddress->user_id = $userid;
+          $shippingAddress->receiver_name = $request->receiver_name;
+          $shippingAddress->phone_no = $request->phone_no;
+          $shippingAddress->address = $request->address;
+          $shippingAddress->province_id = $request->province_id;
+          $shippingAddress->city_id = $request->city_id;
+          $shippingAddress->zipcode = $request->zipcode;
+  
+          $shippingAddress->save();
 
-        $sales = Sales::find($request->sid);
-        $sales->address_id = $shippingAddress->id;
-        $sales->save();
+        }
+        else {
+          $shippingAddress = new ShippingAddress;
+          $shippingAddress->user_id = $userid;
+          $shippingAddress->receiver_name = $request->receiver_name;
+          $shippingAddress->phone_no = $request->phone_no;
+          $shippingAddress->address = $request->address;
+          $shippingAddress->province_id = $request->province_id;
+          $shippingAddress->city_id = $request->city_id;
+          $shippingAddress->zipcode = $request->zipcode;
+  
+          $shippingAddress->save();
+  
+          $sales->address_id = $shippingAddress->id;
+          $sales->save();
+        }
 
         $curl = curl_init();
 

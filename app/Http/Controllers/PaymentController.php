@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \Midtrans;
 use \Midtrans\Snap;
+use \Midtrans\Transaction;
 use App\Sales;
 use App\Artworks;
 use App\ShippingAddress;
@@ -20,17 +21,24 @@ class PaymentController extends Controller
         $totalPay = $sales->totalPrice+$sales->shipcost;
 
         if($id == $sales->user_id) {
-            $params = array(
-                'transaction_details' => array(
-                    'order_id' => $payment,
-                    'gross_amount' => $totalPay,
-                )
-            );
-            
-            $snapToken = Snap::getSnapToken($params);
-            $sales = Sales::find($payment);
-            $sales->snap_token = $snapToken;
-            $sales->save();
+            if(!$sales->snap_token) {
+                $params = array(
+                  'transaction_details' => array(
+                      'order_id' => $payment,
+                      'gross_amount' => $totalPay,
+                  )
+                );
+                
+                $snapToken = Snap::getSnapToken($params);
+                $sales = Sales::find($payment);
+                $sales->snap_token = $snapToken;
+                $sales->save();
+
+                $status = "";
+            }
+            else {
+              $status = Transaction::status($payment);
+            }
 
             // $paymentItem = ArtworksSales::where('sales_id', $payment)->get();
             $paymentItem = Sales::with('artworks')->where('id', $payment)->get();
@@ -62,11 +70,17 @@ class PaymentController extends Controller
             $address->province = $result->rajaongkir->results->province;
             $address->city = $result->rajaongkir->results->type." ".$result->rajaongkir->results->city_name;
 
-            return view('payment', compact('sales', 'paymentItem', 'address'));
+            return view('payment', compact('sales', 'paymentItem', 'address', 'status'));
         }
         else {
             return redirect()->route('home');
         }
+    }
+
+    public function cancel($orderId) {
+        $cancel = Transaction::cancel($orderId);
+
+        return redirect()->route('sales.remove', $orderId);
     }
 
     public function notifHandler(Request $request) {

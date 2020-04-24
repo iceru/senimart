@@ -47,8 +47,8 @@ Senimart - Artworks
         </div>
         <div class="profile-content">
             @foreach ($orders as $order)
-            <h3>Order ID: {{ $order->id }}</h3>
-            <p>Total Payment: Rp{{ $order->totalPrice }}</p>
+            <h3>Order ID: <a href="/payment/{{ $order->id }}">{{ $order->id }}</a></h3>
+            <p>Total Payment: Rp{{ $order->totalPrice+$order->shipcost }}</p>
 
             @foreach ($order->artworks as $artwork)
             <div class="order-item">
