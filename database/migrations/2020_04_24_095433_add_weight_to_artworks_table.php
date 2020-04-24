@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateSalesTable extends Migration
+class AddWeightToArtworksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateSalesTable extends Migration
      */
     public function up()
     {
-        Schema::table('sales', function (Blueprint $table) {
-            $table->integer('id')->change();
+        Schema::table('artworks', function (Blueprint $table) {
+            $table->integer('weight');
         });
     }
 
@@ -25,6 +25,8 @@ class UpdateSalesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('artworks', function (Blueprint $table) {
+            $table->dropColumn('weight');
+        });
     }
 }

@@ -65,6 +65,7 @@ Senimart - Checkout #{{$sales->id}}
                 <label for="">Shipping</label>
                 <select id="ship" class="form-control"></select>
             </div>
+            <button class="button-black" id="submit">Proceed to Payment</button>
         </form>
     </div>
 
@@ -82,6 +83,7 @@ Senimart - Checkout #{{$sales->id}}
                 </a>
                 <h3>{{$item->artists->name}}</h3>
                 <p>{{$item->category->name}}</p>
+                <p>{{$item->weight}}g</p>
                 <p> {{$item->sizeHeight}} (H) / {{$item->sizeWidth}} (W)</p>
             </div>
             <div class="price">
@@ -92,7 +94,7 @@ Senimart - Checkout #{{$sales->id}}
         <hr>
         @endforeach
         <div class="total">
-            <p id="subtotal">Item(s) Sub-total : Rp.{{$sales->totalPrice}}</p>
+            <p id="subtotal">Item(s) Subtotal : Rp.{{$sales->totalPrice}}</p>
             <p id="shipcost">Shipping Cost : Rp.0</p>
             <h2 id="totalprice">Total Price : Rp.{{$sales->totalPrice}}</h2>
         </div>
@@ -103,7 +105,6 @@ Senimart - Checkout #{{$sales->id}}
 
 @section('js')
 <script type="text/javascript">
-    // var datajson = {{ $cities }};
     $("#prov").on('change', function () {
         // console.log("changed");
 
@@ -153,6 +154,7 @@ Senimart - Checkout #{{$sales->id}}
                 province_id:province_id,
                 city_id:city_id,
                 zipcode:zipcode,
+                'sid':'{{$sales->id}}' 
             },
             success:function(response) {
                 console.log(response);
@@ -171,7 +173,10 @@ Senimart - Checkout #{{$sales->id}}
                 $.ajax({
                     type:'get',
                     url:'{!! URL::to('checkCost') !!}',
-                    data:{'id':response.city_id},
+                    data:{
+                        'id':response.city_id,
+                        'weight':'{{$sales->totalweight}}'
+                    },
                     success:function(data) {
                         console.log('success');
                         // console.log(data);
@@ -232,6 +237,26 @@ Senimart - Checkout #{{$sales->id}}
         var toalprice = shippingCost+total;
 
         $('#totalprice').text("Total Price : Rp."+toalprice);
+    });
+
+    $('#shipMethod').on('submit', function(event) {
+        event.preventDefault();
+
+        selectedCost = $('#ship').val();
+
+        $.ajax({
+            url:'{!! URL::to('addShipCost') !!}',
+            type: "post",
+            data: {
+                "_token": "{{csrf_token()}}",
+                cost:selectedCost,
+                'sid':'{{$sales->id}}'
+            },
+            
+            success:function() {
+                location.href = "/payment/{{$sales->id}}";
+            }
+        })
     });
     
 </script>

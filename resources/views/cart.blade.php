@@ -42,6 +42,7 @@ Senimart - Cart
             </a>
             <h3>{{$item->model->artists->name}}</h3>
             <p>{{$item->model->category->name}}</p>
+            <p>{{$item->model->weight}}g</p>
             <p> {{$item->model->sizeHeight}} (H) / {{$item->model->sizeWidth}} (W)</p>
         </div>
         <div class="cart-price">

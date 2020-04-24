@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Steevenz\Rajaongkir;
 use App\ShippingAddress;
+use App\Sales;
 
 class ShippingController extends Controller
 {
@@ -47,7 +48,7 @@ class ShippingController extends Controller
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "origin=153&destination=".$request->id."&weight=1000&courier=jne",
+            CURLOPT_POSTFIELDS => "origin=153&destination=".$request->id."&weight=".$request->weight."&courier=jne",
             CURLOPT_HTTPHEADER => array(
               "content-type: application/x-www-form-urlencoded",
               "key: d09963f00e691b1ade90ec2c14474cf5"
@@ -81,6 +82,10 @@ class ShippingController extends Controller
 
         $shippingAddress->save();
 
+        $sales = Sales::find($request->sid);
+        $sales->address_id = $shippingAddress->id;
+        $sales->save();
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -107,6 +112,12 @@ class ShippingController extends Controller
         $shippingAddress->city = $result->rajaongkir->results->type." ".$result->rajaongkir->results->city_name;
 
         return response()->json($shippingAddress);
+    }
+
+    public function addShipCost(Request $request) {
+        $sales = Sales::find($request->sid);
+        $sales->shipcost = $request->cost;
+        $sales->save();
     }
 
     public function addShip() {
