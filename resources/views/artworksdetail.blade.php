@@ -42,6 +42,7 @@ Senimart - {{ $artwork->title }}
             <p>{{$artwork->category->name}}</p>
         </a>
         <p>{{$artwork->subcategory}}</p>
+        <p>{{$artwork->weight}}g</p>
         <p>{{ $artwork->sizeHeight}}cm (H) / {{ $artwork->sizeWidth}}cm (W)</p>
         <hr />
         <p>Description</p>
@@ -54,6 +55,7 @@ Senimart - {{ $artwork->title }}
                 <input type="hidden" name="id" value="{{$artwork->id}}">
                 <input type="hidden" name="title" value="{{$artwork->title}}">
                 <input type="hidden" name="price" value="{{$artwork->price}}">
+                <input type="hidden" name="weight" value="{{$artwork->weight}}">
                 <button type="submit" class="button-black">Add to Cart</button>
                 <a href="/cart/wishlist/{{$artwork->id}}" class="button-list-black">Wishlist &nbsp; <i
                         class="fa fa-heart"></i></a>

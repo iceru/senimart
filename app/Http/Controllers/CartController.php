@@ -28,7 +28,7 @@ class CartController extends Controller
             return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         }
 
-        Cart::add($request->id, $request->title, 1, $request->price)
+        Cart::add($request->id, $request->title, 1, $request->price, ['weight' => $request->weight])
         ->associate('App\Artworks');
 
         $itemwish = Cart::instance('wishlist')->search(function ($cartItem, $rowId) use ($request) {

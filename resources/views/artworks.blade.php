@@ -61,6 +61,7 @@ Senimart - Artworks
               <input type="hidden" name="id" value="{{$artwork->id}}">
               <input type="hidden" name="title" value="{{$artwork->title}}">
               <input type="hidden" name="price" value="{{$artwork->price}}">
+              <input type="hidden" name="weight" value="{{$artwork->weight}}">
               <button type="submit" class="button-white">
                 <i class="fa fa-shopping-basket fa-lg" aria-hidden="true"></i>
               </button>

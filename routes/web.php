@@ -48,6 +48,12 @@ Route::get('/checkout/{id}', 'SalesController@show');
 Route::get('/checkout/remove/{id}', 'SalesController@destroy');
 Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.address');
 
+Route::get('/findCity', 'ShippingController@findCity');
+Route::get('/checkCost', 'ShippingController@checkCost');
+Route::get('/shipping', 'ShippingController@addShip');
+Route::post('/addShippingAddress', 'ShippingController@addAddress');
+Route::post('/addShipCost', 'ShippingController@addShipCost');
+
 Route::post('/finish', function () {
     return redirect()->route('home');
 })->name('payment.finish');
