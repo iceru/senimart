@@ -62,7 +62,7 @@ Senimart - Payment
     
         <hr>
         <button class="button-black" id="pay-button">Pay</button>
-        <a href="/checkout/{{$sales->id}}" class="button-list-black">Cancel</a>
+        <a href="/payment/{{$sales->id}}/cancel" class="button-list-black">Cancel</a>
         <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
     </div>
 </div>
