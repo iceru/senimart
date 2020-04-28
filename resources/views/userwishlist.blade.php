@@ -55,6 +55,7 @@ Senimart - Artworks
                     <h3>{{ $wishlist->artworks->title }}</h3>
                     <h5>{{ $wishlist->artworks->artists->name }}</h5>
                     <p>{{ $wishlist->artworks->category->name }}</p>
+                    <p>{{ $wishlist->artworks->sizeHeight }} cm (H) / {{ $wishlist->artworks->sizeWidth }} cm (W)</p>
                 </div>
                 <div class="wish-to-cart">
                     <h3>Rp.{{ $wishlist->artworks->price }}</h3>
@@ -63,7 +64,7 @@ Senimart - Artworks
                         <input type="hidden" name="id" value="{{$wishlist->artworks->id}}">
                         <input type="hidden" name="title" value="{{$wishlist->artworks->title}}">
                         <input type="hidden" name="price" value="{{$wishlist->artworks->price}}">
-                        <button type="submit" class="button-black">
+                        <button type="submit" class="button-orange">
                             Add to Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         </button>
                     </form>

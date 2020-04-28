@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateSalesTable extends Migration
+class AddWorksToArtistsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdateSalesTable extends Migration
      */
     public function up()
     {
-        Schema::table('sales', function (Blueprint $table) {
-            $table->unsignedInteger('user_id')->nullable()->change();
+        Schema::table('artists', function (Blueprint $table) {
+            $table->string('works');
         });
     }
 
@@ -25,6 +25,8 @@ class UpdateSalesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('artists', function (Blueprint $table) {
+            $table->dropColumn('works');
+        });
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddTotalToSalesTable extends Migration
+class AddFeaturedToArtworksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddTotalToSalesTable extends Migration
      */
     public function up()
     {
-        Schema::table('sales', function (Blueprint $table) {
-            $table->integer('totalPrice');
+        Schema::table('artworks', function (Blueprint $table) {
+            $table->string('featured');
         });
     }
 
@@ -25,8 +25,8 @@ class AddTotalToSalesTable extends Migration
      */
     public function down()
     {
-        Schema::table('sales', function (Blueprint $table) {
-            //
+        Schema::table('artworks', function (Blueprint $table) {
+            $table->dropColumn('featured');
         });
     }
 }

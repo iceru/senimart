@@ -1,16 +1,37 @@
 .artist-detail {
 	display: flex;
+	flex-wrap: wrap;
 
 	@media only screen and (min-width: $break-xs) {
 		flex-direction: column;
 		margin: 20px 5%;
 
+		.back {
+			width: 100%;
+		}
+		.by {
+			margin-right: 20px;
+		}
+
+		.ht {
+			margin-right: 13px;
+		}
+
+		.wr {
+			margin-right: 47px;
+		}
 		.artistd-bio {
 			margin: 0 10%;
+
 			h1 {
 				text-align: center;
 				font-size: 2em;
 				margin: 10px;
+				font-family: $fontreg;
+			}
+
+			p {
+				font-family: $fontreg;
 			}
 		}
 
@@ -19,6 +40,13 @@
 
 			img {
 				width: 60%;
+			}
+		}
+
+		.bio-detail {
+			margin: 30px 0;
+			p {
+				margin: 3px 0;
 			}
 		}
 	}
@@ -35,12 +63,12 @@
 	}
 
 	@media only screen and (min-width: $break-lg) {
-		margin: 50px 25%;
+		margin: 50px 18%;
 	}
 }
 
 .artistd-photo {
-	margin: 0 30px;
+	margin-right: 40px;
 }
 
 .title {
@@ -61,35 +89,60 @@
 	}
 }
 
+.title-related {
+	margin: 130px 18% 50px 18%;
+	text-transform: uppercase;
+	text-align: center;
+	h1 {
+		font-size: 1.7em;
+		font-family: $fontreg;
+	}
+}
+
 .art-related {
 	margin: 10px 18% 100px 18%;
-	display: flex;
-	justify-content: center;
-	text-align: center;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 30px;
 
-	img {
-		width: 90%;
-	}
+	.related-item {
+		img {
+			width: 330px;
+			height: 330px;
+			object-fit: cover;
+			object-position: center;
+			opacity: 1;
+			transition: 0.2s ease-in;
 
-	.art-image {
-		justify-content: center;
-	}
+			&:hover {
+				opacity: 0.8;
+				transition: 0.2s ease-out;
+			}
+		}
 
-	h2 {
-		margin: 20px 0 0 0;
-		font-family: $fontmed;
-	}
+		h2 {
+			font-size: 1.3em;
+			font-family: $fontmed;
+			margin-top: 15px;
+		}
 
-	h3 {
-		margin: 5px 0 0 0;
-	}
+		h3 {
+			font-size: 1.3em;
+			margin-top: 20px;
+			font-family: $fontreg;
+		}
 
-	h5 {
-		margin: 5px 0 0 0;
-	}
+		p {
+			font-family: $fontreg;
+			margin: 3px 0 0 0;
+			color: rgb(138, 138, 138);
+			transition: 0.2s ease-out;
 
-	p {
-		margin: 5px 0 0 0;
+			&:hover {
+				color: $orange;
+				transition: 0.2s ease-in;
+			}
+		}
 	}
 
 	@media only screen and (min-width: $break-xs) {

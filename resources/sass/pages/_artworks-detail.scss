@@ -22,6 +22,7 @@
 		display: flex;
 		margin: 10px 5% 50px 5%;
 		flex-direction: column;
+		flex-wrap: wrap;
 
 		.art {
 			width: 100%;
@@ -31,143 +32,214 @@
 			img {
 				width: 80%;
 			}
-		}
 
-		.art-item {
-			border: 1px solid $grey;
-			vertical-align: center;
-			text-align: center;
-
-			img {
-				width: 430px;
-				height: 430px;
-				object-fit: contain;
-				opacity: 0;
-				transition: opacity .5s ease-in-out;
-			}
-
-			img.activeimg {
-				opacity: 1;
-			}
-		}
-
-		h1 {
-			font-size: 2.5em;
-			font-family: $fontmed;
-			margin: 0 0 5px 0;
-		}
-
-		h2 {
-			font-size: 1.6em;
-		}
-
-		h3 {
-			font-size: 1.3em;
-			margin: 0 0 25px 0;
-			letter-spacing: 0.1em;
-		}
-
-		h4 {
-			margin: 0 0 25px 0;
-		}
-
-		p {
-			font-size: 1.05em;
-			margin: 0 0 5px 0;
-		}
-
-		.artwork-button {
-			display: inline-block;
-
-			.button-black {
-				margin: 20px 20px 0 0;
-			}
-
-			.button-list-black {
-				margin: 0;
-				transition: 0.2s ease-out;
-
-				&:hover {
-					color: white;
-					background-color: $orange;
-					border: 1px solid $orange;
-					transition: 0.2s ease-in;
-				}
-			}
-		}
-
-		.arts {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-gap: 20px;
-			justify-content: space-between;
-			text-align: center;
-			margin: 10px 10%;
-
-			.arts-item {
-				padding: 10px;
-				width: 100%;
-				cursor: pointer;
+			.art-item {
 				border: 1px solid $grey;
-				transition: 0.3s ease-out;
+				vertical-align: center;
+				text-align: center;
 
 				img {
-					height: 100%;
-					object-fit: scale-down;
+					width: 430px;
+					height: 430px;
+					object-fit: contain;
+					opacity: 0;
+					transition: opacity .5s ease-in-out;
 				}
 
-				&:hover {
-					border: 1px solid $orange;
-					transition: 0.3s ease-in;
+				img.activeimg {
+					opacity: 1;
+				}
+			}
+
+			.arts {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-gap: 20px;
+				justify-content: space-between;
+				text-align: center;
+				margin-top: 20px;
+
+				.arts-item {
+					padding: 5px;
+					width: 90px;
+					height: 90px;
+					cursor: pointer;
+					border: 1px solid $grey;
+					transition: 0.3s ease-out;
+					margin: auto;
+
+					img {
+						height: 100%;
+						object-fit: scale-down;
+					}
+
+					&:hover {
+						border: 1px solid $orange;
+						transition: 0.3s ease-in;
+					}
 				}
 			}
 		}
-	}
 
-	.title {
-		margin: 100px 5% 20px 5%;
-		h1 {
-			font-size: 3em;
-			letter-spacing: 0.1em;
-			text-align: center;
-			font-family: $fontmed;
-		}
-	}
-
-	.similiar {
-		margin: 10px 5% 100px 5%;
-		display: flex;
-		justify-content: center;
-		text-align: center;
-
-		.art-image {
-			margin: 0px 10px;
-			margin-bottom: 50px;
-			width: 100%;
-
-			img {
-				width: 240px;
+		.desc {
+			h1 {
+				font-size: 2.5em;
+				font-family: $fontreg;
+				margin: 0 0 10px 0;
 			}
 
-			h2 {
-				margin: 20px 0 0 0;
-				font-family: $fontmed;
-			}
-
-			h3 {
-				margin: 10px 0 0 0;
-			}
-
-			h5 {
-				margin: 10px 0 0 0;
+			h4 {
+				margin: 0;
+				color: $orange;
 			}
 
 			p {
-				margin: 10px 0 0 0;
+				font-size: 1.05em;
+				margin: 0 0 5px 0;
 			}
 
-			#price {
-				font-family: "apercu_monoregular";
+			.desc-detail {
+				margin: 50px 0;
+
+				.tp {
+					margin-right: 60px;
+				}
+				.md {
+					margin-right: 34px;
+				}
+				.dm {
+					margin-right: 15px;
+				}
+
+				.yr {
+					margin-right: 62px;
+				}
+			}
+
+			.price-wish {
+				display: flex;
+				justify-content: space-between;
+				vertical-align: middle;
+				align-items: center;
+
+				.priceart {
+					vertical-align: middle;
+					align-items: center;
+
+					h3 {
+						font-size: 1.8em;
+						margin: 0;
+					}
+				}
+			}
+		}
+
+		hr {
+			margin: 0;
+		}
+
+		.collapsible {
+			background-color: white;
+			color: black;
+			border: none;
+			border-top: 1px solid rgb(41, 41, 41);
+			border-bottom: 1px solid rgb(41, 41, 41);
+			cursor: pointer;
+			padding: 15px 5px;
+			width: 100%;
+			text-align: left;
+			outline: none;
+			font-size: 1.1em;
+			font-family: $fontreg;
+
+			&:after {
+				content: "";
+				width: 0;
+				height: 0;
+				border-left: 7px solid transparent;
+				border-right: 7px solid transparent;
+				border-top: 10px solid $orange;
+				float: right;
+				margin-right: 10px;
+				margin-top: 8px;
+			}
+		}
+
+		.active:after {
+			content: "";
+			width: 0;
+			height: 0;
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-bottom: 10px solid $orange;
+			border-top: 0px solid transparent;
+			float: right;
+			margin-right: 10px;
+			margin-top: 8px;
+		}
+
+		.content-collapse {
+			padding: 5px 5px;
+			margin: 20px 0 40px 0;
+			background-color: white;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.2s ease-out;
+		}
+
+		.artwork-button {
+			width: 100%;
+			margin-bottom: 50px;
+
+			.button-orange {
+				margin: 0;
+				width: 100%;
+				margin-top: 20px;
+				font-size: 1.3em;
+				font-family: $fontreg;
+			}
+		}
+
+		.related {
+			flex-basis: 100%;
+			margin: 50px 0;
+
+			.related-title {
+				padding: 5px 0;
+				border-bottom: 1px solid black;
+				display: flex;
+				justify-content: space-between;
+
+				h5 {
+					font-family: $fontreg;
+					text-transform: uppercase;
+				}
+
+				.viewall {
+					color: $orange;
+					font-family: $fontreg;
+					text-decoration: underline;
+					cursor: pointer;
+				}
+			}
+
+			.art-related {
+				margin: 20px 0;
+				display: block;
+
+				.related1 {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					grid-gap: 30px;
+					margin-top: 20px;
+
+					.related-item {
+						img {
+							width: 200px;
+							height: 200px;
+						}
+					}
+				}
 			}
 		}
 	}
@@ -187,6 +259,14 @@
 
 			img {
 				width: 100%;
+			}
+
+			.arts {
+				grid-template-columns: repeat(4, 1fr);
+				grid-gap: 20px;
+				justify-content: space-between;
+				text-align: center;
+				margin: 20px 0;
 			}
 		}
 
@@ -210,47 +290,9 @@
 			font-size: 1.1em;
 		}
 
-		.arts {
-			display: grid;
-			grid-template-columns: repeat(4, 1fr);
-			grid-gap: 20px;
-			justify-content: space-between;
-			text-align: center;
-			margin: 20px 10px 0px 10px;
-
-			.arts-item {
-				padding: 10px;
-				width: 100%;
-				cursor: pointer;
-				border: 1px solid $grey;
-				transition: 0.3s ease-out;
-
-				img {
-					height: 100%;
-					object-fit: scale-down;
-				}
-
-				&:hover {
-					border: 1px solid $orange;
-					transition: 0.3s ease-in;
-				}
-			}
-		}
-	}
-
-	.title {
-		margin: 100px 17% 50px 17%;
-	}
-
-	.similiar {
-		margin: 10px 12% 100px 12%;
-
-		.art-image {
-			margin: 0px 10px;
-			margin-bottom: 50px;
-
-			img {
-				width: 220px;
+		.art-related {
+			.related1 {
+				grid-template-columns: repeat(4, 1fr);
 			}
 		}
 	}

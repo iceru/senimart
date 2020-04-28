@@ -13,7 +13,7 @@ Senimart
       <img src="/image/logowhite.png" alt="">
       {{-- <h4>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</h4> --}}
       <div class="button-ctr">
-        <a href="{{route('artworks.index')}}" class="button-white">Shop Now</a>
+        <a href="{{route('artworks.index')}}" class="button-white-fill">Shop Now</a>
       </div>
     </div>
 
@@ -37,24 +37,15 @@ Senimart
           <a href="/artwork/{{$featured->slug}}">
             <h2>{{ $featured->title }}</h2>
           </a>
-          <div class="author-price">
-            <div class="author">
-              <a href="/artist/{{$featured->artists->slug}}">
-                <h5>{{ $featured->artists->name }}</h5>
-              </a>
-              <a href="{{ route('artworks.index', ['category' => $featured->category->slug])}}">
-                <p>{{ $featured->category->name}} </p>
-              </a>
-            </div>
-            <div>
-              <h3>Rp{{ $featured->price }}</h3>
-            </div>
-
-          </div>
+          <a href="/artist/{{$featured->artists->slug}}">
+            <p>{{ $featured->artists->name }}</p>
+          </a>
+          <a href="{{ route('artworks.index', ['category' => $featured->category->slug])}}">
+            <p>{{ $featured->category->name}} </p>
+          </a>
+          <p>{{ $featured->sizeHeight }} cm (H) / {{ $featured->sizeWidth }} cm (W)</p>
+          <h3>IDR {{ $featured->price }}</h3>
         </div>
-
-
-        <p></p>
 
       </div>
       @endforeach
@@ -92,21 +83,26 @@ Senimart
         <a href="/artwork/{{$artwork->slug}}">
           <img src="{{asset('storage/'. $artwork->image)}}" alt="picture-1" />
         </a>
-        <a href="/artwork/{{$artwork->slug}}">
-          <h2>{{ $artwork->title }}</h2>
-        </a>
-        <a href="/artist/{{$artwork->artists->slug}}">
-          <h3>{{ $artwork->artists->name }}</h3>
-        </a>
-        <h5 class="mono">Rp{{ $artwork->price }}</h5>
-        <a href="{{ route('artworks.index', ['category' => $artwork->category->slug])}}">
-          <p>{{ $artwork->category->name}} </p>
-        </a>
-        {{-- <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p> --}}
+        <div class="item-text">
+          <a href="/artwork/{{$artwork->slug}}">
+            <h2>{{ $artwork->title }}</h2>
+          </a>
+          <a href="/artist/{{$artwork->artists->slug}}">
+            <p>{{ $artwork->artists->name }}</p>
+          </a>
+          <a href="{{ route('artworks.index', ['category' => $artwork->category->slug])}}">
+            <p>{{ $artwork->category->name}} </p>
+          </a>
+          <p>{{ $artwork->sizeHeight }} cm (H) / {{ $artwork->sizeWidth }} cm (W)</p>
+          <h3>IDR {{ $artwork->price }}</h3>
+        </div>
       </div>
       @endforeach
     </div>
-    <a href="{{route('artworks.index')}}" class="button-list-black">More Products</a>
+    <div class="more-product">
+      <a href="{{route('artworks.index')}}" class="button-orange">More Products</a>
+    </div>
+
   </div>
 
   <div class="categories">
@@ -158,7 +154,6 @@ Senimart
         <div class="artist-name">
           <a href="/artist/{{$artist->slug}}">
             <h4>{{ $artist->name}}</h4>
-            <p>b.{{ $artist->yearbirth }}</p>
           </a>
         </div>
       </div>

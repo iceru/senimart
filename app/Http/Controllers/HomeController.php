@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $artists = Artists::take(3)->get();
+        $artists = Artists::take(4)->get();
         $featured = Artworks::take(3)->get();
         $artworks = Artworks::all();
         return view('home', [

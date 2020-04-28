@@ -34,6 +34,14 @@
 			flex-direction: column;
 			margin-top: 30px;
 			animation: 0.5s ease-in 0s 1 appearing;
+			flex-wrap: wrap;
+
+			.title-profile {
+				width: 100%;
+				font-size: 2.3em;
+				font-family: $fontreg;
+				margin-bottom: 20px;
+			}
 
 			.sidebar {
 				padding: 0px 10px;
@@ -103,7 +111,20 @@
 			}
 
 			.profile-content {
-				width: 80%;
+				width: 75%;
+
+				p {
+					margin: 0 0 5px 0;
+				}
+
+				.button-orange {
+					margin: 5px 0;
+					width: 100%;
+				}
+
+				.button-black {
+					width: 100%;
+				}
 			}
 		}
 	}

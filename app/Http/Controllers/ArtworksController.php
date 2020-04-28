@@ -20,14 +20,13 @@ class ArtworksController extends Controller
 
     public function show($artwork) {
         $artwork = Artworks::where('slug', $artwork)->firstOrFail();
-        $similiars = Artworks::where('category_id', $artwork->category->id)->where('id', '!=', $artwork->id)->get();
+        $related = Artworks::where('artists_id', $artwork->artists->id)->where('id', '!=', $artwork->id)->get();
         
-        return view('artworksdetail', compact('artwork', 'similiars'));
+        return view('artworksdetail', compact('artwork', 'related'));
     }  
 
     public function search(Request $request) {
         $query = $request->input('query');
-
         $artworks = Artworks::where('title', 'like', "%$query%")->paginate(10);
 
         return view('searchpage')->with('artworks', $artworks);

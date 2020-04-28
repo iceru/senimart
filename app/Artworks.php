@@ -61,6 +61,18 @@ class Artworks extends Model
             $a->where('price', '<=', 500000);
         }
 
+        if(request('sort') == 'low_high') {
+            $a = $a->orderBy('price');
+        }
+
+        if(request('sort') == 'high_low') {
+            $a = $a->orderBy('price', 'DESC');
+        }
+
+        if(request('sort') == 'newest_oldest') {
+            $a = $a->orderBy('year', 'DESC');
+        }
+
         return $a;
     }
 }
