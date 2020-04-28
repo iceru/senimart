@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \Midtrans;
 use \Midtrans\Snap;
+use \Midtrans\Transaction;
 use App\Sales;
 use App\Artworks;
-use App\ArtworksSales;
+use App\ShippingAddress;
 
 class PaymentController extends Controller
 {
@@ -17,25 +18,69 @@ class PaymentController extends Controller
 
         $sales = Sales::where('id', $payment)->firstOrFail();
         
-        if($id == $sales->user_id) {
-            $params = array(
-                'transaction_details' => array(
-                    'order_id' => $payment,
-                    'gross_amount' => $sales->totalPrice,
-                )
-            );
-            
-            $snapToken = Snap::getSnapToken($params);
-            $sales = Sales::find($payment);
-            $sales->snap_token = $snapToken;
-            $sales->save();
+        $totalPay = $sales->totalPrice+$sales->shipcost;
 
-            $paymentItem = ArtworksSales::where('sales_id', $payment)->get();
-            return view('payment', compact('sales', 'paymentItem'));
+        if($id == $sales->user_id) {
+            if(!$sales->snap_token) {
+                $params = array(
+                  'transaction_details' => array(
+                      'order_id' => $payment,
+                      'gross_amount' => $totalPay,
+                  )
+                );
+                
+                $snapToken = Snap::getSnapToken($params);
+                $sales = Sales::find($payment);
+                $sales->snap_token = $snapToken;
+                $sales->save();
+
+                $status = "";
+            }
+            else {
+              $status = Transaction::status($payment);
+            }
+
+            // $paymentItem = ArtworksSales::where('sales_id', $payment)->get();
+            $paymentItem = Sales::with('artworks')->where('id', $payment)->get();
+
+            $address = ShippingAddress::where('id', $sales->address_id)->firstOrFail();
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://api.rajaongkir.com/starter/city?id=".$address->city_id."&province=".$address->province_id,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "key: d09963f00e691b1ade90ec2c14474cf5"
+              ),
+            ));
+            
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            
+            curl_close($curl);
+            
+            $result = json_decode($response);
+
+            $address->province = $result->rajaongkir->results->province;
+            $address->city = $result->rajaongkir->results->type." ".$result->rajaongkir->results->city_name;
+
+            return view('payment', compact('sales', 'paymentItem', 'address', 'status'));
         }
         else {
             return redirect()->route('home');
         }
+    }
+
+    public function cancel($orderId) {
+        $cancel = Transaction::cancel($orderId);
+
+        return redirect()->route('sales.remove', $orderId);
     }
 
     public function notifHandler(Request $request) {

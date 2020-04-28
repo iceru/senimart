@@ -5,46 +5,65 @@ Senimart - Payment
 @endsection
 
 @section('content')
-<div class="cart">
-
-    <h1>Payment</h1>
-    <h4>Order ID: {{$sales->id}}</h4>
-    <hr>
-    @foreach ($paymentItem as $item)
-    <div class="cart-product">
-        <div class="cart-img">
-            <a href="{{route('artworks.show', $item->artworks->slug)}}"><img
-                    src="{{ asset('storage/'.$item->artworks->image) }}" alt=""></a>
-        </div>
-        <div class="cart-detail">
-            <a href="{{route('artworks.show', $item->artworks->slug)}}">
-                <h1>{{$item->artworks->title}}</h1>
-            </a>
-            <h3>{{$item->artworks->artists->name}}</h3>
-            <p>{{$item->artworks->category->name}}</p>
-            <p> {{$item->artworks->sizeHeight}} (H) / {{$item->artworks->sizeWidth}} (W)</p>
-        </div>
-        <div class="cart-price">
-            <h1>Rp.{{$item->artworks->price}}</h1>
-            <h3>Quantity : {{$item->qty}}</h3>
-        </div>
+<div class="checkout">
+    <div class="title-checkout">
+        <h1>Payment</h1>
+        <p>Order ID: {{$sales->id}}</p>
+        <hr>
     </div>
-    @endforeach
-
-    <hr>
-    <div class="total">
-        <h1>Total Price : Rp.{{$item->sales->totalPrice}}</h1>
+    <div class="data-input">
+        <h1 class="os">Shipping Address</h1>
+        <form id="addressForm">
+            <h5>Full Name</h5>
+                <p>{{$address->receiver_name}}</p>
+            <h5>Mobile Phone</h5>
+                <p>{{$address->phone_no}}</p>
+            <h5>Address</h5>
+                <p>{{$address->address}}</p>
+            <h5>Province</h5>
+                <p>{{$address->province}}</p>
+            <h5>City</h5>
+                <p>{{$address->city}}</p>
+            <h5>Zip</h5>
+                <p>{{$address->zipcode}}</p>
+        </form>
     </div>
-    <hr>
-    <h2>Shipping Address</h2>
-    <h4>{{$sales->address}}</h4>
-    <hr>
-    <div class="total">
-        <div class="cart-button">
-            <a href="/checkout/{{$sales->id}}" class="button">Cancel</a>
-            <button id="pay-button">Pay!</button>
-            <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
+    <div class="item-checkout">
+        <h1 class="os">Order Summary</h1>
+        @foreach ($paymentItem->first()->artworks as $item)
+        <div class="product-item">
+            <div class="detail-image">
+                <a href="{{route('artworks.show', $item->slug)}}"><img
+                        src="{{ asset('storage/'.$item->image) }}" alt=""></a>
+            </div>
+            <div class="detail-text">
+                <a href="{{route('artworks.show', $item->slug)}}">
+                    <h2>{{$item->title}}</h2>
+                </a>
+                <h3>{{$item->artists->name}}</h3>
+                <p>{{$item->category->name}}</p>
+                <p>{{$item->weight}}g</p>
+                <p> {{$item->sizeHeight}} (H) / {{$item->sizeWidth}} (W)</p>
+            </div>
+            <div class="price">
+                <h2>Rp.{{$item->price}}</h2>
+                <h3>Quantity : {{$item->pivot->qty}}</h3>
+            </div>
         </div>
+        <hr>
+        @endforeach
+        <div class="total">
+            <p id="subtotal">Item(s) Subtotal : Rp.{{$sales->totalPrice}}</p>
+            <p id="shipcost">Shipping Cost : Rp.{{$sales->shipcost}}</p>
+            <h2 id="totalprice">Total Price : Rp.{{$sales->totalPrice+$sales->shipcost}}</h2>
+        </div>
+        {{-- <a class="button-black" href="">Proceed to Payment</a>
+        <a href="/checkout/remove/{{$sales->id}}" class="button-list-black">Cancel</a> --}}
+    
+        <hr>
+        <button class="button-black" id="pay-button">Pay</button>
+        <a href="/payment/{{$sales->id}}/cancel" class="button-list-black">Cancel</a>
+        <pre><div id="result-json">JSON result will appear here after payment:<br></div></pre>
     </div>
 </div>
 

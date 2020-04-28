@@ -46,13 +46,20 @@ Route::get('/my-wishlist/{wishlist}', 'WishlistController@destroy')->name('wishl
 
 Route::get('/checkout', 'SalesController@checkout')->name('sales.checkout');
 Route::get('/checkout/{id}', 'SalesController@show');
-Route::get('/checkout/remove/{id}', 'SalesController@destroy');
+Route::get('/checkout/remove/{id}', 'SalesController@destroy')->name('sales.remove');
 Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.address');
+
+Route::get('/findCity', 'ShippingController@findCity');
+Route::get('/checkCost', 'ShippingController@checkCost');
+Route::get('/shipping', 'ShippingController@addShip');
+Route::post('/addShippingAddress', 'ShippingController@addAddress');
+Route::post('/addShipCost', 'ShippingController@addShipCost');
 
 Route::post('/finish', function () {
     return redirect()->route('home');
 })->name('payment.finish');
 Route::get('/payment/{id}', 'PaymentController@show');
+Route::get('/payment/{id}/cancel', 'PaymentController@cancel');
 Route::post('/notif/handler', 'PaymentController@notifHandler')->name('notif.handler');
 // Route::get('admin/artists', 'AdminArtistsController@index')->name('adminartists.index');
 // Route::get('admin/artists/create', 'AdminArtistsController@create')->name('artists.create');
