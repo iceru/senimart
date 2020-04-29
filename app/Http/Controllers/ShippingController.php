@@ -7,36 +7,10 @@ use Illuminate\Http\Request;
 use Steevenz\Rajaongkir;
 use App\ShippingAddress;
 use App\Sales;
+use App\User;
 
 class ShippingController extends Controller
 {
-    public function findCity(Request $request) {
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://api.rajaongkir.com/starter/city?province=".$request->id,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => "",
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 30,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET",
-            CURLOPT_HTTPHEADER => array(
-            "key: d09963f00e691b1ade90ec2c14474cf5"
-            ),
-        ));
-        
-        $response = curl_exec($curl);
-        $err = curl_error($curl);
-        
-        curl_close($curl);
-
-        $city = json_decode($response);
-        $cities = $city->rajaongkir->results;
-
-        return $cities;
-    }
-
     public function checkCost(Request $request) {
         $curl = curl_init();
 
@@ -70,38 +44,40 @@ class ShippingController extends Controller
 
     public function addAddress(Request $request) {
         $userid = Auth::id();
-
         
-        $sales = Sales::find($request->sid)->firstOrFail();
-
-        if($sales->address_id != '0') {
-          $shippingAddress = ShippingAddress::find($sales->address_id)->firstOrFail();
-          $shippingAddress->user_id = $userid;
-          $shippingAddress->receiver_name = $request->receiver_name;
-          $shippingAddress->phone_no = $request->phone_no;
-          $shippingAddress->address = $request->address;
-          $shippingAddress->province_id = $request->province_id;
-          $shippingAddress->city_id = $request->city_id;
-          $shippingAddress->zipcode = $request->zipcode;
-  
-          $shippingAddress->save();
-
-        }
-        else {
-          $shippingAddress = new ShippingAddress;
-          $shippingAddress->user_id = $userid;
-          $shippingAddress->receiver_name = $request->receiver_name;
-          $shippingAddress->phone_no = $request->phone_no;
-          $shippingAddress->address = $request->address;
-          $shippingAddress->province_id = $request->province_id;
-          $shippingAddress->city_id = $request->city_id;
-          $shippingAddress->zipcode = $request->zipcode;
-  
-          $shippingAddress->save();
-  
-          $sales->address_id = $shippingAddress->id;
-          $sales->save();
-        }
+        // $users = User::find($userid);
+        $sales = Sales::find($request->sid);
+        $sales->address_id = $request->address_select;
+        $sales->save();
+        
+        // if($sales->user->address_id) {
+          //   $shippingAddress = ShippingAddress::find($sales->user->address_id)->firstOrFail();
+          //   $shippingAddress->receiver_name = $request->receiver_name;
+          //   $shippingAddress->phone_no = $request->phone_no;
+          //   $shippingAddress->address = $request->address;
+          //   $shippingAddress->province_id = $request->province_id;
+          //   $shippingAddress->city_id = $request->city_id;
+          //   $shippingAddress->zipcode = $request->zipcode;
+          
+          //   $shippingAddress->save();
+          
+          // }
+          // else {
+            //   $shippingAddress = new ShippingAddress;
+            //   $shippingAddress->receiver_name = $request->receiver_name;
+            //   $shippingAddress->phone_no = $request->phone_no;
+            //   $shippingAddress->address = $request->address;
+            //   $shippingAddress->province_id = $request->province_id;
+            //   $shippingAddress->city_id = $request->city_id;
+            //   $shippingAddress->zipcode = $request->zipcode;
+            
+            //   $shippingAddress->save();
+            
+            //   $users->address_id = $shippingAddress->id;
+            //   $users->save();
+            // }
+            
+        $shippingAddress = ShippingAddress::where('id', $request->address_select)->firstOrFail();
 
         $curl = curl_init();
 

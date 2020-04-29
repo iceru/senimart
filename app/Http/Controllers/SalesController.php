@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Sales;
 use App\Artworks;
-// use App\ArtworksSales;
+use App\ShippingAddress;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class SalesController extends Controller
@@ -21,8 +21,7 @@ class SalesController extends Controller
         Sales::create([
             'id' => $sid,
             'user_id' => $userid,
-            'totalPrice' => Cart::subtotal(0,'',''),
-            'address_id' => '0'
+            'totalPrice' => Cart::subtotal(0,'','')
         ]);
 
         $tweight = 0;
@@ -56,9 +55,38 @@ class SalesController extends Controller
         $id = Auth::id();
         $sales = Sales::where('id', $checkout)->firstOrFail();
         
-        if($id == $sales->user_id) {
+        if($id == $sales->user_id && $sales->snap_token == NULL) {
 
             $user = User::where('id', $id)->firstOrFail();
+
+            $address = ShippingAddress::where('user_id', $id)->get();
+
+            foreach($address as $a) {
+                $curl = curl_init();
+        
+                curl_setopt_array($curl, array(
+                CURLOPT_URL => "https://api.rajaongkir.com/starter/city?id=".$a->city_id."&province=".$a->province_id,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "GET",
+                CURLOPT_HTTPHEADER => array(
+                    "key: d09963f00e691b1ade90ec2c14474cf5"
+                ),
+                ));
+                
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+                
+                curl_close($curl);
+                
+                $result = json_decode($response);
+        
+                $a->province = $result->rajaongkir->results->province;
+                $a->city = $result->rajaongkir->results->type." ".$result->rajaongkir->results->city_name;
+            }
 
             //provinces
             $curl = curl_init();
@@ -110,7 +138,7 @@ class SalesController extends Controller
 
             // $checkoutItem = ArtworksSales::where('sales_id', $checkout)->get();
             $checkoutItem = Sales::with('artworks')->where('id', $checkout)->get();
-            return view('checkout', compact('user', 'provinces', 'sales', 'checkoutItem'));
+            return view('checkout', compact('user', 'address', 'provinces', 'sales', 'checkoutItem'));
         }
         else {
             return redirect()->route('home');
@@ -121,7 +149,7 @@ class SalesController extends Controller
     public function destroy($checkout) {
         Sales::find($checkout)->artworks()->detach();
         Sales::find($checkout)->delete();
-        return redirect()->route('home');
+        return redirect()->route('orders.index');
     }
 
     public function address($sid, Request $request) {
