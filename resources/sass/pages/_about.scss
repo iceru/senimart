@@ -1,28 +1,35 @@
 .about-main {
+	display: flex;
+	flex-wrap: wrap;
+
 	@media only screen and (min-width: $break-xs) {
-		h1 {
-			font-family: $fontbold;
-			margin: 5px 0;
-			font-size: 2.2em;
+		.title {
+			margin: 100px 0;
+			flex-basis: 100%;
+
+			h1 {
+				text-align: center;
+				font-family: $fontreg;
+				font-size: 2.6em;
+			}
+		}
+		.sidebar {
+			width: 10%;
+			position: fixed;
+			z-index: 1;
+			top: 350px;
+			left: 40px;
+			display: none;
+
+			ul {
+				list-style-type: none;
+				margin-left: 40px;
+				padding-left: 0;
+			}
 		}
 
-		hr {
-			content: "";
-			background-color: $orange;
-			height: 4px;
-			width: 40%;
-			margin-left: 0;
-			border: 0px;
-		}
-
-		h4 {
-			font-size: 1.4em;
-			margin: 10px 0 5px 0;
-		}
-
-		p {
-			font-size: 1.2em;
-			margin-bottom: 5px;
+		.about-content {
+			width: 100%;
 		}
 
 		.about {
@@ -31,22 +38,23 @@
 			vertical-align: middle;
 			justify-content: flex-start;
 			flex-direction: column;
-			margin: 50px 5%;
+			margin: 50px 0;
+			background-image: url(/image/story.png);
+			background-position: center;
+			background-size: cover;
+			padding: 70px 10px 350px 10px;
+
+			.ourstory {
+				color: $orange;
+
+				h1 {
+					font-size: 3em;
+					font-family: $fontreg;
+				}
+			}
 
 			img {
 				width: 250px;
-			}
-
-			.blank {
-				width: 0%;
-			}
-
-			.text1 {
-				width: 90%;
-			}
-
-			.text2 {
-				width: 90%;
 			}
 
 			.about-img {
@@ -57,93 +65,14 @@
 			}
 
 			p {
-				padding: 20px;
-				font-size: 1.1em;
+				padding: 15px 20px;
+				font-size: 1em;
 				text-align: justify;
 			}
 
-			.slogan {
-				font-size: 1.4em;
-			}
-		}
-
-		.location {
-			display: flex;
-			flex-direction: column;
-			padding: 50px 5%;
-			background-color: $grey;
-
-			img {
-				width: 55%;
-			}
-
-			.location-detail {
-				margin: 0;
-			}
-
-			.location-text {
-				display: flex;
-				margin-top: 20px;
-
-				img {
-					width: 30px;
-					margin-top: 13px;
-					margin-right: 10px;
-				}
-			}
-
-			h4 {
-				font-family: $fontmed;
-			}
-
-			p {
-				margin-top: 5px;
-			}
-
-			.map {
-				width: 100%;
-				margin-top: 30px;
-			}
-		}
-
-		.contact {
-			display: flex;
-			flex-direction: column;
-			margin: 50px 5%;
-
-			.button-black {
-				margin: 30px 0;
-				background-color: $orange;
-				transition: 0.2s ease-in;
-				border: 1px solid $orange;
-
-				&:hover {
-					background-color: black;
-					transition: 0.2s ease-out;
-					border: 1px solid black;
-				}
-			}
-			img {
-				width: 70%;
-				margin-right: 100px;
-			}
-
-			.contact-detail {
-				text-align: center;
-				margin-top: 50px;
-
-				hr {
-					margin: auto;
-				}
-				.contact-title {
-					width: 60%;
-					margin: 20px 0;
-					margin-left: 30px;
-				}
-
-				p {
-					font-size: 1.3em;
-				}
+			.aboutwhite {
+				color: white;
+				margin-top: 40px;
 			}
 		}
 
@@ -153,13 +82,12 @@
 				margin-top: 50px;
 
 				.team-title {
-					text-align: center;
 					h1 {
 						font-size: 3em;
-					}
-
-					p {
-						font-size: 1.2em;
+						color: $orange;
+						text-align: right;
+						margin-top: 20px;
+						font-family: $fontreg;
 					}
 				}
 
@@ -173,72 +101,116 @@
 				.team5 {
 					margin-top: 150px;
 				}
-				img {
-					width: 400px;
-					height: auto;
-				}
-
-				hr {
-					width: 30%;
-					height: 2px;
-				}
-
-				h4 {
-					font-style: italic;
-					font-size: 1.4em;
-				}
-
-				p {
-					font-size: 1.1em;
-					margin-top: 15px;
-				}
 
 				.team1,
+				.team2,
 				.team3,
+				.team4,
 				.team5 {
 					display: flex;
 					flex-direction: column;
 
-					.team-name {
-						margin-left: 30px;
+					.team-img {
+						text-align: center;
+						img {
+							width: 400px;
+							height: auto;
+						}
 					}
-				}
 
-				.team2,
-				.team4 {
-					display: flex;
-					flex-wrap: wrap;
-					flex-direction: column;
-					justify-content: center;
-					vertical-align: middle;
+					.team-name {
+						h1 {
+							margin-top: 20px;
+						}
 
-					hr {
-						margin: auto;
+						h4 {
+							font-style: italic;
+							font-size: 1.4em;
+						}
+					}
+
+					p {
+						font-size: 1.1em;
 						margin-top: 15px;
 					}
-
-					.team-name {
-						width: 100%;
-						text-align: center;
-						order: 2;
-					}
-
-					.team-img {
-						text-align: center;
-						order: 1;
-					}
-
-					.team-desc {
-						width: 100%;
-						margin-top: 10px;
-						margin-bottom: 10px;
-						order: 3;
-					}
-
-					.team-img {
-						width: 100%;
-					}
 				}
+			}
+		}
+
+		.contact {
+			display: flex;
+			flex-direction: column;
+			margin: 50px 5%;
+			justify-content: center;
+
+			h1 {
+				font-family: $fontreg;
+				color: $orange;
+				font-size: 3em;
+				text-align: left;
+			}
+
+			.contact-detail {
+				margin-top: 20px;
+				text-align: center;
+
+				p {
+					font-size: 1.3em;
+				}
+
+				.button-orange {
+					margin: 10px 0;
+				}
+			}
+
+			.sculpt {
+				img {
+					width: 80%;
+					margin: auto;
+					margin-top: 50px;
+				}
+			}
+
+			.modal-body {
+				padding: 40px;
+			}
+		}
+
+		.location {
+			display: flex;
+			flex-direction: column;
+			padding: 50px 5%;
+
+			.title-location {
+				text-align: right;
+				width: 100%;
+				h1 {
+					font-family: $fontreg;
+					color: $orange;
+					font-size: 3em;
+					text-align: right;
+				}
+			}
+
+			.location-detail {
+				margin: auto;
+				margin-bottom: 100px;
+				display: block;
+				text-align: center;
+				font-size: 1.4em;
+			}
+
+			h4 {
+				font-family: $fontmed;
+			}
+
+			p {
+				margin-top: 5px;
+			}
+
+			.map {
+				width: 100%;
+				margin-top: 30px;
 			}
 		}
 	}
@@ -258,40 +230,6 @@
 			display: flex;
 			flex-direction: row;
 			margin: 50px 5%;
-
-			.button-black {
-				margin: 30px 0;
-				background-color: $orange;
-				transition: 0.2s ease-in;
-				border: 1px solid $orange;
-
-				&:hover {
-					background-color: black;
-					transition: 0.2s ease-out;
-					border: 1px solid black;
-				}
-			}
-			img {
-				width: 70%;
-				margin-right: 20px;
-			}
-
-			.contact-detail {
-				text-align: left;
-				margin-top: 50px;
-
-				hr {
-					margin-left: 0;
-				}
-				.contact-title {
-					width: 80%;
-					margin: 10px 0;
-				}
-
-				p {
-					font-size: 1.3em;
-				}
-			}
 		}
 
 		.team {
@@ -299,18 +237,12 @@
 			.team-items {
 				margin-top: 50px;
 
-				.team-title {
-					text-align: center;
-				}
-
 				.team1,
+				.team2,
 				.team3,
+				.team4,
 				.team5 {
-					text-align: center;
-					hr {
-						margin: auto;
-						margin-top: 20px;
-					}
+					text-align: left;
 
 					p {
 						text-align: left;
@@ -318,42 +250,7 @@
 
 					.team-name {
 						margin: 0;
-					}
-				}
-
-				.team2,
-				.team4 {
-					display: flex;
-					flex-wrap: wrap;
-					flex-direction: column;
-					justify-content: center;
-					vertical-align: middle;
-
-					hr {
-						margin: auto;
-						margin-top: 15px;
-					}
-
-					.team-name {
-						width: 100%;
-						text-align: center;
-						order: 2;
-					}
-
-					.team-img {
-						text-align: center;
-						order: 1;
-					}
-
-					.team-desc {
-						width: 100%;
-						margin-top: 10px;
-						margin-bottom: 10px;
-						order: 3;
-					}
-
-					.team-img {
-						width: 100%;
+						margin-bottom: 30px;
 					}
 				}
 			}
@@ -369,35 +266,59 @@
 			font-size: 1.4em;
 		}
 
+		.sidebar {
+			width: 10%;
+			position: fixed;
+			z-index: 1;
+			top: 350px;
+			left: 40px;
+			display: block;
+
+			h5 {
+				font-family: $fontreg;
+			}
+
+			ul {
+				list-style-type: none;
+				margin-left: 40px;
+				padding-left: 0;
+			}
+		}
+
+		.sideactive {
+			font-family: $fontreg;
+			a:focus {
+				color: $orange;
+				font-family: $fontreg;
+			}
+		}
+
+		.about-content {
+			width: 90%;
+			margin-left: 15%;
+		}
+
 		.about {
 			display: flex;
-			margin: 150px 15%;
-			flex-wrap: wrap;
+			margin: 0 15% 20px 0;
 			flex-direction: row;
+			padding: 130px 100px 550px 80px;
 
-			.blank {
-				width: 25%;
+			.ourstory {
+				width: 18%;
+				h1 {
+					color: $orange;
+					font-size: 4.5em;
+					font-family: $fontreg;
+				}
 			}
 
-			.text1 {
-				width: 36%;
-				animation: 1s ease-in-out 0s 1 rightToLeft;
+			.about-text {
+				width: 80%;
 			}
-
-			.text2 {
-				width: 36%;
-				animation: 1s ease-in-out 0s 1 rightToLeft;
-			}
-
-			img {
-				margin-top: 30px;
-				width: 100%;
-				animation: 1s ease-in-out 0s 1 leftToRight;
-			}
-
 			p {
-				padding: 0 20px;
-				font-size: 1.1em;
+				padding: 5px 0 0 150px;
+				font-size: 1em;
 				text-align: justify;
 			}
 
@@ -406,56 +327,18 @@
 			}
 		}
 
-		.location {
-			margin: 150px 0;
-			padding: 100px 15%;
-			flex-direction: row;
-
-			img {
-				width: 50%;
-			}
-
-			.location-detail {
-				margin-right: 100px;
-			}
-
-			.map {
-				width: 70%;
-			}
-		}
-
-		.contact {
-			flex-direction: row;
-			margin: 150px 15%;
-
-			.contact-detail {
-				text-align: left;
-
-				hr {
-					margin-left: 0;
-				}
-
-				.contact-title {
-					margin: 10px 0 20px 0;
-					width: 85%;
-				}
-			}
-		}
-
 		.team {
-			padding: 50px 15%;
+			padding: 50px 15% 0 0;
 
 			.team-items {
 				margin-top: 50px;
 
 				.team-title {
-					text-align: center;
+					text-align: right;
 					h1 {
-						font-size: 3.5em;
-					}
-
-					p {
-						font-size: 1.4em;
+						font-size: 4.5em;
+						color: $orange;
+						font-family: $fontreg;
 					}
 				}
 
@@ -469,73 +352,79 @@
 				.team5 {
 					margin-top: 150px;
 				}
-				img {
-					width: 400px;
-					height: auto;
-				}
-
-				hr {
-					width: 30%;
-					height: 2px;
-				}
-
-				h4 {
-					font-style: italic;
-					font-size: 1.4em;
-				}
-
-				p {
-					font-size: 1.2em;
-					margin-top: 15px;
-				}
 
 				.team1,
+				.team2,
 				.team3,
+				.team4,
 				.team5 {
 					display: flex;
 					flex-direction: row;
 
-					.team-name {
-						margin-left: 30px;
-					}
-				}
-
-				.team2,
-				.team4 {
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: center;
-					vertical-align: middle;
-					flex-direction: row;
-
-					hr {
-						margin: auto;
-						margin-top: 15px;
+					.team-img {
+						img {
+							width: 400px;
+							height: auto;
+						}
 					}
 
 					.team-name {
-						width: 100%;
-						text-align: center;
-						margin-bottom: 30px;
-					}
+						margin-left: 40px;
+						h1 {
+							font-size: 2em;
+							margin-top: 0;
+						}
 
-					.team-img {
-						margin: 0 20px;
-						text-align: center;
-						order: 1;
-					}
+						h4 {
+							font-style: italic;
+							font-size: 1.4em;
+						}
 
-					.team-desc {
-						width: 66%;
-						margin-top: 20px;
-						order: 2;
-					}
+						p {
+							font-size: 1.2em;
+							margin-top: 15px;
+						}
 
-					.team-img {
-						width: 30%;
-						order: 3;
+						.team-desc {
+							margin-top: 30px;
+						}
 					}
 				}
+			}
+		}
+
+		.contact {
+			flex-direction: row;
+			margin: 150px 15% 50px 0;
+
+			h1 {
+				font-size: 4em;
+				text-align: right;
+			}
+
+			.contact-detail {
+				text-align: left;
+			}
+
+			img {
+				margin-left: 50px;
+			}
+		}
+
+		.location {
+			margin: 150px 15% 0 0;
+			padding: 50px;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			.title-location {
+				h1 {
+					font-size: 4em;
+				}
+			}
+
+			.map {
+				width: 100%;
 			}
 		}
 	}

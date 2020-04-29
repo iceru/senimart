@@ -27,7 +27,7 @@ a:hover {
 	%grid-3 {
 		display: grid;
 		grid-template-columns: repeat(3, 2fr);
-		grid-gap: 20px;
+		grid-gap: 30px;
 	}
 
 	.index {
@@ -85,14 +85,11 @@ a:hover {
 				text-align: center;
 				margin: 30px 0;
 				margin-top: 20px;
-			}
-			color: white;
 
-			a {
-				color: white;
-
-				&:hover {
-					color: black;
+				.button-white-fill {
+					width: 300px;
+					font-size: 1.3em;
+					padding: 20 10px;
 				}
 			}
 		}
@@ -109,72 +106,43 @@ a:hover {
 			.painting-featured {
 				@extend %grid-3;
 				grid-template-columns: repeat(1, 2fr);
-				text-align: center;
 				margin-top: 20px;
 
 				.painting-item {
-					padding: 10px 20px;
 					img {
-						width: 80%;
+						width: 400px;
+						height: 400px;
+						object-fit: cover;
+						object-position: center;
 						opacity: 100%;
-						transition: 0.2s ease-out;
+						transition: 0.2s ease-in;
+						margin: auto;
 
 						&:hover {
 							opacity: 80%;
-							transition: 0.2s ease-in;
+							transition: 0.2s ease-out;
 						}
 					}
 
 					.painting-text {
 						text-align: left;
-						padding: 0 20px;
 
 						h2 {
 							margin: 20px 0 0 0px;
-							font-size: 1.8em;
-							color: black;
-							font-family: $fontmed;
-							transition: 0.2s ease-out;
-
-							&:hover {
-								color: $orange;
-								transition: 0.2s ease-in;
-							}
+							font-size: 1.7em;
+							font-family: $fontreg;
 						}
 
 						h3 {
-							margin: 0 0 0 0px;
+							margin: 20px 0 0 0;
 							font-size: 1.6em;
-							transition: 0.2s ease-out;
-						}
-
-						h5 {
-							margin: 0 0 0 0;
-							font-size: 1.2em;
-							&:hover {
-								color: $orange;
-								transition: 0.2s ease-in;
-							}
-						}
-
-						.author-price {
-							display: flex;
-							vertical-align: middle;
-							margin-top: 15px;
-							justify-content: flex-start;
-							align-items: center;
-
-							.author {
-								width: 50%;
-								margin-right: 15px;
-								border-right: 1px solid rgba($color: #000000, $alpha: 0.2);
-								border-width: thin;
-							}
+							font-family: $fontreg;
 						}
 
 						p {
 							margin: 3px 0 0 0;
-							color: rgb(173, 173, 173);
+							font-size: 1.2em;
+							color: rgb(138, 138, 138);
 						}
 					}
 				}
@@ -194,7 +162,7 @@ a:hover {
 				display: grid;
 				grid-template-columns: repeat(1, 2fr);
 				grid-gap: 20px;
-				margin: 20px 40px;
+				margin: 20px 0;
 				opacity: 100%;
 
 				h2 {
@@ -225,16 +193,6 @@ a:hover {
 				&:hover {
 					opacity: 80%;
 					transition: 0.4s ease-in;
-
-					h1 {
-						font-size: 5.2em;
-						transition: 0.4s ease-in;
-					}
-
-					h2 {
-						font-size: 2.8em;
-						transition: 0.4s ease-in;
-					}
 				}
 			}
 
@@ -321,62 +279,60 @@ a:hover {
 	.products {
 		margin: 100px 10%;
 		display: block;
-		text-align: center;
 
 		h1 {
 			@extend %h1-center;
 		}
 
+		.more-product {
+			width: 100%;
+			margin: 40px 0;
+			text-align: center;
+		}
+
 		.products-items {
 			display: grid;
 			grid-template-columns: repeat(1, 2fr);
-			grid-gap: 40px;
-			text-align: center;
+			grid-gap: 30px;
 			margin-top: 30px;
+			margin-bottom: 30px;
 
 			.item {
 				color: black;
 
 				img {
-					width: 100%;
+					width: 380px;
+					height: 380px;
 					opacity: 100%;
+					object-fit: cover;
 					transition: 0.2s ease-out;
+					object-position: center;
 
 					&:hover {
 						opacity: 80%;
 						transition: 0.2s ease-in;
 					}
 				}
-				h2 {
-					margin: 20px 0 0 0;
-					font-size: 1.6em;
-					color: black;
-					transition: 0.2s ease-out;
 
-					&:hover {
-						color: $orange;
-						transition: 0.2s ease-in;
+				.item-text {
+					text-align: left;
+
+					h2 {
+						margin: 20px 0 0 0px;
+						font-size: 1.5em;
+						font-family: $fontreg;
 					}
-				}
 
-				h3 {
-					margin: 10px 0 0 0;
-					font-size: 1.4em;
-					transition: 0.2s ease-out;
-
-					&:hover {
-						color: $orange;
-						transition: 0.2s ease-in;
+					h3 {
+						margin: 20px 0 0 0;
+						font-size: 1.5em;
+						font-family: $fontreg;
 					}
-				}
 
-				h5 {
-					margin: 10px 0 0 0;
-					font-size: 1.2em;
-				}
-
-				p {
-					margin: 10px 0 0 0;
+					p {
+						margin: 3px 0 0 0;
+						color: rgb(138, 138, 138);
+					}
 				}
 			}
 		}
@@ -398,15 +354,10 @@ a:hover {
 			margin: 70px 0;
 			text-align: center;
 
-			.artist1 {
-				margin: 0 10px;
-				padding: 20px;
-			}
-
 			img {
 				opacity: 100%;
-				width: 350px;
-				height: 400px;
+				width: 320px;
+				height: 320px;
 				object-fit: cover;
 				object-position: center;
 				z-index: -1;
@@ -418,28 +369,24 @@ a:hover {
 				}
 			}
 
+			.artist1 {
+				margin-bottom: 30px;
+			}
+
 			.artist-name {
-				position: relative;
-				background-color: white;
-				padding: 15px 20px;
-				box-shadow: 2px 4px 10px rgba($color: #000000, $alpha: 0.2);
-				width: 60%;
-				margin: auto;
-				margin-top: -50px;
-				z-index: 2;
+				text-align: center;
+				margin-top: 15px;
 				h4 {
-					font-size: 1.7em;
+					font-size: 1.4em;
 					margin: 0;
 					transition: 0.2s ease-out;
+					font-family: $fontreg;
+					text-transform: uppercase;
 
 					&:hover {
 						color: $orange;
 						transition: 0.2s ease-in;
 					}
-				}
-				p {
-					color: rgb(73, 73, 73);
-					margin: 10px 0;
 				}
 			}
 		}
@@ -465,12 +412,14 @@ a:hover {
 		.featured {
 			.painting-featured {
 				grid-template-columns: repeat(2, 2fr);
+				margin: 20px 40px;
 
 				.painting-item {
-					padding: 10px 20px;
-
 					img {
-						width: 90%;
+						width: 350px;
+						height: 350px;
+						object-fit: cover;
+						object-position: center;
 					}
 				}
 			}
@@ -541,10 +490,6 @@ a:hover {
 	.products {
 		.products-items {
 			grid-template-columns: repeat(2, 2fr);
-
-			.item {
-				padding: 10px 20px;
-			}
 		}
 	}
 
@@ -553,10 +498,7 @@ a:hover {
 		.artist-items {
 			grid-template-columns: repeat(2, 1fr);
 			margin-top: 20px;
-			.artist1 {
-				margin: 30px 10px;
-				padding: 20px;
-			}
+			grid-gap: 30px;
 		}
 	}
 }
@@ -582,10 +524,11 @@ a:hover {
 				grid-template-columns: repeat(3, 2fr);
 
 				.painting-item {
-					padding: 10px 40px;
-
 					img {
-						width: 90%;
+						width: 450px;
+						height: 450px;
+						object-fit: cover;
+						object-position: center;
 					}
 				}
 			}
@@ -595,6 +538,8 @@ a:hover {
 
 			.price2 {
 				grid-template-columns: repeat(2, 2fr);
+				margin: 20px 40px;
+
 				h1 {
 					font-size: 6em;
 				}
@@ -616,10 +561,6 @@ a:hover {
 					}
 				}
 			}
-		}
-
-		.products-items {
-			margin-top: 40px;
 		}
 
 		.categories {
@@ -656,18 +597,23 @@ a:hover {
 	.products {
 		.products-items {
 			grid-template-columns: repeat(4, 2fr);
+			margin: 40px 40px;
+
+			.item {
+				img {
+					width: 350px;
+					height: 350px;
+				}
+			}
 		}
 	}
 
 	.artists-home {
 		margin: 100px 10%;
 		.artist-items {
-			grid-template-columns: repeat(3, 1fr);
-			margin-top: 20px;
-			.artist1 {
-				margin: 30px 10px;
-				padding: 10px;
-			}
+			grid-template-columns: repeat(4, 1fr);
+			margin: 50px 40px 40px 0;
+			grid-gap: 20px;
 		}
 	}
 }

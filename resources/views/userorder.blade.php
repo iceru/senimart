@@ -48,7 +48,9 @@ Senimart - Artworks
             </div>
 
             <div class="wishlist">
-                <h1>Wishlist</h1>
+                <a href="{{route('wishlist.index')}}">
+                    <h1>Wishlist</h1>
+                </a>
                 <hr>
             </div>
         </div>

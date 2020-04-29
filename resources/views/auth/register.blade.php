@@ -8,9 +8,9 @@ Senimart - Register
 <div class="container">
     <div class="content">
         <h1>Register</h1>
-        <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
-                aria-hidden="true"></i>
-            &nbsp; Register using Google </a>
+        {{-- <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
+            aria-hidden="true"></i>
+        &nbsp; Login using Google </a> --}}
         <form method="POST" action="{{ route('register') }}">
             @csrf
 

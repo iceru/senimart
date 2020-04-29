@@ -1,42 +1,69 @@
-.title-artist {
-	margin: 60px 0 0 0;
-	h1 {
-		font-size: 3.1em;
-		text-align: center;
-		font-family: $fontmed;
-	}
-}
-
-.sort-name {
-	margin: 10px 35% 10px 35%;
-	display: flex;
-	justify-content: space-around;
-
-	a,
-	p {
-		color: black;
-		transition: 0.2s ease-out;
-		font-size: 1.3em;
-		height: 100%;
-
-		&:hover {
-			color: $orange;
-			transition: 0.2s ease-in;
+.artist-section {
+	.title-artist {
+		margin: 60px 0 0 0;
+		h1 {
+			font-size: 2.5rem;
+			text-align: center;
+			font-family: $fontreg;
+			letter-spacing: 0.1em;
 		}
 	}
-}
 
-@media only screen and (max-width: $break-small) {
 	.sort-name {
-		margin: 20px 5%;
+		margin: 30px 10%;
+		margin-top: 50px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		hr {
+			width: 100%;
+		}
+
+		.alphabet {
+			display: inline-block;
+
+			a {
+				margin: 0 17px;
+			}
+		}
 
 		a,
 		p {
-			font-size: 1.1em;
+			color: black;
+			transition: 0.2s ease-out;
+			font-size: 1.3em;
+			height: 100%;
+			text-transform: uppercase;
+
+			&:hover {
+				color: $orange;
+				transition: 0.2s ease-in;
+			}
 		}
 	}
 
-	.artists-home {
-		margin: 20px 10%;
+	.artist-items {
+		margin-top: 0;
+		grid-template-columns: repeat(4, 2fr);
+
+		.artist1 {
+			margin: 0;
+		}
+	}
+
+	@media only screen and (max-width: $break-small) {
+		.sort-name {
+			margin: 20px 10%;
+
+			a,
+			p {
+				font-size: 1.1em;
+			}
+		}
+
+		.artists-home {
+			margin: 20px 10%;
+		}
 	}
 }

@@ -41,7 +41,9 @@ Senimart - Artworks
             </div>
 
             <div class="wishlist">
-                <h1>Wishlist</h1>
+                <a href="{{ route('wishlist.index') }}">
+                    <h1>Wishlist</h1>
+                </a>
                 <hr>
             </div>
         </div>
@@ -50,10 +52,30 @@ Senimart - Artworks
             <div class="order-item">
                 <img src="{{ asset('storage/'. $wishlist->artworks->image) }}" alt="">
                 <div class="order-text">
-                    <h4>{{ $wishlist->artworks->title }}</h4>
+                    <h3>{{ $wishlist->artworks->title }}</h3>
                     <h5>{{ $wishlist->artworks->artists->name }}</h5>
+                    <p>{{ $wishlist->artworks->category->name }}</p>
+                    <p>{{ $wishlist->artworks->sizeHeight }} cm (H) / {{ $wishlist->artworks->sizeWidth }} cm (W)</p>
+                </div>
+                <div class="wish-to-cart">
+                    <h3>Rp.{{ $wishlist->artworks->price }}</h3>
+                    <form class="form-cart" action="{{route('cart.store')}}" method="post">
+                        {{ csrf_field() }}
+                        <input type="hidden" name="id" value="{{$wishlist->artworks->id}}">
+                        <input type="hidden" name="title" value="{{$wishlist->artworks->title}}">
+                        <input type="hidden" name="price" value="{{$wishlist->artworks->price}}">
+                        <button type="submit" class="button-orange">
+                            Add to Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    <form action="{{ route('wishlist.destroy', $wishlist->id) }}" method="get">
+                        {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="button-black">Remove</button>
+                    </form>
                 </div>
             </div>
+            <hr>
             @endforeach
         </div>
     </div>

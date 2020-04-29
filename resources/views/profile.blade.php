@@ -24,7 +24,9 @@ Senimart - Artworks
         </div>
         @endif
     </div>
+
     <div class="flex-profile">
+        <h1 class="title-profile">Hello, {{ $user->name }}</h1>
         <div class="sidebar" id="sidebar">
             <div class="category">
                 <a href="{{ route('profile.edit') }}">
@@ -48,7 +50,9 @@ Senimart - Artworks
             </div>
 
             <div class="wishlist">
-                <h1>Wishlist</h1>
+                <a href="{{route('wishlist.index')}}">
+                    <h1>Wishlist</h1>
+                </a>
                 <hr>
             </div>
         </div>
@@ -78,7 +82,7 @@ Senimart - Artworks
                     <input type="password" class="form-control" name="password-confirm" id="password-confirm"
                         aria-describedby="helpId" placeholder="">
                 </div>
-                <div>
+                <div class="form-group">
                     <button type="submit" class="button-black">Update Profile</button>
                 </div>
 

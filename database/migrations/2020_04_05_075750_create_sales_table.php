@@ -16,6 +16,8 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
+            $table->unsignedInteger('address_id');
+            $table->integer('totalPrice');
             $table->boolean('paid')->nullable()->default(false);
             $table->timestamps();
         });

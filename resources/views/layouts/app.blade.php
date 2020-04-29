@@ -42,7 +42,7 @@
                 <a href="{{ route('profile.edit') }}">My Profile &nbsp;<i class="fa fa-user" aria-hidden="true"></i></a>
               </li>
               <li>
-                <a href="{{route('cart.wishindex')}}">Wishlist &nbsp;<i class="fa fa-heart"></i></a>
+                <a href="{{route('wishlist.index')}}">Wishlist &nbsp;<i class="fa fa-heart"></i></a>
               </li>
               <li>
                 <a href="{{ route('logout') }}" onclick="event.preventDefault();

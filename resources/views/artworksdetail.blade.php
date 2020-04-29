@@ -34,21 +34,42 @@ Senimart - {{ $artwork->title }}
     <div class="desc">
         <h1>{{ $artwork->title}}</h1>
         <a href="/artist/{{$artwork->artists->slug}}">
-            <h4>{{ $artwork->artists->name}}</h5>
+            <h4>{{ $artwork->artists->name}}</h4>
         </a>
-        <h3>Rp.{{ $artwork->price}}</h3>
-        <hr />
-        <a href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">
-            <p>{{$artwork->category->name}}</p>
-        </a>
-        <p>{{$artwork->subcategory}}</p>
-        <p>{{$artwork->weight}}g</p>
-        <p>{{ $artwork->sizeHeight}}cm (H) / {{ $artwork->sizeWidth}}cm (W)</p>
-        <hr />
-        <p>Description</p>
-        <p>
-            {!! $artwork->detail !!}
-        </p>
+
+        <div class="desc-detail">
+            <p> <strong class="tp">Type</strong>: <a
+                    href="{{ route('artworks.index', ['category' => $artwork->category->slug ])}}">{{$artwork->category->name}}</a>
+            </p>
+            <p><strong class="md">Medium</strong>: {{$artwork->subcategory}}</p>
+            <p><strong class="yr">Year</strong>: {{$artwork->year}}</p>
+            <p><strong class="dm">Dimension</strong>: {{ $artwork->sizeHeight}}cm (H) / {{ $artwork->sizeWidth}}cm (W)
+            </p>
+        </div>
+
+
+        <div class="price-wish">
+            <div class="priceart">
+                <h3>IDR {{ $artwork->price}}</h3>
+            </div>
+            @guest
+            <div class="wish">
+                <a class="button-wish-org" href="{{ route('login') }}"> Add to Wishlist <i class="fa fa-heart"
+                        aria-hidden="true"></i></a>
+            </div>
+            @else
+
+            <form action="{{ route('wishlist.store') }}" method="post">
+                {{ csrf_field() }}
+                <input type="hidden" name="artworks_id" value="{{$artwork->id}}">
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <button type="submit" class="button-wish-org">
+                    Add to Wishlist <i class="fa fa-heart" aria-hidden="true"></i>
+                </button>
+            </form>
+            @endif
+        </div>
+
         <div class="artwork-button">
             <form action="{{route('cart.store')}}" method="post">
                 {{ csrf_field() }}
@@ -56,41 +77,58 @@ Senimart - {{ $artwork->title }}
                 <input type="hidden" name="title" value="{{$artwork->title}}">
                 <input type="hidden" name="price" value="{{$artwork->price}}">
                 <input type="hidden" name="weight" value="{{$artwork->weight}}">
-                <button type="submit" class="button-black">Add to Cart</button>
-                <a href="/cart/wishlist/{{$artwork->id}}" class="button-list-black">Wishlist &nbsp; <i
-                        class="fa fa-heart"></i></a>
+                <button type="submit" class="button-orange">ADD TO CART</button>
             </form>
-
+        </div>
+        <button type="button" class="collapsible">Artwork Description</button>
+        <div class="content-collapse">
+            <p>
+                {!! $artwork->detail !!}
+            </p>
+        </div>
+        <button type="button" class="collapsible">Delivery Information</button>
+        <div class="content-collapse">
+            <p>
+                Shipping and Delivery options will be available upon check out. <br>
+                Shipping and Delivery costs will be automatically calculated at check out based on your location.
+            </p>
         </div>
 
+
     </div>
+
+    <div class="related">
+        <div class="related-title">
+            <h5>MORE ARTWORKS BY {{ $artwork->artists->name }}</h5>
+            <div class="viewall">View All</div>
+        </div>
+
+        <div class="art-related">
+            <div class="related1">
+                @foreach ($related as $item)
+                <div class="related-item">
+                    <a href="/artwork/{{$item->slug}}">
+                        <img src="{{ asset('storage/'.$item->image) }}" alt="arts" />
+                    </a>
+                    <a href="/artwork/{{$item->slug}}">
+                        <h2>{{ $item->title}}</h2>
+                    </a>
+                    <a href="/artist/{{$item->artists->slug}}">
+                        <p>{{ $item->artists->name }} </p>
+                    </a>
+                    <a href="{{ route('artworks.index', ['category' => $item->category->slug ])}}">
+                        <p>{{$item->category->name}}</p>
+                    </a>
+                    <p>{{ $item->sizeHeight }} cm (H) / {{ $item->sizeWidth }} cm (W)</p>
+                    <h3>IDR {{ $item->price}} </h3>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+
 </section>
-
-<div class="title">
-    <h1>Similiar Arts</h1>
-</div>
-
-<div class="similiar">
-    @foreach ($similiars as $similiar)
-    <div class="art-image">
-        <a href="/artwork/{{$similiar->slug}}">
-            <img src="{{asset('storage/'. $similiar->image)}}" alt="" />
-        </a>
-        <a href="/artwork/{{$similiar->slug}}">
-            <h2>{{$similiar->title}}</h2>
-        </a>
-        <a href="/artist/{{$similiar->artists->slug}}">
-            <h3>{{$similiar->artists->name}}</h3>
-        </a>
-        <h5 id="price">Rp.{{$similiar->price}}</h5>
-        <a href="{{ route('artworks.index', ['category' => $similiar->category->slug ])}}">
-            <p>{{$similiar->category->name}}</p>
-        </a>
-        {{-- <p>{{$similiar->sizeHeight}} cm (H) / {{$similiar->sizeWidth}} cm (W)</p> --}}
-
-    </div>
-    @endforeach
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
     integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
@@ -120,4 +158,35 @@ Senimart - {{ $artwork->title }}
         }
     })();
 </script>
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+    
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+</script>
+
+<script>
+    if ($('.related-item').length > 4) {
+    $('.related-item:gt(3)').hide();
+    $('.viewall').show();
+    }
+
+    $('.viewall').on('click', function() {
+    $('.related-item:gt(3)').toggle();
+    $(this).text() === 'View All' ? $(this).text('View less') : $(this).text('View All');
+    });
+</script>
+
+
 @endsection
