@@ -15,44 +15,66 @@ Senimart - Checkout #{{$sales->id}}
         <h1 class="os">Shipping Address</h1>
         <form id="addressForm">
             <div class="form-group">
-                <label for="">Full Name</label>
-                <input type="text" class="form-control" name="receiver_name" id="receiver_name" aria-describedby="helpId" value="{{$user->name}}" required>
-            </div>
-            <div class="form-group">
-                <label for="">Mobile Phone</label>
-                <input type="text" class="form-control" name="phone_no" id="phone_no" aria-describedby="helpId" placeholder="Input Phone Number" required>
-            </div>
-            <div class="form-group">
-                <label for="">Address</label>
-                <input type="text" class="form-control" name="address" id="address" aria-describedby="helpId" placeholder="Input Address" required>
-            </div>
-            <div class="form-group">
-                <label for="">Province</label>
-                <select name="province_id" id="prov" class="form-control" required>
-                    <option value="" selected disabled>Select Province</option>
-                    @foreach ($provinces as $prov)
-                    <option value="{{$prov->province_id}}">{{$prov->province}}</option>
-                    @endforeach
+                <label for="">Select From Address List</label>
+                <select name="address_select" id="address_select" class="form-control" required>
+                    <option value="" selected disabled>Select Address</option>
+                    @forelse ($address as $ad)
+                    <option value="{{$ad->id}}">{{$ad->receiver_name.' ('.$ad->phone_no.') - '.$ad->address.', '.$ad->city.', '.$ad->province.' '.$ad->zipcode}}</option>
+                    @empty
+                    <option value="" selected disabled>Address Unavailable, Please Add New</option>
+                    @endforelse
                 </select>
-                {{-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> --}}
             </div>
-            <div class="form-row">
-                <div class="col">
-                    <label for="">City</label>
-                    <select name="city_id" id="city" class="form-control" required>
-                        <option value="" selected disabled>Select Province First</option>
+            <button class="button-black" id="submit">Choose Selected Address</button>
+            <p>Or</p>
+            <a class="button-black" href="#" id="newAddress">Add New Address</a>
+            <hr>
+        </form>
+        <div id="new" hidden>
+            <form action="{{ route('address.checkoutadd') }}" method="POST">
+                @method('post')
+                @csrf
+                <input type="hidden" name="id_sales" value="{{$sales->id}}">
+                <div class="form-group">
+                    <label for="">Full Name</label>
+                    <input type="text" class="form-control" name="receiver_name" id="receiver_name" aria-describedby="helpId" value="{{$user->name}}" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Mobile Phone</label>
+                    <input type="text" class="form-control" name="phone_no" id="phone_no" aria-describedby="helpId" placeholder="Input Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Address</label>
+                    <input type="text" class="form-control" name="address" id="address" aria-describedby="helpId" placeholder="Input Address" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Province</label>
+                    <select name="province_id" id="prov" class="form-control" required>
+                        <option value="" selected disabled>Select Province</option>
+                        @foreach ($provinces as $prov)
+                        <option value="{{$prov->province_id}}">{{$prov->province}}</option>
+                        @endforeach
                     </select>
                     {{-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> --}}
                 </div>
-                <div class="col">
-                    <label for="">Zip</label>
-                    <input type="text" class="form-control" name="zipcode" id="zipcode" aria-describedby="helpId" placeholder="Input Zip / Postal Code" required>
+                <div class="form-row">
+                    <div class="col">
+                        <label for="">City</label>
+                        <select name="city_id" id="city" class="form-control" required>
+                            <option value="" selected disabled>Select Province First</option>
+                        </select>
+                        {{-- <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder=""> --}}
+                    </div>
+                    <div class="col">
+                        <label for="">Zip</label>
+                        <input type="text" class="form-control" name="zipcode" id="zipcode" aria-describedby="helpId" placeholder="Input Zip / Postal Code" required>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <button class="button-black" id="submit">Confirm Shipping Address</button>
-            <a href="/checkout/remove/{{$sales->id}}" class="button-list-black">Cancel</a>
-        </form>
+                <hr>
+                <button class="button-black" type="submit">Add Shipping Address</button>
+            </form>
+            {{-- old --}}
+        </div>
         <div id="addressView" hidden>
             <h5>Full Name</h5><p id="vFName"></p>
             <h5>Mobile Phone</h5><p id="vPhone"></p>
@@ -118,7 +140,12 @@ Senimart - Checkout #{{$sales->id}}
 
     $(document).ready(function() {
         var origVal = $('#addressForm').html();
-        
+
+        $('#newAddress').on('click', function (event) {
+            event.preventDefault();
+            $('#new').removeAttr('hidden');
+        });
+
         $("#prov").on('change', function () {
             // console.log("changed");
 
@@ -149,26 +176,29 @@ Senimart - Checkout #{{$sales->id}}
         $('#addressForm').on('submit', function(event) {
             event.preventDefault();
 
-            receiver_name = $('#receiver_name').val();
-            phone_no = $('#phone_no').val();
-            address = $('#address').val();
-            province_id = $('#prov').val();
-            city_id = $('#city').val();
-            zipcode = $('#zipcode').val();
+            address_select = $('#address_select').val();
+
+            // receiver_name = $('#receiver_name').val();
+            // phone_no = $('#phone_no').val();
+            // address = $('#address').val();
+            // province_id = $('#prov').val();
+            // city_id = $('#city').val();
+            // zipcode = $('#zipcode').val();
 
             var shipadr = "";
-
+            console.log('enter');
             $.ajax({
                 url:'{!! URL::to('addShippingAddress') !!}',
                 type: "post",
                 data: {
                     "_token": "{{csrf_token()}}",
-                    receiver_name:receiver_name,
-                    phone_no:phone_no,
-                    address:address,
-                    province_id:province_id,
-                    city_id:city_id,
-                    zipcode:zipcode,
+                    address_select:address_select,
+                    // receiver_name:receiver_name,
+                    // phone_no:phone_no,
+                    // address:address,
+                    // province_id:province_id,
+                    // city_id:city_id,
+                    // zipcode:zipcode,
                     'sid':'{{$sales->id}}' 
                 },
                 success:function(response) {

@@ -31,7 +31,15 @@ Route::middleware('auth')->group(function() {
     Route::patch('/user', 'ProfileController@update')->name('profile.update');
     
     Route::get('/my-orders', 'OrdersController@index')->name('orders.index');
+    Route::get('/user/address', 'AddressController@index')->name('address.index');
+    Route::get('/user/address/new', 'AddressController@new')->name('address.new');
+    Route::post('/user/address/submit', 'AddressController@add')->name('address.add');
+    Route::get('/user/address/{id}/edit', 'AddressController@update')->name('address.update');
+    Route::get('/user/address/{id}/delete', 'AddressController@delete')->name('address.delete');
+    Route::post('/checkout/address/new', 'AddressController@add')->name('address.checkoutadd');
 });
+
+Route::get('/findCity', 'AddressController@findCity');
 
 Route::get('/cart', 'CartController@index')->name('cart.index');
 Route::post('/cart', 'CartController@store')->name('cart.store');
@@ -49,7 +57,7 @@ Route::get('/checkout/{id}', 'SalesController@show');
 Route::get('/checkout/remove/{id}', 'SalesController@destroy')->name('sales.remove');
 Route::put('/checkout/address/{id}', 'SalesController@address')->name('sales.address');
 
-Route::get('/findCity', 'ShippingController@findCity');
+
 Route::get('/checkCost', 'ShippingController@checkCost');
 Route::get('/shipping', 'ShippingController@addShip');
 Route::post('/addShippingAddress', 'ShippingController@addAddress');
@@ -58,6 +66,7 @@ Route::post('/addShipCost', 'ShippingController@addShipCost');
 Route::post('/finish', function () {
     return redirect()->route('home');
 })->name('payment.finish');
+Route::get('/pay', 'PaymentController@newPay');
 Route::get('/payment/{id}', 'PaymentController@show');
 Route::get('/payment/{id}/cancel', 'PaymentController@cancel');
 Route::post('/notif/handler', 'PaymentController@notifHandler')->name('notif.handler');

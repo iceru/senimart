@@ -33,6 +33,13 @@ Senimart - Artworks
                 <hr>
             </div>
 
+            <div class="category">
+                <a href="{{ route('address.index') }}">
+                    <h1>Address</h1>
+                </a>
+                <hr>
+            </div>
+
             <div class="orders">
                 <a href="{{ route('orders.index') }}">
                     <h1>Orders</h1>

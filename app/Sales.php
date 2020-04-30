@@ -18,14 +18,14 @@ class Sales extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function shippingaddress()
+    {
+        return $this->belongsTo(ShippingAddress::class);
+    }
+
     public function artworks()
     {
         return $this->belongsToMany(Artworks::class)->withPivot('sales_id', 'artworks_id', 'qty');
-    }
-
-    public function shippingAddress()
-    {
-        return $this->belongsTo(ShippingAddress::class);
     }
 
     /**
