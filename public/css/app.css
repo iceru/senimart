@@ -13102,14 +13102,13 @@ footer .footersect .link2 {
   border: 1px solid #545454;
 }
 
-h1 {
-  font-family: "apercubold";
-  margin-bottom: 30px;
-}
-
 .login {
   margin: 50px 15%;
   display: flex;
+}
+.login h1 {
+  font-family: "apercubold";
+  margin-bottom: 30px;
 }
 .login .login-left {
   padding-right: 50px;
@@ -13146,4 +13145,8 @@ h1 {
 
 .register {
   margin: 50px 20%;
+}
+.register h1 {
+  font-family: "apercubold";
+  margin-bottom: 30px;
 }

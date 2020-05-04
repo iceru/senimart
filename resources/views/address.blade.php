@@ -25,6 +25,7 @@ Senimart - Artworks
         @endif
     </div>
     <div class="flex-profile">
+        <h1 class="title-profile">My Address</h1>
         <div class="sidebar" id="sidebar">
             <div class="category">
                 <a href="{{ route('profile.edit') }}">
@@ -48,7 +49,9 @@ Senimart - Artworks
             </div>
 
             <div class="wishlist">
+                <a href="{{ route('wishlist.index') }}">
                 <h1>Wishlist</h1>
+                </a>
                 <hr>
             </div>
         </div>

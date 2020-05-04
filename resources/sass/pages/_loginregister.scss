@@ -40,16 +40,16 @@
 }
 
 
-h1 {
-	font-family: $fontbold;
-	margin-bottom: 30px;
-}
 
 .login {
 	margin: 50px 15%;
 	display: flex;
 
 
+	h1 {
+		font-family: $fontbold;
+		margin-bottom: 30px;
+	}
 	.login-left {
 		padding-right: 50px;
 		width: 50%;
@@ -93,4 +93,10 @@ h1 {
 
 .register {
 	margin: 50px 20%;
+
+	
+h1 {
+	font-family: $fontbold;
+	margin-bottom: 30px;
+}
 }
