@@ -13066,20 +13066,13 @@ footer .footersect .link2 {
   transition: 0.5s ease-out;
 }
 
-.content {
-  padding: 100px;
-  margin: auto;
-}
-.content h1 {
-  font-family: "apercubold";
-}
-.content .formgroup {
+.formgroup {
   display: flex;
   flex-wrap: wrap;
   vertical-align: middle;
   margin: 40px 0;
 }
-.content .formgroup select {
+.formgroup select {
   width: 78%;
   border: 1px solid #bdbdbd;
   color: #545454;
@@ -13088,12 +13081,12 @@ footer .footersect .link2 {
   padding: 8px 20px;
   outline: 0;
 }
-.content .formgroup label {
+.formgroup label {
   width: 20%;
   font-size: 1.2em;
   color: #545454;
 }
-.content .formgroup input {
+.formgroup input {
   width: 80%;
   border: 1px solid #bdbdbd;
   color: #545454;
@@ -13102,34 +13095,55 @@ footer .footersect .link2 {
   padding: 8px 20px;
   outline: 0;
 }
-.content .formgroup .invalid-feedback {
+.formgroup .invalid-feedback {
   width: 100%;
 }
-.content .formgroup input[type=text]:focus {
-  border: 1px solid #545454;
-}
-.content .forgot {
-  padding: 20px 0;
-}
-.content .forgot a {
-  color: #545454;
-  text-decoration: none;
-}
-.content #login-btn {
-  text-decoration: none;
-  background-color: #545454;
-  color: white;
-  padding: 15px;
-  margin-top: 10px;
+.formgroup input[type=text]:focus {
   border: 1px solid #545454;
 }
 
-.formgroup-check {
+h1 {
+  font-family: "apercubold";
+  margin-bottom: 30px;
+}
+
+.login {
+  margin: 50px 15%;
+  display: flex;
+}
+.login .login-left {
+  padding-right: 50px;
+  width: 50%;
+  border-right: 1px solid #aaaaaa;
+}
+.login .login-left .forgot {
+  padding: 20px 0;
+}
+.login .login-left .forgot a {
+  color: #545454;
+  text-decoration: none;
+}
+.login .login-left .formgroup-check {
   display: flex;
   justify-content: flex-start;
   margin-left: 20px;
 }
-
-.reset {
+.login .login-left .reset {
   margin: 100px 0;
+}
+.login .login-right {
+  margin-left: 50px;
+}
+.login .login-right p {
+  margin: 5px 0;
+}
+.login .login-right .button-black {
+  margin: 5px 0;
+}
+.login .login-right .checkoutguest {
+  margin-bottom: 40px;
+}
+
+.register {
+  margin: 50px 20%;
 }

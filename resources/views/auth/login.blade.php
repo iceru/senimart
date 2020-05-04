@@ -5,58 +5,71 @@ Senimart - Login
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="content">
-        <h1>Login</h1>
-        <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
-                aria-hidden="true"></i>
-            &nbsp; Login with Google</a>
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-            <div class="formgroup">
-                <label for="email">Email Adress</label>
-                <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"
-                    value="{{ old('email') }}" required autocomplete="email" autofocus>
-                @error('email')
-                <div class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
+    <div class="login">
+        <div class="login-left">
+            <h1>Login</h1>
+            <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
+                    aria-hidden="true"></i>
+                &nbsp; Continue with Google Account</a>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="formgroup">
+                    <label for="email">Email Adress</label>
+                    <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    @error('email')
+                    <div class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </div>
+                    @enderror
                 </div>
-                @enderror
+    
+                <div class="formgroup">
+                    <label for="password">Password</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
+                        name="password" required autocomplete="current-password">
+                    @error('password')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
+                <div class="formgroup-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember"
+                        {{ old('remember') ? 'checked' : '' }}>
+                    <label class="form-check-label" for="remember">
+                        {{ __('Remember Me') }}
+                    </label>
+                </div>
+    
+                <div class="forgot">
+                    @if (Route::has('password.request'))
+                    <a href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                    @endif
+                </div>
+    
+                <div class="loginbutton">
+                    <button class="button-black">Login</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="login-right">
+            <h1>New User</h1>
+            <div class="checkoutguest">
+                <p><strong>Save time now.</strong></p>
+                <p>You don't need an account to checkout.</p>
+                <a href="" class="button-black">Checkout as a Guest</a>
             </div>
-
-            <div class="formgroup">
-                <label for="password">Password</label>
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                    name="password" required autocomplete="current-password">
-                @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+            <div class="create-account">
+                <p><strong>Save time later.</strong></p>
+                <p>Create an account for fast checkout and easy access to order history.</p>
+                <a href="{{ route('register') }}" class="button-black">Create an Account</a>
             </div>
-            <div class="formgroup-check">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                    {{ old('remember') ? 'checked' : '' }}>
-                <label class="form-check-label" for="remember">
-                    {{ __('Remember Me') }}
-                </label>
-            </div>
-
-            <div class="forgot">
-                @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-                @endif
-            </div>
-
-            <div class="loginbutton">
-                <button class="button-black">Login</button>
-            </div>
-
-
-
-        </form>
+        </div>
+        
     </div>
     <!--    <div class="row justify-content-center">
         <div class="col-md-8">
@@ -125,5 +138,4 @@ Senimart - Login
             </div>
         </div>
     </div> -->
-</div>
 @endsection
