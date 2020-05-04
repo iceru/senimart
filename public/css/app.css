@@ -12609,7 +12609,7 @@ a {
     justify-content: center;
   }
   .profile .flex-profile {
-    margin-top: 100px;
+    margin: 100px 0;
     flex-direction: row;
   }
   .profile .flex-profile .sidebar {
@@ -12640,7 +12640,6 @@ a {
     margin: 20px 15%;
   }
   .profile .flex-profile {
-    margin-top: 100px;
     flex-direction: row;
   }
   .profile .flex-profile .sidebar {
@@ -12655,7 +12654,6 @@ a {
     margin: 10px 0;
   }
   .profile .flex-profile {
-    margin-top: 100px;
     flex-direction: row;
   }
   .profile .flex-profile .sidebar {

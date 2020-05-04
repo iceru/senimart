@@ -133,7 +133,7 @@
 		margin: 20px 10%;
 		justify-content: center;
 		.flex-profile {
-			margin-top: 100px;
+			margin: 100px 0;
 			flex-direction: row;
 
 			.sidebar {
@@ -169,7 +169,6 @@
 	@media only screen and (min-width: $break-lg) {
 		margin: 20px 15%;
 		.flex-profile {
-			margin-top: 100px;
 			flex-direction: row;
 
 			.sidebar {
@@ -186,7 +185,6 @@
 		}
 
 		.flex-profile {
-			margin-top: 100px;
 			flex-direction: row;
 
 			.sidebar {

@@ -76,15 +76,15 @@ Senimart - Cart
     @else
 
     <h3>No items in Cart</h3>
-    <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
+    <a href="{{route('artworks.index')}}" class="button-black">Go to Shop</a>
 
     @endif
     <hr>
     <div class="total">
         <h1>Total Price : Rp.{{Cart::subtotal()}}</h1>
         <div class="cart-button">
-            <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
             @if (Cart::count() > 0)
+            <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
             <a href="{{route('sales.checkout')}}" class="button-black">Checkout</a>
             @endif
         </div>

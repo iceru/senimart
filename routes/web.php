@@ -34,7 +34,8 @@ Route::middleware('auth')->group(function() {
     Route::get('/user/address', 'AddressController@index')->name('address.index');
     Route::get('/user/address/new', 'AddressController@new')->name('address.new');
     Route::post('/user/address/submit', 'AddressController@add')->name('address.add');
-    Route::get('/user/address/{id}/edit', 'AddressController@update')->name('address.update');
+    Route::get('/user/address/{id}', 'AddressController@edit')->name('address.edit');
+    Route::patch('/user/address/update/{id}', 'AddressController@update')->name('address.update');
     Route::get('/user/address/{id}/delete', 'AddressController@delete')->name('address.delete');
     Route::post('/checkout/address/new', 'AddressController@add')->name('address.checkoutadd');
 });

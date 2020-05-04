@@ -64,7 +64,7 @@ Senimart - Artworks
                     <h5><strong>Address #{{ $loop->iteration }}</strong></h5>
                 </div>
                 <div class="col" style="text-align: right">
-                    <a href="{{ route('address.update', $ad->id) }}">Edit</a> |
+                    <a href="{{ route('address.edit', $ad->id) }}">Edit</a> |
                     <a href="{{ route('address.delete', $ad->id) }}">Delete</a>
                 </div>
             </div>
