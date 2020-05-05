@@ -115,6 +115,11 @@
 				ul {
 					list-style-type: none;
 				}
+
+				h3 {
+					color: $orange;
+					font-family: $fontmed;
+				}
 			}
 
 			.sidebar {
@@ -133,12 +138,12 @@
 
 				.clear {
 					font-size: 1.6em;
-					font-family: $fontmed;
 					margin: 0 0 20px 0;
 					width: 100%;
 
 					a {
-						color: $orange;
+						color: black;
+						text-decoration: underline;
 					}
 				}
 

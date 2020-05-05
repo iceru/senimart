@@ -11,9 +11,9 @@ Senimart - Artworks
   </div>
   <div class="flex-artworks">
     <div class="sort">
-      <h3>{{ $categoryName }} <span style="text-transform: capitalize">{{ $colorName }}</span>  {{ $priceName }}</h3>
+      <h3><span style="text-transform: capitalize">{{ $colorName }}</span> {{ $categoryName }} {{ $priceName }}</h3>
       <div class="wrdd" id="sort" onclick="ddSort()">
-        <span>Sort by</span>
+        <span>{{ $sortName }}</span>
         <ul class="dd-item" id="ddsort">
           <li class="dd-li">
             <a href="{{request()->fullUrlWithQuery(['sort' => 'low_high'])}}">Lowest - Highest
@@ -50,7 +50,7 @@ Senimart - Artworks
         <h5>Filter artworks by:</h5>
         <div class="price">
           <div class="wrdd" onclick="ddPrice()">
-            <span>Price</span>
+            <span>{{ $priceCat }}</span>
             <ul class="dd-item" id="dd">
               <li class="dd-li"><a href="{{request()->fullUrlWithQuery(['price' => 'under500'])}}">Under 500$</a>
               </li>
@@ -62,7 +62,7 @@ Senimart - Artworks
 
         <div class="color">
           <div onclick="ddColor()" class="wrdd" tabindex="1">
-            <span>Color</span>
+            <span>{{ $colorCat }}</span>
             <ul class="dd-item" id="ddcolor">
               @foreach ($colors as $color)
               <li><a href="{{request()->fullUrlWithQuery(['color'=> $color->name])}}">{{ $color->name }} </a></li>
