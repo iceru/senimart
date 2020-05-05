@@ -54,6 +54,14 @@ Senimart - Cart
                 <button type="submit" class="button-list-black">Remove</button>
             </form>
 
+            
+            @guest
+            <div class="wish">
+              <a class="button-list-black" href="{{ route('login') }}"> Wishlist <i class="fa fa-heart"
+                  aria-hidden="true"></i></a>
+            </div>
+            @else
+
             <form action="{{ route('wishlist.store') }}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="artworks_id" value="{{$item->id}}">
@@ -62,6 +70,7 @@ Senimart - Cart
                     Wishlist <i class="fa fa-heart" aria-hidden="true"></i>
                 </button>
             </form>
+            @endif
             {{-- 
             <form action="{{route('cart.wishlist', $item->rowId)}}" method="post">
             {{ csrf_field() }}
@@ -90,4 +99,8 @@ Senimart - Cart
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    
 @endsection

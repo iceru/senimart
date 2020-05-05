@@ -11,6 +11,7 @@ Senimart - Artworks
   </div>
   <div class="flex-artworks">
     <div class="sort">
+      <h3>{{ $categoryName }} <span style="text-transform: capitalize">{{ $colorName }}</span>  {{ $priceName }}</h3>
       <div class="wrdd" id="sort" onclick="ddSort()">
         <span>Sort by</span>
         <ul class="dd-item" id="ddsort">

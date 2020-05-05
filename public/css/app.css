@@ -9994,9 +9994,9 @@ a:hover {
 }
 
 .alert-success {
-  color: #545454;
-  background-color: #dddcd9;
-  border-color: #dddcd9;
+  color: black;
+  background-color: #86fa90;
+  border-color: #598f5e;
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
@@ -10254,8 +10254,8 @@ a:hover {
     margin-top: 20px;
   }
   .index .featured .painting-featured .painting-item img {
-    width: 400px;
-    height: 400px;
+    width: 370px;
+    height: 370px;
     -o-object-fit: cover;
        object-fit: cover;
     -o-object-position: center;
@@ -10265,7 +10265,8 @@ a:hover {
     margin: auto;
   }
   .index .featured .painting-featured .painting-item img:hover {
-    opacity: 80%;
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
     transition: 0.2s ease-out;
   }
   .index .featured .painting-featured .painting-item .painting-text {
@@ -10305,13 +10306,11 @@ a:hover {
   .index .price .price2 h2 {
     font-size: 2em;
     margin: 0;
-    transition: 0.3s ease-out;
   }
   .index .price .price2 h1 {
     margin: 0;
     font-size: 4.2em;
     color: white;
-    transition: 0.3s ease-out;
   }
   .index .price .price-pic2, .index .price .price-pic1 {
     color: white;
@@ -10324,8 +10323,8 @@ a:hover {
     transition: 0.3s ease-out;
   }
   .index .price .price-pic2:hover, .index .price .price-pic1:hover {
-    opacity: 80%;
-    transition: 0.4s ease-in;
+    -webkit-filter: brightness(150%);
+            filter: brightness(150%);
   }
   .index .price .price-pic1 {
     background-image: url(/image/price1.png);
@@ -10380,7 +10379,7 @@ a:hover {
 .index .categories .category5 p {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 120px 20px;
-    transition: 0.3s ease-out;
+    transition: 0.2s ease-out;
   }
   .index .categories .category1:hover p,
 .index .categories .category2:hover p,
@@ -10390,7 +10389,7 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.2);
     font-size: 3.3em;
     padding: 116px 20px;
-    transition: 0.4s ease-in;
+    transition: 0.2s ease-in;
   }
 }
 @media only screen and (min-width: 100px) and (max-width: 550px) {
@@ -10438,7 +10437,8 @@ a:hover {
        object-position: center;
   }
   .products .products-items .item img:hover {
-    opacity: 80%;
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
     transition: 0.2s ease-in;
   }
   .products .products-items .item .item-text {
@@ -10539,14 +10539,6 @@ a:hover {
   .index .price .price2 h2 {
     font-size: 3.6em;
   }
-  .index .price .price-pic1:hover h1,
-.index .price .price-pic2:hover h1 {
-    font-size: 6.2em;
-  }
-  .index .price .price-pic1:hover h2,
-.index .price .price-pic2:hover h2 {
-    font-size: 3.8em;
-  }
   .index .products-items {
     margin-top: 40px;
   }
@@ -10598,8 +10590,8 @@ a:hover {
     grid-template-columns: repeat(3, 2fr);
   }
   .index .featured .painting-featured .painting-item img {
-    width: 450px;
-    height: 450px;
+    width: 390px;
+    height: 390px;
     -o-object-fit: cover;
        object-fit: cover;
     -o-object-position: center;
@@ -10617,14 +10609,6 @@ a:hover {
   }
   .index .price .price2 h2 {
     font-size: 3.6em;
-  }
-  .index .price .price-pic1:hover h1,
-.index .price .price-pic2:hover h1 {
-    font-size: 6.2em;
-  }
-  .index .price .price-pic1:hover h2,
-.index .price .price-pic2:hover h2 {
-    font-size: 3.8em;
   }
   .index .categories p {
     font-size: 3em;
@@ -10665,6 +10649,19 @@ a:hover {
     grid-gap: 20px;
   }
 }
+@media only screen and (min-width: 1910px) {
+  .index .featured .painting-featured {
+    grid-template-columns: repeat(3, 2fr);
+  }
+  .index .featured .painting-featured .painting-item img {
+    width: 420px;
+    height: 420px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+}
 .artworks #price {
   font-family: "apercu_monoregular";
 }
@@ -10703,6 +10700,18 @@ a:hover {
     border: 1px solid #9e9e9e;
     transition: 0.2s ease-in;
   }
+  .artworks .flex-artworks .wrdd:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    border-width: 6px 6px 0 6px;
+    margin-top: -3px;
+    border-style: solid;
+    border-color: white transparent;
+  }
   .artworks .flex-artworks .wrdd .dd-item {
     /* Size & position */
     position: absolute;
@@ -10740,20 +10749,10 @@ a:hover {
   .artworks .flex-artworks .wrdd .dd-item.showdd li a {
     display: block;
   }
-  .artworks .flex-artworks .wrdd:after {
-    content: "";
-    width: 0;
-    height: 0;
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    border-width: 6px 6px 0 6px;
-    margin-top: -3px;
-    border-style: solid;
-    border-color: white transparent;
-  }
   .artworks .flex-artworks .sort {
-    flex-basis: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     margin: 20px 0;
     order: 2;
     padding: 0 10px;
@@ -10778,7 +10777,8 @@ a:hover {
     display: none;
   }
   .artworks .flex-artworks .sidebar .clear {
-    font-size: 1.3em;
+    font-size: 1.6em;
+    font-family: "apercumedium";
     margin: 0 0 20px 0;
     width: 100%;
   }
@@ -10807,6 +10807,10 @@ a:hover {
   }
   .artworks .flex-artworks .sidebar .sidebar-right h5 {
     text-align: right;
+  }
+  .artworks .flex-artworks .sidebar .sidebar-right .price,
+.artworks .flex-artworks .sidebar .sidebar-right .color {
+    text-transform: capitalize;
   }
   .artworks .flex-artworks .sidebar .sidebar-right .price .wrdd,
 .artworks .flex-artworks .sidebar .sidebar-right .color .wrdd {
@@ -11580,7 +11584,7 @@ a:hover {
   .artworks-detail p {
     font-size: 1.1em;
   }
-  .artworks-detail .art-related .related1 {
+  .artworks-detail .related .art-related .related1 {
     grid-template-columns: repeat(4, 1fr);
   }
 }
@@ -11654,7 +11658,12 @@ a {
   border-radius: 5px;
 }
 .cart .cart-product img {
-  width: 100%;
+  width: 220px;
+  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .cart .total {
   text-align: right;
@@ -12017,6 +12026,7 @@ a {
   }
   .about-main .sideactive {
     font-family: "apercu_regular";
+    color: #de641b;
   }
   .about-main .sideactive a:focus {
     color: #de641b;
@@ -12039,6 +12049,10 @@ a {
     color: #de641b;
     font-size: 4.5em;
     font-family: "apercu_regular";
+  }
+  .about-main .about .aboutwhite {
+    color: black;
+    margin-top: 0;
   }
   .about-main .about .about-text {
     width: 80%;

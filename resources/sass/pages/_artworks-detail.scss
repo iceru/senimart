@@ -289,12 +289,14 @@
 		p {
 			font-size: 1.1em;
 		}
-
-		.art-related {
-			.related1 {
-				grid-template-columns: repeat(4, 1fr);
+		.related {
+			.art-related {
+				.related1 {
+					grid-template-columns: repeat(4, 1fr);
+				}
 			}
 		}
+		
 	}
 }
 
