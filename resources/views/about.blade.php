@@ -230,24 +230,31 @@ About - Senimart
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="name">Full Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="">
+                            <form action="{{ route('contact.store') }}" method="POST" target="contact">
+                                @csrf
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control" placeholder="" required>
+                                        <small id="helpId">{{ $errors->first('name') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email">Email Address</label>
+                                        <input type="email" name="email" id="email" value="{{ old('email') }}"  class="form-control" placeholder="" required>
+                                        <small id="helpId">{{ $errors->first('email') }}</small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Message">Your message</label>
+                                        <textarea class="form-control" name="message" id="message" value="{{ old('message') }}" rows="3" required></textarea>
+                                        <small id="helpId" >{{ $errors->first('message') }}</small>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="">
+                                <div class="modal-footer">
+                                    <button type="button" class="button-black" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="button-orange">Send Email</button>
+                                    
                                 </div>
-                                <div class="form-group">
-                                    <label for="Message">Your message</label>
-                                    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="button-black" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="button-orange">Send Email</button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

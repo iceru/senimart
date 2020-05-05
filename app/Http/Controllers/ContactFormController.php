@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactFormMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
-class GuestCheckoutController extends Controller
+class ContactFormController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class GuestCheckoutController extends Controller
      */
     public function index()
     {
-        //
+        return view ('/about');
     }
 
     /**
@@ -23,7 +25,7 @@ class GuestCheckoutController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -34,7 +36,14 @@ class GuestCheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
+        ]);
+
+        Mail::to('test@test.com')->send(new ContactFormMail($data));
+
     }
 
     /**

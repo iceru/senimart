@@ -101,7 +101,7 @@
           <li><a href="{{route('artworks.index')}}">Artworks</a></li>
           <li><a href="{{route('artists.index')}}">Artists</a></li>
           <li><a href="{{route('projects.index')}}">Projects</a></li>
-          <li><a href="{{route('about.index')}}">About</a></li>
+          <li><a href="{{route('contact.index')}}">About</a></li>
         </ul>
       </nav>
 
