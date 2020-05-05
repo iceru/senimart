@@ -14,7 +14,6 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::view('/about', 'about')->name('about.index');
 
 Route::get('/projects', 'ProjectsController@index')->name('projects.index');
 Route::get('/projects/{project}', 'ProjectsController@show')->name('projects.show');
@@ -26,6 +25,9 @@ Route::get('/search', 'ArtworksController@search')->name('search');
 Route::get('/artists', 'ArtistsController@index')->name('artists.index');
 Route::get('/artist/{artist}', 'ArtistsController@show');
 
+Route::get('/about', 'ContactFormController@index')->name('contact.index');
+Route::post('/about', 'ContactFormController@store')->name('contact.store');
+
 Route::middleware('auth')->group(function() {
     Route::get('/user', 'ProfileController@edit')->name('profile.edit');
     Route::patch('/user', 'ProfileController@update')->name('profile.update');
@@ -34,7 +36,8 @@ Route::middleware('auth')->group(function() {
     Route::get('/user/address', 'AddressController@index')->name('address.index');
     Route::get('/user/address/new', 'AddressController@new')->name('address.new');
     Route::post('/user/address/submit', 'AddressController@add')->name('address.add');
-    Route::get('/user/address/{id}/edit', 'AddressController@update')->name('address.update');
+    Route::get('/user/address/{id}', 'AddressController@edit')->name('address.edit');
+    Route::patch('/user/address/update/{id}', 'AddressController@update')->name('address.update');
     Route::get('/user/address/{id}/delete', 'AddressController@delete')->name('address.delete');
     Route::post('/checkout/address/new', 'AddressController@add')->name('address.checkoutadd');
 });

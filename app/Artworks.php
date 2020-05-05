@@ -54,11 +54,11 @@ class Artworks extends Model
         }
               
         if (request('price') == 'above500') {
-            $a->where('price', '>=', 500000);
+            $a->where('price', '>=', 5000000);
         }
 
         if (request('price') == 'under500') {
-            $a->where('price', '<=', 500000);
+            $a->where('price', '<=', 5000000);
         }
 
         if(request('sort') == 'low_high') {

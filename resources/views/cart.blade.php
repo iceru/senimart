@@ -54,6 +54,14 @@ Senimart - Cart
                 <button type="submit" class="button-list-black">Remove</button>
             </form>
 
+            
+            @guest
+            <div class="wish">
+              <a class="button-list-black" href="{{ route('login') }}"> Wishlist <i class="fa fa-heart"
+                  aria-hidden="true"></i></a>
+            </div>
+            @else
+
             <form action="{{ route('wishlist.store') }}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="artworks_id" value="{{$item->id}}">
@@ -62,6 +70,7 @@ Senimart - Cart
                     Wishlist <i class="fa fa-heart" aria-hidden="true"></i>
                 </button>
             </form>
+            @endif
             {{-- 
             <form action="{{route('cart.wishlist', $item->rowId)}}" method="post">
             {{ csrf_field() }}
@@ -76,18 +85,22 @@ Senimart - Cart
     @else
 
     <h3>No items in Cart</h3>
-    <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
+    <a href="{{route('artworks.index')}}" class="button-black">Go to Shop</a>
 
     @endif
     <hr>
     <div class="total">
         <h1>Total Price : Rp.{{Cart::subtotal()}}</h1>
         <div class="cart-button">
-            <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
             @if (Cart::count() > 0)
+            <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
             <a href="{{route('sales.checkout')}}" class="button-black">Checkout</a>
             @endif
         </div>
     </div>
 </div>
+@endsection
+
+@section('js')
+    
 @endsection

@@ -25,6 +25,7 @@ Senimart - Artworks
         @endif
     </div>
     <div class="flex-profile">
+        <h1 class="title-profile">My Orders</h1>
         <div class="sidebar" id="sidebar">
             <div class="category">
                 <a href="{{ route('profile.edit') }}">
@@ -54,6 +55,15 @@ Senimart - Artworks
                 <hr>
             </div>
         </div>
+        @if ($orders->count() == 0 )
+        <div class="profile-content">
+            <h3>There's no orders</h3>
+            <p>Shop now</p>
+            <a href="{{ route('artworks.index') }}" class="button-black">Go Shop</a>
+        </div>
+        
+
+        @else
         <div class="profile-content">
             @foreach ($orders as $order)
             <h3>Order ID: <a href="/payment/{{ $order->id }}">{{ $order->id }}</a></h3>
@@ -74,6 +84,7 @@ Senimart - Artworks
             @endforeach
         </div>
     </div>
+    @endif
 </section>
 @endsection
 

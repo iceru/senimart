@@ -25,6 +25,7 @@ Senimart - User Address
         @endif
     </div>
     <div class="flex-profile">
+        <h1 class="title-profile">Update Address</h1>
         <div class="sidebar" id="sidebar">
             <div class="category">
                 <a href="{{ route('profile.edit') }}">
@@ -46,25 +47,26 @@ Senimart - User Address
             </div>
         </div>
         <div class="profile-content">
-            <form action="{{ route('address.add') }}" method="POST">
-                @method('post')
+            
+            <form action="/user/address/update/{{ $shippingAddress->id }}" method="POST">
+                @method('patch')
                 @csrf
                 <div class="form-group">
                     <label for="">Full Name</label>
-                    <input type="text" class="form-control" name="receiver_name" id="receiver_name" aria-describedby="helpId" value="{{$user->name}}" required>
+                    <input type="text" class="form-control" name="receiver_name" id="receiver_name" aria-describedby="helpId" value="{{ old('receiver_name', $shippingAddress->receiver_name) }}" required>
                 </div>
                 <div class="form-group">
                     <label for="">Mobile Phone</label>
-                    <input type="text" class="form-control" name="phone_no" id="phone_no" aria-describedby="helpId" placeholder="Input Phone Number" required>
+                    <input type="text" class="form-control" name="phone_no" id="phone_no" aria-describedby="helpId" placeholder="Input Phone Number" value="{{ old('phone_no', $shippingAddress->phone_no) }}" required>
                 </div>
                 <div class="form-group">
                     <label for="">Address</label>
-                    <input type="text" class="form-control" name="address" id="address" aria-describedby="helpId" placeholder="Input Address" required>
+                    <input type="text" class="form-control" name="address" id="address" aria-describedby="helpId" placeholder="Input Address" value="{{ old('address', $shippingAddress->address) }}" required>
                 </div>
                 <div class="form-group">
                     <label for="">Province</label>
                     <select name="province_id" id="prov" class="form-control" required>
-                        <option value="" selected disabled>Select Province</option>
+                        <option value="{{ old('province_id', $shippingAddress->province_id) }}" selected>Select Province</option>
                         @foreach ($provinces as $prov)
                         <option value="{{$prov->province_id}}">{{$prov->province}}</option>
                         @endforeach
@@ -81,11 +83,11 @@ Senimart - User Address
                     </div>
                     <div class="col">
                         <label for="">Zip</label>
-                        <input type="text" class="form-control" name="zipcode" id="zipcode" aria-describedby="helpId" placeholder="Input Zip / Postal Code" required>
+                        <input type="text" class="form-control" name="zipcode" id="zipcode" aria-describedby="helpId" placeholder="Input Zip / Postal Code" value="{{ old('zipcode', $shippingAddress->zipcode) }}" required>
                     </div>
                 </div>
                 <hr>
-                <button class="button-black" type="submit">Add Shipping Address</button>
+                <button class="button-black" type="submit">Update Shipping Address</button>
             </form>
         </div>
     </div>

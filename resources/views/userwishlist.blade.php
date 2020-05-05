@@ -25,10 +25,18 @@ Senimart - Artworks
         @endif
     </div>
     <div class="flex-profile">
+        <h1 class="title-profile">My Wishlists</h1>
         <div class="sidebar" id="sidebar">
             <div class="category">
                 <a href="{{ route('profile.edit') }}">
                     <h1>My Profile</h1>
+                </a>
+                <hr>
+            </div>
+
+            <div class="category">
+                <a href="{{ route('address.index') }}">
+                    <h1>Address</h1>
                 </a>
                 <hr>
             </div>
@@ -47,6 +55,16 @@ Senimart - Artworks
                 <hr>
             </div>
         </div>
+
+        @if ($wishlists->count() == 0 )
+        <div class="profile-content">
+            <h3>There's no wishlist</h3>
+            <p>Add your wishlist</p>
+            <a href="{{ route('artworks.index') }}" class="button-black">Go to Shop</a>
+        </div>
+        
+
+        @else
         <div class="profile-content">
             @foreach ($wishlists as $wishlist)
             <div class="order-item">
@@ -79,6 +97,7 @@ Senimart - Artworks
             @endforeach
         </div>
     </div>
+    @endif
 </section>
 @endsection
 

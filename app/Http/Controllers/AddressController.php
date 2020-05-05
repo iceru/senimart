@@ -130,6 +130,50 @@ class AddressController extends Controller
         
     }
 
+    public function edit ($id) {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+            "key: d09963f00e691b1ade90ec2c14474cf5"
+        ),
+        ));
+        
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        
+        curl_close($curl);
+        
+        $prov = json_decode($response);
+        $provinces = $prov->rajaongkir->results;
+
+        $shippingAddress = ShippingAddress::where('id', $id)->firstOrFail();
+
+        return view('updateaddress', compact('shippingAddress', 'provinces'))->with('user', auth()->user());
+    }
+
+    public function update (Request $request, $id) {
+        $shippingAddress = ShippingAddress::find($id);
+
+        $shippingAddress->receiver_name = $request->receiver_name;
+        $shippingAddress->phone_no = $request->phone_no;
+        $shippingAddress->address = $request->address;
+        $shippingAddress->province_id = $request->province_id;
+        $shippingAddress->city_id = $request->city_id;
+        $shippingAddress->zipcode = $request->zipcode;
+
+        $shippingAddress->save();
+
+        return redirect('/user/address')->with('user', auth()->user())->with('success_message', 'Address updated successfully');
+    }
+
     public function delete($request) {
         ShippingAddress::find($request)->delete();
         return redirect('/user/address')->with('user', auth()->user());

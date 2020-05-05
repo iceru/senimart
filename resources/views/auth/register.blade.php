@@ -5,12 +5,11 @@ Senimart - Register
 @endsection
 
 @section('content')
-<div class="container">
-    <div class="content">
+    <div class="register">
         <h1>Register</h1>
-        {{-- <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
+        <a href="{{ route('login.provider', 'google') }}" class="button-black"> <i class="fab fa-google"
             aria-hidden="true"></i>
-        &nbsp; Login using Google </a> --}}
+        &nbsp; Continue with Google Account</a>
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
@@ -68,7 +67,7 @@ Senimart - Register
             </div>
 
             <div class="loginbutton">
-                <button id="login-btn" type="submit">Register</button>
+                <button class="button-black" type="submit">Register</button>
             </div>
         </form>
     </div>
@@ -122,5 +121,4 @@ Senimart - Register
             </div>
         </div>
     </div> -->
-</div>
 @endsection

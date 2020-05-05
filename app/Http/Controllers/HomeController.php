@@ -17,8 +17,9 @@ class HomeController extends Controller
     public function index()
     {
         $artists = Artists::take(4)->get();
-        $featured = Artworks::take(3)->get();
-        $artworks = Artworks::all();
+        $featured = Artworks::where('featured', 'option1')->take(3)->get();
+
+        $artworks = Artworks::take(8)->get();
         return view('home', [
             'featured'=>$featured,
             'artists'=>$artists,

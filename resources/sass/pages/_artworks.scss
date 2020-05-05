@@ -37,8 +37,8 @@
 				background: linear-gradient(
 					to right,
 					rgb(243, 243, 243) 0%,
-					rgb(243, 243, 243) 82%,
-					$orange 82%,
+					rgb(243, 243, 243) 85%,
+					$orange 85%,
 					$orange 100%
 				);
 				color: black;
@@ -46,6 +46,19 @@
 				cursor: pointer;
 				border: 1px solid rgb(158, 158, 158);
 				transition: 0.2s ease-in;
+
+				&:after {
+					content: "";
+					width: 0;
+					height: 0;
+					position: absolute;
+					right: 15px;
+					top: 50%;
+					border-width: 6px 6px 0 6px;
+					margin-top: -3px;
+					border-style: solid;
+					border-color: white transparent;
+				}
 
 				.dd-item {
 					/* Size & position */
@@ -87,21 +100,10 @@
 				}
 			}
 
-			.wrdd:after {
-				content: "";
-				width: 0;
-				height: 0;
-				position: absolute;
-				right: 16px;
-				top: 50%;
-				border-width: 6px 6px 0 6px;
-				margin-top: -3px;
-				border-style: solid;
-				border-color: white transparent;
-			}
-
 			.sort {
-				flex-basis: 100%;
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
 				margin: 20px 0;
 				order: 2;
 				padding: 0 10px;
@@ -112,6 +114,11 @@
 
 				ul {
 					list-style-type: none;
+				}
+
+				h3 {
+					color: $orange;
+					font-family: $fontmed;
 				}
 			}
 
@@ -130,12 +137,13 @@
 				}
 
 				.clear {
-					font-size: 1.3em;
+					font-size: 1.6em;
 					margin: 0 0 20px 0;
 					width: 100%;
 
 					a {
-						color: $orange;
+						color: black;
+						text-decoration: underline;
 					}
 				}
 
@@ -168,6 +176,7 @@
 
 					.price,
 					.color {
+						text-transform: capitalize;
 						.wrdd {
 							float: right;
 							margin: 10px 0;

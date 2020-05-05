@@ -25,6 +25,7 @@ Senimart - Artworks
         @endif
     </div>
     <div class="flex-profile">
+        <h1 class="title-profile">My Address</h1>
         <div class="sidebar" id="sidebar">
             <div class="category">
                 <a href="{{ route('profile.edit') }}">
@@ -48,7 +49,9 @@ Senimart - Artworks
             </div>
 
             <div class="wishlist">
+                <a href="{{ route('wishlist.index') }}">
                 <h1>Wishlist</h1>
+                </a>
                 <hr>
             </div>
         </div>
@@ -61,7 +64,7 @@ Senimart - Artworks
                     <h5><strong>Address #{{ $loop->iteration }}</strong></h5>
                 </div>
                 <div class="col" style="text-align: right">
-                    <a href="{{ route('address.update', $ad->id) }}">Edit</a> |
+                    <a href="{{ route('address.edit', $ad->id) }}">Edit</a> |
                     <a href="{{ route('address.delete', $ad->id) }}">Delete</a>
                 </div>
             </div>

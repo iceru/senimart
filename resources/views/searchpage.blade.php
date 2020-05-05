@@ -15,7 +15,9 @@ Search Results '{{ request()->input('query') }}' - Senimart
             <a href="/artwork/{{ $art->slug }}">
                 <h2>{{ $art->title }}</h2>
             </a>
-            <h4>{{ $art->artists->name }}</h4>
+            <a href="/artwork/{{ $art->artists->slug }}">
+                <p>{{ $art->artists->name }}</h4>
+            </a>
             <p>{{ $art->category->name }}</p>
             <p>{{ $art->sizeHeight }} cm (H) / {{ $art->sizeWidth }} cm (W)</p>
         </div>

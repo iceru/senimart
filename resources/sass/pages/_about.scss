@@ -283,10 +283,12 @@
 				margin-left: 40px;
 				padding-left: 0;
 			}
+
 		}
 
 		.sideactive {
 			font-family: $fontreg;
+			color: $orange;
 			a:focus {
 				color: $orange;
 				font-family: $fontreg;
@@ -311,6 +313,11 @@
 					font-size: 4.5em;
 					font-family: $fontreg;
 				}
+			}
+
+			.aboutwhite {
+				color: black;
+				margin-top: 0;
 			}
 
 			.about-text {

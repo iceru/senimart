@@ -11,7 +11,7 @@
   <title>@yield ('title')</title>
 
   <!-- Scripts -->
-  {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+  <script src="{{ asset('js/app.js') }}"></script>
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -37,7 +37,6 @@
             </a>
 
             <ul class="dropdown-menu" role="menu">
-
               <li>
                 <a href="{{ route('profile.edit') }}">My Profile &nbsp;<i class="fa fa-user" aria-hidden="true"></i></a>
               </li>
@@ -54,8 +53,6 @@
                   {{ csrf_field() }}
                 </form>
               </li>
-
-
             </ul>
           </li>
           @endguest
@@ -101,7 +98,7 @@
           <li><a href="{{route('artworks.index')}}">Artworks</a></li>
           <li><a href="{{route('artists.index')}}">Artists</a></li>
           <li><a href="{{route('projects.index')}}">Projects</a></li>
-          <li><a href="{{route('about.index')}}">About</a></li>
+          <li><a href="{{route('contact.index')}}">About</a></li>
         </ul>
       </nav>
 
@@ -164,6 +161,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
+
+  <script src="{{ asset('js/app.js') }}"></script>
 
   <script>
     (function(){

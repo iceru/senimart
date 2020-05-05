@@ -289,12 +289,21 @@
 		p {
 			font-size: 1.1em;
 		}
+		.related {
+			.art-related {
+				.related1 {
+					grid-template-columns: repeat(4, 1fr);
 
-		.art-related {
-			.related1 {
-				grid-template-columns: repeat(4, 1fr);
+					.related-item {
+						img {
+							width: 330px;
+							height: 330px;
+						}
+					}
+				}
 			}
 		}
+		
 	}
 }
 

@@ -12,10 +12,24 @@
 
 	p {
 		margin: 5px 0;
+		color: rgb(116, 116, 116);
+		font-size: 1em;
+		a {
+			margin: 5px 0;
+			color: rgb(116, 116, 116);
+			font-size: 1em;
+		}
 	}
 
 	img {
-		width: 200px;
+		width: 220px;
+		height: 220px;
+		object-fit: cover;
+		object-position: center;
+	}
+
+	h2 {
+		font-family: $fontmed;
 	}
 
 	.result-text {
