@@ -120,7 +120,7 @@ class PaymentController extends Controller
     }
 
     public function notifHandler(Request $request) {
-      $notif = new Notification();
+      $notif = new \Midtrans\Notification();
       \DB::transaction(function() use($notif) {
 
         $transaction = $notif->transaction_status;
