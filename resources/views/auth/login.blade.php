@@ -58,14 +58,9 @@ Senimart - Login
 
         <div class="login-right">
             <h1>New User</h1>
-            <div class="checkoutguest">
-                <p><strong>Save time now.</strong></p>
-                <p>You don't need an account to checkout.</p>
-                <a href="" class="button-black">Checkout as a Guest</a>
-            </div>
             <div class="create-account">
-                <p><strong>Save time later.</strong></p>
-                <p>Create an account for fast checkout and easy access to order history.</p>
+                <p><strong>Register now.</strong></p>
+                <p>Create an account to checkout and easy access to order history and wishlist.</p>
                 <a href="{{ route('register') }}" class="button-black">Create an Account</a>
             </div>
         </div>

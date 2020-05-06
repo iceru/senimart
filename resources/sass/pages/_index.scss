@@ -248,7 +248,7 @@ a:hover {
 				margin-bottom: 20px;
 
 				p {
-					background-color: rgba($color: black, $alpha: 0.6);
+					background-color: rgba($color: black, $alpha: 0.4);
 					padding: 120px 20px;
 					transition: 0.2s ease-out;
 				}
@@ -267,8 +267,16 @@ a:hover {
 				}
 			}
 
+			.category1 {
+				background-image: url(/image/painting.jpg);
+			}
+
 			.category3 {
 				background-image: url(/image/photography.jpg);
+			}
+
+			.category5 {
+				background-image: url(/image/object.jpg);
 			}
 		}
 	}

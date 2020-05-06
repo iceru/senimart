@@ -15,13 +15,13 @@
 	}
 
 	label {
-		width: 20%;
+		width: 28%;
 		font-size: 1.2em;
 		color: #545454;
 	}
 
 	input {
-		width: 80%;
+		width: 70%;
 		border: 1px solid #bdbdbd;
 		color: #545454;
 		border-radius: 10px;
@@ -39,64 +39,94 @@
 	}
 }
 
-
-
-.login {
-	margin: 50px 15%;
-	display: flex;
-
-
-	h1 {
-		font-family: $fontbold;
-		margin-bottom: 30px;
-	}
-	.login-left {
-		padding-right: 50px;
-		width: 50%;
-		border-right: 1px solid rgb(170, 170, 170);	
-		.forgot {
-			padding: 20px 0;
-			a {
-				color: #545454;
-				text-decoration: none;
+@media only screen and (min-width: $break-xs) {
+	.login {
+		margin: 50px 5%;
+		display: flex;
+		flex-direction: column;
+		h1 {
+			font-family: $fontbold;
+			margin-bottom: 30px;
+		}
+		.login-left {
+			width: 100%;
+			border-bottom: 1px solid rgb(170, 170, 170);	
+			padding-bottom: 40px;
+			.forgot {
+				padding: 20px 0;
+				a {
+					color: #545454;
+					text-decoration: none;
+				}
+			}
+				
+			.formgroup-check {
+				display: flex;
+				justify-content: flex-start;
+				margin-left: 20px;
+			}
+	
+			.reset {
+				margin: 100px 0;
 			}
 		}
+	
+		.login-right{
+			margin-top: 40px;
+	
+			p {
+				margin: 5px 0;
+			}
 			
-		.formgroup-check {
-			display: flex;
-			justify-content: flex-start;
-			margin-left: 20px;
-		}
-
-		.reset {
-			margin: 100px 0;
-		}
-	}
-
-	.login-right{
-		margin-left: 50px;
-
-		p {
-			margin: 5px 0;
+			.button-black {
+				margin: 5px 0;
+			}
+	
+			.checkoutguest {
+				margin-bottom: 40px;
+			}
 		}
 		
-		.button-black {
-			margin: 5px 0;
+	}
+	
+	.register {
+		margin: 50px 5%;
+	
+		
+		h1 {
+			font-family: $fontbold;
+			margin-bottom: 30px;
 		}
-
-		.checkoutguest {
-			margin-bottom: 40px;
+	}
+	
+	.reset {
+		margin: 100px 25%;
+	
+		h3 {
+			margin-bottom: 30px;
 		}
 	}
 	
 }
 
-.register {
-	margin: 50px 20%;
+@media only screen and (min-width: $break-lg) {
+	.login {
+		margin: 50px 15%;
+		flex-direction: row;
 
-	
-h1 {
-	font-family: $fontbold;
-	margin-bottom: 30px;
-}
+		.login-left {
+			width: 50%;
+			padding-right: 50px;
+			border-right: 1px solid rgb(170, 170, 170);	
+			border-bottom: none;
+		}
+
+		.login-right {
+			margin-left: 50px;
+		}
+	}
+
+	.register {
+		margin: 50px 20%;
+	}
 }

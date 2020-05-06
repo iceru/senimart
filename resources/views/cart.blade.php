@@ -94,7 +94,11 @@ Senimart - Cart
         <div class="cart-button">
             @if (Cart::count() > 0)
             <a href="{{route('artworks.index')}}" class="button-black">Continue Shopping</a>
+            @guest
+            <a href="{{route('login')}}" class="button-black">Checkout</a>
+            @else
             <a href="{{route('sales.checkout')}}" class="button-black">Checkout</a>
+            @endif
             @endif
         </div>
     </div>
